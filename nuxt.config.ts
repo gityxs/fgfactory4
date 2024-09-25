@@ -3,7 +3,12 @@ export default defineNuxtConfig({
     ssr: false,
     
     devtools: { enabled: false },
-
+	
+	app: {
+	
+		baseURL: '/fgfactory/'
+	},
+	
     head: {
         
         meta: [
