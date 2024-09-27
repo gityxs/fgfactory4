@@ -6,25 +6,22 @@
 
     import { useAppStore } from '~/store/appStore.js'    
     const appStore = useAppStore()
-    
-	const tabs = [
-	
-		{ id:'milestones', icon:'fas fa-check-circle', name:'Milestones' },
-		{ id:'inventory', icon:'fas fa-list', name:'Inventory' },
-		{ id:'production', icon:'fas fa-industry', name:'Production' },
-		{ id:'storage', icon:'fas fa-warehouse', name:'Storage' },
-	]
 
     import { useGameStore } from '~/store/gameStore.js'    
     const gameStore = useGameStore()
+    
+	const tabs = computed(() => gameStore.elems.filter(e => e.type == 'cat' && e.unlocked))
 	
-	const notifs = computed (() =>  { return {
+	const notifs = computed(() =>  { 
 	
-		'milestones': 0,
-		'inventory': gameStore.elems.filter(e => e.type == 'item' && e.unlocked && e.notified).length,
-		'production': gameStore.elems.filter(e => (e.type == 'manual' || e.type == 'recipe') && e.unlocked && e.notified).length,
-		'storage': gameStore.elems.filter(e => e.type == 'storage' && e.unlocked && e.notified).length,
-	}})
+		let ret = {}
+		
+		tabs.value.forEach(tab => {
+			ret[tab.id] = gameStore.elems.filter(e => e.cat == tab.id && e.unlocked && e.notified).length
+		})
+		
+		return ret	
+	})
 	
 </script>
 
@@ -44,7 +41,7 @@
 					
                         <div class="row gx-2 align-items-center justify-content-center flex-nowrap">
                             <div class="col-auto"><font-awesome-icon :icon="tab.icon" /></div>
-                            <div class="col text-truncate">{{ tab.name }}</div>
+                            <div class="col text-truncate">{{ $t(tab.name) }}</div>
                         </div>
 						
                     </button>
@@ -55,12 +52,7 @@
 		
 		<div class="flex-grow-1 scroll-content py-2">
 			<div class="container">
-			
-				<pane-milestones v-if="appStore.gameTabId == 'milestones'" />
-				<pane-inventory v-if="appStore.gameTabId == 'inventory'" />
-				<pane-production v-if="appStore.gameTabId == 'production'" />
-				<pane-storage v-if="appStore.gameTabId == 'storage'" />
-			
+				<pane-content :cat="appStore.gameTabId" />
 			</div>
         </div>
 	

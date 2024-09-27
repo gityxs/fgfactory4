@@ -48,7 +48,7 @@
 
                     <div class="col text-truncate">                
                         <div class="row g-2 align-items-center flex-nowrap">
-                            <div class="col-auto"><img src="/favicon.ico" width="24" height="24" class="rounded" /></div>
+                            <div class="col-auto"><img src="/favicon.png" width="24" height="24" class="rounded" /></div>
                             <div class="col text-truncate"><span class="fs-5 text-white">{{ $t('game_title') }}</span></div>
                         </div>
                     </div>
@@ -58,11 +58,11 @@
 						
 							<button type="button" class="btn btn-danger" data-bs-toggle="dropdown" aria-expanded="false">
 								<font-awesome-icon icon="fas fa-exclamation-triangle" fixed-width />
-								<span class="d-none d-lg-inline ms-1">v {{ appStore.version }}</span>
+								<span class="d-none d-lg-inline ms-1">v{{ appStore.version }}</span>
 							</button>
 
 							<div class="dropdown-menu dropdown-menu-end p-2 text-bg-danger text-center">
-								{{ $t('disclaimer_text') }}
+								v{{ appStore.version }} - {{ $t('disclaimer_text') }}
 							</div>
 
 						</div>
@@ -102,7 +102,7 @@
 			
 				<div class="card-header">
 					<div class="row gx-2 align-items-center justify-content-center">
-						<div class="col-auto"><img src="/favicon.ico" width="24" height="24" class="rounded" /></div>
+						<div class="col-auto"><img src="/favicon.png" width="24" height="24" class="rounded" /></div>
 						<div class="col-auto"><span class="fs-5 text-white">{{ $t('game_title') }}</span></div>
 					</div>
 				</div>
@@ -171,7 +171,7 @@
                 
                     <div class="col-12">
                         <div class="row gx-2 align-items-center justify-content-center">
-                            <div class="col-auto"><img src="/favicon.ico" width="24" height="24" class="rounded" /></div>
+                            <div class="col-auto"><img src="/favicon.png" width="24" height="24" class="rounded" /></div>
                             <div class="col-auto"><span class="fs-5 text-white">{{ $t('game_title') }}</span></div>
                         </div>
                     </div>

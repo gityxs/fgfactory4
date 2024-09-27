@@ -66,15 +66,20 @@
 	"word_result": "Result",
 	"word_storage": "Storage",
 	
-	"sfy_vanilla": "Satisfactory vanilla scenario",
-	"sfy_vanilla_desc": "As a pioneer working for BIG Inc., you are dropped onto an alien planet with a handful of tools and must harvest the planet's natural resources to construct increasingly complex factories for automating all your resources needs. After you are set up, it will be time to build the Space Elevator and begin Project Assembly, supplying BIG with increasingly numerous and complex components for their unknown purposes.",
+	"sfy_vanilla": "Scenario inspired by Satisfactory game",
+	"sfy_vanilla_desc": "As a pioneer working for BIG Inc., you are dropped onto an alien planet and must harvest the planet's natural resources to construct an increasingly complex factory. After you are set up, it will be time to build the Space elevator and begin the BIG Inc. Project, supplying BIG Inc. with increasingly numerous and complex components for their unknown purposes.",
 	
-	"sfy_start": "Getting started",
+	"sfy_milestones": "Milestones",
+	"sfy_inventory": "Inventory",
+	"sfy_production": "Production",
+	"sfy_storages": "Storages",
 	
-	"sfy_intro": "Intro",
-	"sfy_intro_desc": "To achieve company milestones according to satisfaction we expect you to construct your BIG Inc. factory in such a way that it allows for easy expansion and complexion. Not only will buildings grow more complex over time, so will the parts they produce. Project Assembly isn’t your average high-school science project. We’re making history here! Go big or go home! Of course, this requires both high-level and low-level power management, good luck getting to nuclear!",
+	"sfy_start": "BIG Inc. Recruitment",
 	
-	"sfy_tier": "Onboarding",
+	"sfy_intro": "Sign in",
+	"sfy_intro_desc": "To achieve company milestones according to satisfaction we expect you to construct your BIG Inc. factory. Not only will buildings grow more complex over time, so will the parts they produce. BIG Inc. Project isn’t your average high-school science project. We’re making history here! Go big or go home!",
+	
+	"sfy_tier": "BIG Inc. Onboarding",
 	
 	"sfy_hub_upgrade_1": "HUB upgrade 1",
 	"sfy_hub_upgrade_1_desc": "The HUB, or 'Habitat and Utility Base', is the heart of the factory. Initially only containing a craft bench and a terminal. You have to upgrade it to progress along the milestones.",
@@ -85,6 +90,22 @@
 	"sfy_hub_upgrade_3": "HUB upgrade 3",
 	"sfy_hub_upgrade_3_desc": "Keep satisfying BIG Inc. orders.",
 	
+	"sfy_hub_upgrade_4": "HUB upgrade 4",
+	"sfy_hub_upgrade_4_desc": "Automation is a fun game, isn't it?",
+	
+	"sfy_hub_upgrade_5": "HUB upgrade 5",
+	"sfy_hub_upgrade_5_desc": "The end is not so far!",
+
+	"sfy_hub_upgrade_6": "HUB upgrade 6",
+	"sfy_hub_upgrade_6_desc": "Last step before becoming an onboarded employee.",
+
+	"sfy_orders": "BIG Inc. Orders",
+	
+	"sfy_project": "BIG Inc. Project",
+	
+	"sfy_space_elevator": "Space elevator",
+	"sfy_space_elevator_desc": "That’s why you’re sent to that planet. You have to build this thing, you construct this giant Space elevator and you funnel resources into it in a few stages.",
+
 	"sfy_raw": "Raw",
 
 	"sfy_iron_ore": "Iron ore",
@@ -96,6 +117,9 @@
 	"sfy_stone": "Limestone",
 	"sfy_stone_desc": "Limestone is a basic type of ore which is abundant in the world.",
 	
+	"sfy_biomass": "Biomass",
+	"sfy_biomass_desc": "Primarily used as fuel.",
+
 	"sfy_materials": "Materials",
 	
 	"sfy_iron_ingot": "Iron ingot",
@@ -130,11 +154,19 @@
 	"sfy_energy": "Energy",
 	"sfy_energy_desc": "Most buildings require energy to function. Energy is produced in generators and consumed by buildings.",
 	
+	"sfy_generators": "Generators",
+	
+	"sfy_biomass_burner": "Biomass burner",
+	"sfy_biomass_burner_desc": "A factory needs power, and power needs a generator. In comes the biomass generator, cleaning up your lawn, and building a better world in one fell swoop!",
+	
 	"sfy_machines": "Machines",
 	
 	"sfy_miner": "Portable miner",
 	"sfy_miner_desc": "We don’t want you to harm yourself mining for ore bare-handed.",
-
+	
+	"sfy_miner_1": "Miner Mk.1",
+	"sfy_miner_1_desc": "Extracts solid resources from the resource node it is built on.",
+	
 	"sfy_smelter": "Smelter",
 	"sfy_smelter_desc": "Smelting ore down to usable ingots has never been this easy!",
 	
@@ -143,6 +175,9 @@
 	
 	"sfy_containers": "Containers",
 	
-	"sfy_box": "Personal storage box",
-	"sfy_box_desc": "The Personal storage box is a small container for storing items.",
+	"sfy_box": "Storage box",
+	"sfy_box_desc": "The Storage box is a small container for storing items.",
+	
+	"sfy_box_1": "Storage container",
+	"sfy_box_1_desc": "An improved box capable of storing large quantities of items.",
 }

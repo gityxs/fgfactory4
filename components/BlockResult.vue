@@ -15,11 +15,11 @@
     
 	<div class="row gx-2 align-items-center justify-content-end">
 
-		<div v-if="elem.img != undefined" class="col-auto"><img :src="elem.img" width="16" height="16" /></div>
 		<div class="col-auto">{{ $t(elem.name) }}</div>
+		<div v-if="elem.img != undefined" class="col-auto"><img :src="elem.img" width="16" height="16" /></div>
 		
 		<div class="col-auto">
-			<span class="badge" :class="{ 'text-bg-dark':elem.count + count <= elem.max, 'text-bg-danger':elem.count + count > elem.max }">+ {{ formatNumber(count) }}</span>
+			<span class="badge d-block" :class="{ 'text-bg-dark':elem.count + count <= elem.max, 'text-bg-danger':elem.count + count > elem.max }" style="width:55px;">+ {{ formatNumber(count) }}</span>
 		</div>
 		
 	</div>

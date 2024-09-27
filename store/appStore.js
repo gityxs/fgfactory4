@@ -27,7 +27,7 @@ export const useAppStore = defineStore({
 		loopInterval: null,
 		offlineTime: 0,
 		resetInProgress: false,
-		version: 0.01,
+		version: 0.02,
 		
         scenarios: [ sfy_vanilla ],
     }},
@@ -165,7 +165,7 @@ export const useAppStore = defineStore({
             this.resetInProgress = true
             
             localStorage.setItem(this.localStorageName, importData)
-            window.location.replace('/game')
+            window.location.replace('/fgfactory/game')
         },
 
         wipeAppState() {
@@ -173,7 +173,7 @@ export const useAppStore = defineStore({
             this.resetInProgress = true
 
             localStorage.removeItem(this.localStorageName)
-            window.location.replace('/game')
+            window.location.replace('/fgfactory/game')
         },
 		
 		startGameLoop() {

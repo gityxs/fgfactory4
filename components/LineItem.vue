@@ -34,8 +34,11 @@
 				<div class="row g-3">
 				
 					<div class="col-12">
-						<div class="fs-6 text-white">{{ $t(elem.name) }}</div>
-						<div v-if="elem.desc">{{ $t(elem.desc) }}</div>
+						<div class="row gx-2 align-items-center">
+							<div v-if="elem.img" class="col-auto"><img :src="elem.img" width="16" height="16" /></div>
+							<div class="col fs-6 text-white">{{ $t(elem.name) }}</div>						
+							<div v-if="elem.desc" class="col-12">{{ $t(elem.desc) }}</div>
+						</div>
 					</div>
 					
 					<div class="col-12">
@@ -123,14 +126,16 @@
 
 		<div class="col-auto"><value-count :elem="elem" /></div>
 		
-		<div v-if="elem.build && elem.build.seconds != undefined" class="col-auto" style="width:75px;">
+		<div v-if="elem.build && elem.build.seconds != undefined" class="col-auto"><button-destroy :elem="elem" /></div>
+		
+		<div v-if="elem.build && elem.build.seconds != undefined" class="col-auto" style="width:65px;">
 			<value-seconds :elem="elem" />
 			<value-progress :elem="elem" />
 		</div>
 		
 		<div v-if="elem.select && elem.select.values && elem.select.values.length > 1" class="col-auto"><value-select-count :elem="elem" /></div>
 		
-		<div v-if="elem.build" class="col-auto"><button-build :elem="elem" iconPlay="fas fa-play" iconStop="fas fa-stop" /></div>		
+		<div v-if="elem.build" class="col-auto"><button-build :elem="elem" /></div>		
 		
 	</div>
     

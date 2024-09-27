@@ -58,8 +58,17 @@
 			<span class="text-white">{{ $t(elem.name) }}</span>
 		</div>				
 				
+		<div v-if="elem.build && elem.build.seconds != undefined" class="col-auto">
+			<button-destroy :elem="elem" />
+		</div>
+		
+		<div v-if="elem.build && elem.build.seconds != undefined" class="col-auto" style="width:75px;">
+			<value-seconds :elem="elem" />
+			<value-progress :elem="elem" />
+		</div>
+				
 		<div class="col-auto">
-			<button-build :elem="elem" iconPlay="fas fa-check-circle" />
+			<button-build :elem="elem" />
 		</div>
 		
 	</div>

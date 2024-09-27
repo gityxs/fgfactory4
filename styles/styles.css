@@ -63,7 +63,7 @@ html, body, #__nuxt {
 body {
     
     letter-spacing: 0;
-    background-size: cover; background-image: url(/background.jpg); background-position: center;
+    background-size: cover; background-image: url(/fgfactory/background.jpg); background-position: center;
 }
 
 a {

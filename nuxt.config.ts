@@ -3,27 +3,22 @@ export default defineNuxtConfig({
     ssr: false,
     
     devtools: { enabled: false },
-	
-	app: {
-	
-		baseURL: '/fgfactory/'
-	},
-	
-    head: {
-        
-        meta: [
-            { charset: 'utf-8' },
-            { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        ],
-        
-        link: [
-            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        ],
+    
+    app: {
+    
+        baseURL: '/fgfactory/',	
+        head: {
+            
+            charset: 'utf-8',
+            viewport:'width=device-width, initial-scale=1',
+            
+            link: [{ rel:'icon', type:'image/png', href:'/fgfactory/favicon.png' }]
+        },
     },
     
-    css: [ 'bootstrap/dist/css/bootstrap.min.css', '@fortawesome/fontawesome-svg-core/styles.css', '~/styles/styles.css' ],
+    css: ['bootstrap/dist/css/bootstrap.min.css', '@fortawesome/fontawesome-svg-core/styles.css', '~/styles/styles.css'],
     
-    modules: [ '@nuxtjs/i18n', '@pinia/nuxt', ],
+    modules: ['@nuxtjs/i18n', '@pinia/nuxt', 'nuxt-gtag'],
 
     i18n: {
         lazy: false,
@@ -39,4 +34,6 @@ export default defineNuxtConfig({
             { code:'en', file:'en.json',  },
         ],
     },
+	
+	gtag: { id: 'G-PW9VS80VPN' },
 })

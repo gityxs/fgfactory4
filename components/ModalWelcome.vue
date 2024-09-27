@@ -27,7 +27,7 @@
 						
                         <div class="col-12">
 							<div class="rounded p-2 text-bg-danger text-center">
-								{{ $t('disclaimer_text') }}
+								v{{ appStore.version }} - {{ $t('disclaimer_text') }}
 							</div>
                         </div>
 

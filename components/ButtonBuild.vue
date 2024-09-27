@@ -58,38 +58,13 @@
 		}
     }
     
-    const doCancel = function() {
-    
-        if (inputs.value) {
-            for (let id in inputs.value) {
-            
-                let elem = gameStore.getElem(id)
-                elem.prod += inputs.value[id]
-            }
-        }
-		
-        if (costs.value) {
-            for (let id in costs.value) {
-            
-                let elem = gameStore.getElem(id)
-                elem.count += costs.value[id]
-            }
-        }
-        
-        props.elem.build.status = 'waiting'
-        props.elem.build.remainingSeconds = props.elem.build.seconds * props.elem.select.count
-    }
-    
 </script>
 
 <template>
     
-    <button v-if="elem.build.status == 'waiting'" type="button" class="btn btn-primary btn-icon" :class="{ 'disabled':!canBuild }" @click="if (canBuild) doBuild();">
-        <font-awesome-icon :icon="iconPlay" />
-    </button>
-
-    <button v-else type="button" class="btn btn-danger btn-icon" @click="doCancel();">
-        <font-awesome-icon :icon="iconStop" />
+    <button type="button" class="btn btn-primary btn-icon" :class="{ 'disabled':!canBuild }" @click="if (canBuild) doBuild();">
+        <font-awesome-icon v-if="elem.build.seconds" icon="fas fa-play" />
+        <font-awesome-icon v-else icon="fas fa-check-circle" />
     </button>
     
 </template>

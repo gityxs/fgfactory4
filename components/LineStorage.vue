@@ -26,7 +26,8 @@
 			</div>
 		
 			<button type="button" class="btn btn-secondary btn-icon" data-bs-toggle="dropdown" @click="elem.notified = false">
-				<font-awesome-icon icon="fas fa-info-circle" />
+				<img v-if="elem.img" :src="elem.img" width="24" height="24" />
+				<font-awesome-icon v-else icon="fas fa-info-circle" />
 			</button>
 			
 			<div class="dropdown-menu p-2">
@@ -94,8 +95,6 @@
 			</div>
 			
 		</div>
-		
-		<div v-if="elem.img != undefined" class="col-auto"><img :src="elem.img" width="16" height="16" /></div>
 		
 		<div class="col text-truncate text-white">{{ $t(elem.name) }}</div>
 		
