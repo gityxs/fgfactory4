@@ -61,7 +61,7 @@
 	"word_count": "Count",
 	"word_input": "Input",
 	"word_objective": "Objective",
-	"word_output": "Production",
+	"word_output": "Prod",
 	"word_prod": "Prod",
 	"word_result": "Result",
 	"word_storage": "Storage",
@@ -100,11 +100,16 @@
 	"sfy_hub_upgrade_6_desc": "Last step before becoming an onboarded employee.",
 
 	"sfy_orders": "BIG Inc. Orders",
+
+	"sfy_order_1": "Part Assembly",
+	"sfy_order_1_desc": "With this order, you will unlock a new automation machine and be able to satisfy the first phase of BIG Inc. project.",
 	
 	"sfy_project": "BIG Inc. Project",
 	
 	"sfy_space_elevator": "Space elevator",
 	"sfy_space_elevator_desc": "That’s why you’re sent to that planet. You have to build this thing, you construct this giant Space elevator and you funnel resources into it in a few stages.",
+
+	"sfy_phase_1": "Phase #1",
 
 	"sfy_raw": "Raw",
 
@@ -131,10 +136,13 @@
 	"sfy_screw": "Screw",
 	"sfy_screw_desc": "The best part of the job is making screws.",
 	
+	"sfy_rotor": "Rotor",
+	"sfy_rotor_desc": "This… goes around and does things, I think.",
+	
 	"sfy_iron_plate": "Iron plate",
 	"sfy_iron_plate_desc": "One of the most basic parts.",
 	
-	"sfy_iron_plate_2": "Reinforced iron plate",
+	"sfy_iron_plate_2": "Reinforced plate",
 	"sfy_iron_plate_2_desc": "A sturdier and more durable iron plate.",
 	
 	"sfy_copper_ingot": "Copper ingot",
@@ -148,6 +156,11 @@
 	
 	"sfy_concrete": "Concrete",
 	"sfy_concrete_desc": "Used for building.",
+
+	"sfy_structures": "Structures",
+
+	"sfy_iron_plate_3": "Smart plating",
+	"sfy_iron_plate_3_desc": "Ship via the Space elevator to complete phases of BIG Inc. project.",
 	
 	"sfy_power": "Power",
 	
@@ -172,6 +185,9 @@
 	
 	"sfy_constructor": "Constructor",
 	"sfy_constructor_desc": "There to help you automate the creation of single parts out of other single parts. A step up from manual labor if I’ve ever seen one!",
+	
+	"sfy_assembler": "Assembler",
+	"sfy_assembler_desc": "A constructor, but more! Capable of creating more complex parts out of more and more complex parts! A lot of complexity in such a deceptively small building!",
 	
 	"sfy_containers": "Containers",
 	

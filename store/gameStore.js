@@ -233,7 +233,7 @@ export const useGameStore = defineStore({
 			this.victory = loadedData.victory ?? this.victory
 			
 			let unlocks = this.elems.filter(e => e.reqs)
-			unlocks.forEach(unlock => { unlock.unlocked = true/*this.checkElemCounts(unlock.reqs)*/ })
+			unlocks.forEach(unlock => { unlock.unlocked = this.checkElemCounts(unlock.reqs) })
 			
 			let assignments = this.elems.filter(e => (e.assign && e.assign.count > 0) || (e.build && e.build.inputs && e.count > 0))
 			assignments.forEach(assignment => {
