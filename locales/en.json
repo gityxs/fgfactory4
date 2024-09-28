@@ -42,6 +42,7 @@
     "options_title": "Options",
     "options_about": "About",
     "options_iconsBy": "Icons provided by",
+	"options_scenariosBy": "Scenarios inspired by following games: ",
     "options_love": "This game has been designed and built with love by Freddec. Please support him ;)",
     "options_patreon": "Become a supporter",
     "options_kofi": "Buy me a Ko-fi",
@@ -101,8 +102,11 @@
 
 	"sfy_orders": "BIG Inc. Orders",
 
-	"sfy_order_1": "Part Assembly",
+	"sfy_order_1": "Part assembly",
 	"sfy_order_1_desc": "With this order, you will unlock a new automation machine and be able to satisfy the first phase of BIG Inc. project.",
+	
+	"sfy_order_2": "Coal power",
+	"sfy_order_2_desc": "Another source of energy could be usefull.",
 	
 	"sfy_project": "BIG Inc. Project",
 	
@@ -112,6 +116,9 @@
 	"sfy_phase_1": "Phase #1",
 
 	"sfy_raw": "Raw",
+	
+	"sfy_biomass": "Biomass",
+	"sfy_biomass_desc": "Primarily used as fuel.",
 
 	"sfy_iron_ore": "Iron ore",
 	"sfy_iron_ore_desc": "The foundation of any factory and the source of all that is beautiful!",
@@ -121,14 +128,24 @@
 	
 	"sfy_stone": "Limestone",
 	"sfy_stone_desc": "Limestone is a basic type of ore which is abundant in the world.",
-	
-	"sfy_biomass": "Biomass",
-	"sfy_biomass_desc": "Primarily used as fuel.",
 
-	"sfy_materials": "Materials",
+	"sfy_coal": "Coal",
+	"sfy_coal_desc": "Mainly used as fuel.",
 	
+	"sfy_fluid": "Fluid",
+
+	"sfy_water": "Water",
+	"sfy_water_desc": "It's water.",
+
+	"sfy_ingots": "Ingots",
+
 	"sfy_iron_ingot": "Iron ingot",
 	"sfy_iron_ingot_desc": "Iron in its purest form. For an engineer.",
+	
+	"sfy_copper_ingot": "Copper ingot",
+	"sfy_copper_ingot_desc": "Copper in its purest form. For an engineer.",
+	
+	"sfy_materials": "Materials",
 	
 	"sfy_iron_rod": "Iron rod",
 	"sfy_iron_rod_desc": "There’s all kinds of things you can do with these!",
@@ -136,17 +153,11 @@
 	"sfy_screw": "Screw",
 	"sfy_screw_desc": "The best part of the job is making screws.",
 	
-	"sfy_rotor": "Rotor",
-	"sfy_rotor_desc": "This… goes around and does things, I think.",
-	
 	"sfy_iron_plate": "Iron plate",
 	"sfy_iron_plate_desc": "One of the most basic parts.",
 	
-	"sfy_iron_plate_2": "Reinforced plate",
-	"sfy_iron_plate_2_desc": "A sturdier and more durable iron plate.",
-	
-	"sfy_copper_ingot": "Copper ingot",
-	"sfy_copper_ingot_desc": "Copper in its purest form. For an engineer.",
+	"sfy_copper_sheet": "Copper sheet",
+	"sfy_copper_sheet_desc": "Used for crafting.",
 	
 	"sfy_wire": "Wire",
 	"sfy_wire_desc": "Used for crafting. One of the most basic parts.",
@@ -158,6 +169,17 @@
 	"sfy_concrete_desc": "Used for building.",
 
 	"sfy_structures": "Structures",
+	
+	"sfy_rotor": "Rotor",
+	"sfy_rotor_desc": "This… goes around and does things, I think.",
+	
+	"sfy_iron_plate_2": "Reinforced plate",
+	"sfy_iron_plate_2_desc": "A sturdier and more durable iron plate.",
+	
+	"sfy_modular_frame": "Modular frame",
+	"sfy_modular_frame_desc": "A multipurpose building block.",
+
+	"sfy_assembly": "Part assembly",
 
 	"sfy_iron_plate_3": "Smart plating",
 	"sfy_iron_plate_3_desc": "Ship via the Space elevator to complete phases of BIG Inc. project.",
@@ -172,13 +194,19 @@
 	"sfy_biomass_burner": "Biomass burner",
 	"sfy_biomass_burner_desc": "A factory needs power, and power needs a generator. In comes the biomass generator, cleaning up your lawn, and building a better world in one fell swoop!",
 	
-	"sfy_machines": "Machines",
+	"sfy_coal_burner": "Coal generator",
+	"sfy_coal_burner_desc": "Burns Coal to boil Water. The steam produced rotates turbines that generate energy.",
 	
+	"sfy_machines": "Machines",
+		
 	"sfy_miner": "Portable miner",
 	"sfy_miner_desc": "We don’t want you to harm yourself mining for ore bare-handed.",
 	
 	"sfy_miner_1": "Miner Mk.1",
 	"sfy_miner_1_desc": "Extracts solid resources from the resource node it is built on.",
+	
+	"sfy_water_pump": "Water extractor",
+	"sfy_water_pump_desc": "Extracts water from the body of water it is built on.",
 	
 	"sfy_smelter": "Smelter",
 	"sfy_smelter_desc": "Smelting ore down to usable ingots has never been this easy!",
@@ -196,4 +224,7 @@
 	
 	"sfy_box_1": "Storage container",
 	"sfy_box_1_desc": "An improved box capable of storing large quantities of items.",
+
+	"sfy_buffer": "Fluid buffer",
+	"sfy_buffer_desc": "Holds up to 400 m³ of fluid.",
 }

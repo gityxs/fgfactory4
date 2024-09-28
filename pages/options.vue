@@ -68,7 +68,17 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">{{ $t('options_iconsBy') }} <a href="https://fontawesome.com/" target="_blank">Fontawesome</a></div>
+                            <div class="col-12">
+								{{ $t('options_iconsBy') }}
+								<a href="https://fontawesome.com/" target="_blank">Fontawesome</a>,
+								<a href="https://www.flaticon.com/" target="_blank">Flaticon</a>,
+								<a href="https://www.freepik.com/" target="_blank">Freepik</a>
+							</div>
+
+                            <div class="col-12">
+								{{ $t('options_scenariosBy') }}
+								<a href="https://www.satisfactorygame.com/" target="_blank">Satisfactory</a>
+							</div>
 
                         </div>
                     </div>
