@@ -208,7 +208,7 @@
 	"sfy_water_pump": "Pompe à eau",
 	"sfy_water_pump_desc": "Extrait l’eau du plan d’eau sur lequel elle est construite.",
 	
-	"sfy_smelter": "Fonderie",
+	"sfy_smelter": "Four",
 	"sfy_smelter_desc": "Faire fondre le minerai en lingots utilisables n’a jamais été aussi simple !",
 	
 	"sfy_constructor": "Constructeur",
@@ -227,4 +227,20 @@
 
 	"sfy_buffer": "Réservoir",
 	"sfy_buffer_desc": "Peut contenir jusqu'à 400 m³ de liquide.",
+	
+	
+	
+	"sfy_order_3": "Production d'acier de base",
+	"sfy_foundry": "Fonderie",
+	"sfy_steel_ingot": "Lingot d'acier",
+	"sfy_steel_pipe": "Tuyau en acier",
+	"sfy_steel_beam": "Poutre en acier",
+	"sfy_versatile_framework": "Cadre polyvalent",
+
+	"sfy_order_3_desc": "L’acier est meilleur que le Fer dans la plupart des cas.",
+	"sfy_foundry_desc": "Transforme 2 minerais en lingots d'alliage.",
+	"sfy_steel_ingot_desc": "Fondu à partir d'une combinaison de Minerai de fer et de Charbon.",
+	"sfy_steel_pipe_desc": "Principalement utilisé lors de la construction de bâtiments légèrement plus avancés.",
+	"sfy_steel_beam_desc": "Principalement utilisé lors de la construction de bâtiments légèrement plus avancés.",
+	"sfy_versatile_framework_desc": "Expédié via l'Ascenseur spatial pour terminer les phases du projet BIG Inc.",
 }

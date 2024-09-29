@@ -227,4 +227,20 @@
 
 	"sfy_buffer": "Fluid buffer",
 	"sfy_buffer_desc": "Holds up to 400 m³ of fluid.",
+	
+	
+	
+	"sfy_order_3": "Basic steel production",
+	"sfy_foundry": "Foundry",
+	"sfy_steel_ingot": "Steel ingot",
+	"sfy_steel_pipe": "Steel pipe",
+	"sfy_steel_beam": "Steel beam",
+	"sfy_versatile_framework": "Versatile framework",
+
+	"sfy_order_3_desc": "Steel is better than Iron for most purposes.",
+	"sfy_foundry_desc": "Smelts 2 resources into alloy ingots.",
+	"sfy_steel_ingot_desc": "Smelted from a combination of Iron Ore and Coal.",
+	"sfy_steel_pipe_desc": "Primarily used when constructing slightly more advanced buildings.",
+	"sfy_steel_beam_desc": "Primarily used when constructing slightly more advanced buildings.",
+	"sfy_versatile_framework_desc": "Ship via the Space elevator to complete phases of BIG Inc. project.",
 }

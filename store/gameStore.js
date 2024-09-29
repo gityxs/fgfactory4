@@ -298,7 +298,6 @@ export const useGameStore = defineStore({
                 
                 elem.count += elem.prod * seconds				
                 if (elem.count >= elem.max) elem.count = elem.max                    
-				elem.count = Math.round(elem.count * 100) / 100
             })
 		},
 		
