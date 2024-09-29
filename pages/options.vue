@@ -94,7 +94,7 @@
                     <div class="card-body">
                         <div class="row g-2">
                             <div v-for="l in locales" :key="l.code" class="col-auto">
-                                <button type="button" class="btn btn-secondary btn-icon" :class="{ 'text-bg-primary': locale == l.code }" @click="changeLocale(l.code)">
+                                <button type="button" class="btn btn-secondary py-1" :class="{ 'text-bg-primary': locale == l.code }" @click="changeLocale(l.code)">
                                     <img :src="'/fgfactory/flags/' + l.code + '.png'" height="24">
                                 </button>
                             </div>

@@ -42,7 +42,7 @@
         
     <div v-if="appStore.loaded" class="w-100 h-100 d-flex flex-column">
     
-        <div class="bg-dark">
+        <div class="bg-dark border-bottom border-2 border-translucent">
             <div class="container">
                 <div class="row g-2 align-items-center flex-nowrap">
 

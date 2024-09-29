@@ -27,7 +27,7 @@ export const useAppStore = defineStore({
 		loopInterval: null,
 		offlineTime: 0,
 		resetInProgress: false,
-		version: 0.04,
+		version: 0.05,
 		
         scenarios: [ sfy_vanilla ],
     }},
@@ -128,8 +128,6 @@ export const useAppStore = defineStore({
 			let gameStore = useGameStore()
 			gameStore.saveGameState(appState)
 			
-			console.log(appState)
-
 			let text = JSON.stringify(appState)
 			let compressed = LZString.compressToBase64(text)
 			localStorage.setItem(this.localStorageName, compressed)

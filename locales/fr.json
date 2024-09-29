@@ -1,0 +1,230 @@
+{
+    "game_title": "FG Factory",
+
+    "screenLoading_text": "Chargement ...",
+    
+    "screenError_text": "Une erreur s'est produite lors du chargement du jeu",
+    "screenError_info1": "Pour demander de l'aide, vous pouvez contacter Freddec sur Discord",
+    "screenError_info2": "Sinon vous pouvez effacer vos données locales pour redémarrer le jeu depuis le début",
+    "screenError_exportSave": "Copier",
+    "screenError_downloadSave": "Télécharger",
+    "screenError_wipeSave": "Effacer",
+
+    "modalWipe_title": "Effacer les données locales",
+    "modalWipe_text": "Êtes-vous sûr de vouloir effacer vos données locales ?",
+    "modalWipe_info": "Vous perdrez toute votre progression et recommencerez depuis le début.",
+    "modalWipe_close": "Effacer",
+
+    "modalOffline_title": "Gains hors ligne",
+    "modalOffline_text": "Content de te revoir!",
+    "modalOffline_info": "Tu as été absent pendant",
+    "modalOffline_close": "Continuer",
+    
+    "modalVictory_title": "Victoire",
+    "modalVictory_subTitle": "Félicitations",
+    "modalVictory_text": "Vous avez terminé ce scénario !",
+    "modalVictory_info": "Maintenant tu peux en essayer un autre ;)",
+    "modalVictory_close": "J'ai compris !",
+    
+	"modalWelcome_title": "Bienvenue",
+	"modalWelcome_close": "Allons-y !",
+	
+    "toast_close": "Fermer",
+    "toast_export": "Données locales copiées dans le presse-papier !",
+    "toast_importEmpty": "Aucune donnée à importer !",
+    "toast_importCorrupted": "Données corrompues !",
+    
+    "disclaimer_text": "Ceci est un prototype. Le développement est toujours en cours. Des pertes de données et des réinitialisations pourraient survenir.",
+
+    "page_game": "Jeu",
+    "page_options": "Options",
+    
+    "options_title": "Options",
+    "options_about": "A propos",
+    "options_iconsBy": "Les icônes sont founis par",
+	"options_scenariosBy": "Les scénarios sont inspirés des jeux suivant: ",
+    "options_love": "Ce jeu a été conçu et construit avec amour par Freddec. Merci de le soutenir ;)",
+    "options_patreon": "Devenir un supporter",
+    "options_kofi": "Achetez-moi un Ko-fi",
+    "options_paypal": "Faire un don",
+    "options_discord": "Discord",
+    "options_options": "Options",
+    "options_language": "Langue",
+    "options_localData": "Données locales",
+    "options_exportSave": "Copier",
+    "options_downloadSave": "Télécharger",
+    "options_importSave": "Importer",
+    "options_wipeSave": "Effacer",    
+	
+	"text_nothing": "Rien pour le moment",
+	
+	"word_cost": "Coût",
+	"word_count": "Compte",
+	"word_input": "Entrée",
+	"word_objective": "Objectif",
+	"word_output": "Prod",
+	"word_prod": "Prod",
+	"word_result": "Résultat",
+	"word_storage": "Stockage",
+	
+	"sfy_vanilla": "Scénario inspiré du jeu Satisfactory",
+	"sfy_vanilla_desc": "En tant que pionnier travaillant pour BIG Inc., vous avez été déposé sur une planète extraterrestre et devez récolter les ressources naturelles de la planète pour construire une usine de plus en plus complexe. Une fois votre installation terminée, il sera temps de construire l'Ascenseur spatial et de lancer le Projet BIG Inc. en fournissant à BIG Inc. des composants de plus en plus nombreux et complexes pour des objectifs obscurs.",
+	
+	"sfy_milestones": "Jalons",
+	"sfy_inventory": "Inventaire",
+	"sfy_production": "Production",
+	"sfy_storages": "Stockages",
+	
+	"sfy_start": "BIG Inc. Recrutement",
+	
+	"sfy_intro": "Signer",
+	"sfy_intro_desc": "Pour staisfaire les jalons de l'entreprise, nous attendons de vous que vous construisiez votre usine BIG Inc. Non seulement les bâtiments vont devenir plus complexes avec le temps, mais les pièces qu’ils produisent le seront également. Le Projet BIG Inc. n’est pas votre projet scientifique du lycée. Nous écrivons l’histoire ici ! Voyez grand ou rentrez chez vous !",
+	
+	"sfy_tier": "BIG Inc. Intégration",
+	
+	"sfy_hub_upgrade_1": "Mise à niveau 1 du HBU",
+	"sfy_hub_upgrade_1_desc": "Le HUB, ou « Habitat et Base Utilitaire », est le cœur de l'usine. Contenant initialement uniquement un banc de bricolage et un terminal. Vous devez le mettre à niveau pour progresser dans les étapes.",
+	
+	"sfy_hub_upgrade_2": "Mise à niveau 2 du HBU",
+	"sfy_hub_upgrade_2_desc": "En satisfaisant les jalons, vous débloquez de nouveau contenu pour progresser et satisfaire les commandes de BIG Inc.",
+
+	"sfy_hub_upgrade_3": "Mise à niveau 3 du HBU",
+	"sfy_hub_upgrade_3_desc": "Continuez à satisfaire les commandes de BIG Inc.",
+	
+	"sfy_hub_upgrade_4": "Mise à niveau 4 du HBU",
+	"sfy_hub_upgrade_4_desc": "L'automatisation est un jeu amusant, n'est-ce pas ?",
+	
+	"sfy_hub_upgrade_5": "Mise à niveau 5 du HBU",
+	"sfy_hub_upgrade_5_desc": "La fin n'est pas si loin !",
+
+	"sfy_hub_upgrade_6": "Mise à niveau 6 du HBU",
+	"sfy_hub_upgrade_6_desc": "Dernière étape avant de devenir collaborateur intégré.",
+
+	"sfy_orders": "BIG Inc. Commandes",
+
+	"sfy_order_1": "Assemblage de pièces",
+	"sfy_order_1_desc": "Avec cette commande, vous débloquerez une nouvelle machine d'automatisation et pourrez satisfaire la première phase du Projet BIG Inc.",
+	
+	"sfy_order_2": "Énergie du charbon",
+	"sfy_order_2_desc": "Une autre source d'énergie pourrait être utile.",
+	
+	"sfy_project": "Projet BIG Inc.",
+	
+	"sfy_space_elevator": "Ascenseur spatial",
+	"sfy_space_elevator_desc": "That’s why you’re sent to that planet. You have to build this thing, you construct this giant Space elevator and you funnel resources into it in a few stages.",
+
+	"sfy_phase_1": "Phase #1",
+
+	"sfy_raw": "Ressource",
+	
+	"sfy_biomass": "Biomasse",
+	"sfy_biomass_desc": "Principalement utilisé comme carburant.",
+
+	"sfy_iron_ore": "Minerai de fer",
+	"sfy_iron_ore_desc": "Le fondement de toute usine et la source de tout ce qui est beau !",
+
+	"sfy_copper_ore": "Minerai de cuivre",
+	"sfy_copper_ore_desc": "Une ressource de base principalement utilisée pour l’électricité.",
+	
+	"sfy_stone": "Calcaire",
+	"sfy_stone_desc": "Le calcaire est un type de minerai de base abondant dans le monde.",
+
+	"sfy_coal": "Charbon",
+	"sfy_coal_desc": "Principalement utilisé comme carburant.",
+	
+	"sfy_fluid": "Fluide",
+
+	"sfy_water": "Eau",
+	"sfy_water_desc": "De l'eau.",
+
+	"sfy_ingots": "Lingots",
+
+	"sfy_iron_ingot": "Lingot de fer",
+	"sfy_iron_ingot_desc": "Le fer sous sa forme la plus pure. Pour un ingénieur.",
+	
+	"sfy_copper_ingot": "Lingot de cuivre",
+	"sfy_copper_ingot_desc": "Le cuivre dans sa forme la plus pure. Pour un ingénieur.",
+	
+	"sfy_materials": "Matériels",
+	
+	"sfy_iron_rod": "Barre de fer",
+	"sfy_iron_rod_desc": "Il y a toutes sortes de choses que vous pouvez faire avec ces barres !",
+	
+	"sfy_screw": "Vis",
+	"sfy_screw_desc": "La meilleure partie du travail consiste à fabriquer des vis.",
+	
+	"sfy_iron_plate": "Plaque de fer",
+	"sfy_iron_plate_desc": "L'une des parties les plus fondamentales.",
+	
+	"sfy_copper_sheet": "Feuille de cuivre",
+	"sfy_copper_sheet_desc": "Util pour la construction.",
+	
+	"sfy_wire": "Fil",
+	"sfy_wire_desc": "Util pour la construction. L'une des parties les plus fondamentales.",
+	
+	"sfy_cable": "Cable",
+	"sfy_cable_desc": "Util pour la construction.",
+	
+	"sfy_concrete": "Béton",
+	"sfy_concrete_desc": "Util pour les machines.",
+
+	"sfy_structures": "Structures",
+	
+	"sfy_rotor": "Rotor",
+	"sfy_rotor_desc": "Cela… tourne et fait des choses, je pense.",
+	
+	"sfy_iron_plate_2": "Plaque renforcée",
+	"sfy_iron_plate_2_desc": "Une plaque de fer plus robuste et plus durable.",
+	
+	"sfy_modular_frame": "Châssis modulaire",
+	"sfy_modular_frame_desc": "Un élément de base polyvalent.",
+
+	"sfy_assembly": "Assemblage de pièces",
+
+	"sfy_iron_plate_3": "Placage intelligent",
+	"sfy_iron_plate_3_desc": "Expédié via l'Ascenseur spatial pour terminer les phases du projet BIG Inc.",
+	
+	"sfy_power": "Energie",
+	
+	"sfy_energy": "Electricité",
+	"sfy_energy_desc": "La plupart des bâtiments ont besoin d’électricité pour fonctionner. L'électricité est produite par des générateurs et consommée par les machines.",
+	
+	"sfy_generators": "Générateurs",
+	
+	"sfy_biomass_burner": "Brûleur à biomasse",
+	"sfy_biomass_burner_desc": "Une usine a besoin d’électricité, et l’électricité a besoin d’un générateur. Arrive le générateur de biomasse, nettoyant votre pelouse et construisant un monde meilleur d'un seul coup !",
+	
+	"sfy_coal_burner": "Générateur à charbon",
+	"sfy_coal_burner_desc": "Brûle du charbon pour faire bouillir de l'eau. La vapeur produite fait tourner des turbines qui génèrent de l'électricité.",
+	
+	"sfy_machines": "Machines",
+		
+	"sfy_miner": "Marteau piqueur",
+	"sfy_miner_desc": "Nous ne voulons pas que vous vous blessiez en extrayant du minerai à mains nues.",
+	
+	"sfy_miner_1": "Foreuse Mk.1",
+	"sfy_miner_1_desc": "Extrait les ressources du filon sur lequel il est construit.",
+	
+	"sfy_water_pump": "Pompe à eau",
+	"sfy_water_pump_desc": "Extrait l’eau du plan d’eau sur lequel elle est construite.",
+	
+	"sfy_smelter": "Fonderie",
+	"sfy_smelter_desc": "Faire fondre le minerai en lingots utilisables n’a jamais été aussi simple !",
+	
+	"sfy_constructor": "Constructeur",
+	"sfy_constructor_desc": "Là pour vous aider à automatiser la création de pièces à partir d'autres pièces. Une belle avancée par rapport au travail manuel !",
+	
+	"sfy_assembler": "Assembleur",
+	"sfy_assembler_desc": "Un constructeur, mais plus encore ! Capable de créer des pièces de plus en plus complexes à partir de pièces de plus en plus complexes ! Beaucoup de complexité dans un si petit bâtiment !",
+	
+	"sfy_containers": "Conteneurs",
+	
+	"sfy_box": "Boîte de rangement",
+	"sfy_box_desc": "La boîte de rangement est un petit conteneur permettant de stocker des objets.",
+	
+	"sfy_box_1": "Conteneur de stockage",
+	"sfy_box_1_desc": "Une boîte améliorée capable de stocker de grandes quantités d'objets.",
+
+	"sfy_buffer": "Réservoir",
+	"sfy_buffer_desc": "Peut contenir jusqu'à 400 m³ de liquide.",
+}

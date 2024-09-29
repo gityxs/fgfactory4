@@ -45,6 +45,7 @@
                 let elem = gameStore.getElem(id)
                 elem.count += costs.value[id]
 				if (elem.count > elem.max) elem.count = elem.max
+				elem.count = Math.round(elem.count * 100) / 100
             }
         }
 		
@@ -53,6 +54,7 @@
             
                 let elem = gameStore.getElem(id)
                 elem.prod += inputs.value[id]
+				elem.prod = Math.round(elem.prod * 100) / 100
             }
         }
         
@@ -61,6 +63,7 @@
 			
 				let elem = gameStore.getElem(id)
 				elem.prod -= outputs.value[id]
+				elem.prod = Math.round(elem.prod * 100) / 100
 			}
 		}
 
@@ -69,6 +72,7 @@
 			
 				let elem = gameStore.getElem(id)
 				elem.max -= storages.value[id]
+				elem.max = Math.round(elem.max * 100) / 100
 			}
 		}
             

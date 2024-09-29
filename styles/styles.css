@@ -120,6 +120,8 @@ a {
     padding-bottom: var(--bs-gutter-y);
 }
 
+.border-translucent { border-color: var(--bs-border-color-translucent)!important; }
+
 @media (min-width: 992px) { .container { max-width: 720px; } }
 
 .row { --bs-gutter-x: var(--bs-spacer); }

@@ -243,6 +243,7 @@ export const useGameStore = defineStore({
 					
 						let elem = this.getElem(id)
 						elem.prod -= assignment.build.inputs[id] * assignment.count
+						elem.prod = Math.round(elem.prod * 100) / 100
 					}
 				}
 				
@@ -251,6 +252,7 @@ export const useGameStore = defineStore({
 					
 						let elem = this.getElem(id)
 						elem.prod -= assignment.assign.inputs[id] * assignment.assign.count
+						elem.prod = Math.round(elem.prod * 100) / 100
 					}
 				}
 				
@@ -258,6 +260,7 @@ export const useGameStore = defineStore({
 					
 					let elem = this.getElem(assignment.assign.output.id)
 					elem.prod += assignment.assign.output.count * assignment.assign.count
+					elem.prod = Math.round(elem.prod * 100) / 100
 				}
 				
 				if (assignment.assign && assignment.assign.storage) {
@@ -295,6 +298,7 @@ export const useGameStore = defineStore({
                 
                 elem.count += elem.prod * seconds				
                 if (elem.count >= elem.max) elem.count = elem.max                    
+				elem.count = Math.round(elem.count * 100) / 100
             })
 		},
 		
@@ -321,6 +325,7 @@ export const useGameStore = defineStore({
 					let count = results[id]						
 					result.count += count
 					if (result.count >= result.max) result.count = result.max
+					result.count = Math.round(result.count * 100) / 100
 				}
 			}
 			
