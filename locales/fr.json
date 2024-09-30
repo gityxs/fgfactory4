@@ -243,4 +243,12 @@
 	"sfy_steel_pipe_desc": "Principalement utilisé lors de la construction de bâtiments légèrement plus avancés.",
 	"sfy_steel_beam_desc": "Principalement utilisé lors de la construction de bâtiments légèrement plus avancés.",
 	"sfy_versatile_framework_desc": "Expédié via l'Ascenseur spatial pour terminer les phases du projet BIG Inc.",
+	
+	
+	
+	"sfy_order_4": "Amélioration du stockage",
+	"sfy_box_2": "Stockage industriel",
+	
+	"sfy_order_4_desc": "Du stockage, il nous faut du stockage, encore du stockage !",
+	"sfy_box_2_desc": "Stocker de grandes quantités d’objets.",
 }

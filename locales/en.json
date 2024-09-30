@@ -243,4 +243,12 @@
 	"sfy_steel_pipe_desc": "Primarily used when constructing slightly more advanced buildings.",
 	"sfy_steel_beam_desc": "Primarily used when constructing slightly more advanced buildings.",
 	"sfy_versatile_framework_desc": "Ship via the Space elevator to complete phases of BIG Inc. project.",
+	
+	
+	
+	"sfy_order_4": "Storage upgrade",
+	"sfy_box_2": "Industrial storage",
+	
+	"sfy_order_4_desc": "Storage, we need storage, more storage!",
+	"sfy_box_2_desc": "Storing large amounts of items.",
 }
