@@ -16,9 +16,11 @@ sfy_vanilla.elems = [
 	
 	//__ MILESTONES
 	
+	{	cat:'milestones',	group:'sfy_project',	subgroup:'project_1',	type:'milestone',	id:'phase_2',	name:'sfy_phase_2',		max:1,	build:{ result:1, costs:{ 'automated_wiring':100, 'versatile_framework':1e3, 'iron_plate_3':1e3 } },	reqs:{ 'order_5':1 },	},
 	{	cat:'milestones',	group:'sfy_project',	subgroup:'project_1',	type:'milestone',	id:'phase_1',	name:'sfy_phase_1',		max:1,	build:{ result:1, costs:{ 'iron_plate_3':50 } },	reqs:{ 'order_1':1 },	},
 	{	cat:'milestones',	group:'sfy_project',	subgroup:'project_1',	type:'milestone',	id:'space_elevator',	name:'sfy_space_elevator',	desc:'sfy_space_elevator_desc',	max:1,	build:{ result:1, costs:{ 'concrete':500, 'wire':1500, 'iron_plate':250, 'iron_rod':400 } },	reqs:{ 'hub_upgrade_6':1 },	},
 	
+	{	cat:'milestones',	group:'sfy_orders',	subgroup:'orders_1',	type:'milestone',	id:'order_5',	name:'sfy_order_5',	desc:'sfy_order_5_desc',	max:1,	build:{ result:1, costs:{ 'steel_pipe':100, 'modular_frame':100, 'rotor':200, 'concrete':500 } },	reqs:{ 'order_3':1 },	},
 	{	cat:'milestones',	group:'sfy_orders',	subgroup:'orders_1',	type:'milestone',	id:'order_4',	name:'sfy_order_4',	desc:'sfy_order_4_desc',	max:1,	build:{ result:1, costs:{ 'steel_beam':200, 'steel_pipe':200, 'iron_plate_2':400 } },	reqs:{ 'order_3':1 },	},
 	{	cat:'milestones',	group:'sfy_orders',	subgroup:'orders_1',	type:'milestone',	id:'order_3',	name:'sfy_order_3',	desc:'sfy_order_3_desc',	max:1,	build:{ result:1, costs:{ 'modular_frame':50, 'rotor':150, 'concrete':500, 'wire':1e3 } },	reqs:{ 'order_2':1 },	},
 	{	cat:'milestones',	group:'sfy_orders',	subgroup:'orders_1',	type:'milestone',	id:'order_2',	name:'sfy_order_2',	desc:'sfy_order_2_desc',	max:1,	build:{ result:1, costs:{ 'cable':500, 'iron_plate_2':150, 'rotor':50 } },	reqs:{ 'phase_1':1 },	},
@@ -40,29 +42,35 @@ sfy_vanilla.elems = [
 	{	cat:'inventory',	group:'sfy_generators',	subgroup:'generators_1',	type:'item',	id:'coal_burner',	name:'sfy_coal_burner',	desc:'sfy_coal_burner_desc',		img:'/fgfactory/icons/coal_burner.png',		build:{ result:1, seconds:0.25, rewards:{ 'energy':75e6 }, costs:{ 'cable':30, 'iron_plate_2':20, 'rotor':10 }, inputs:{ 'coal':0.25, 'water':0.75 } },	reqs:{ 'order_2':1 },	},
 	{	cat:'inventory',	group:'sfy_generators',	subgroup:'generators_1',	type:'item',	id:'biomass_burner',	name:'sfy_biomass_burner',	desc:'sfy_biomass_burner_desc',		img:'/fgfactory/icons/biomass_burner.png',		build:{ result:1, seconds:0.25, rewards:{ 'energy':30e6 }, costs:{ 'wire':25, 'iron_plate':15, 'iron_rod':15 }, inputs:{ 'biomass':0.1 } },	reqs:{ 'hub_upgrade_6':1 },	},
 													
-	{	cat:'inventory',	group:'sfy_machines',	subgroup:'machines_3',	type:'item',	id:'assembler',	name:'sfy_assembler',	desc:'sfy_assembler_desc',		img:'/fgfactory/icons/assembler.png',		build:{ result:1, seconds:0.25, costs:{ 'rotor':4, 'cable':10, 'iron_plate_2':8 } },	reqs:{ 'order_1':1 },	},
-	{	cat:'inventory',	group:'sfy_machines',	subgroup:'machines_3',	type:'item',	id:'constructor',	name:'sfy_constructor',	desc:'sfy_constructor_desc',		img:'/fgfactory/icons/constructor.png',		build:{ result:1, seconds:0.25, costs:{ 'cable':8, 'iron_plate_2':2 } },	reqs:{ 'hub_upgrade_3':1 },	},
+	{	cat:'inventory',	group:'sfy_machines',	subgroup:'machines_4',	type:'item',	id:'assembler',	name:'sfy_assembler',	desc:'sfy_assembler_desc',		img:'/fgfactory/icons/assembler.png',		build:{ result:1, seconds:0.25, costs:{ 'rotor':4, 'cable':10, 'iron_plate_2':8 } },	reqs:{ 'order_1':1 },	},
+	{	cat:'inventory',	group:'sfy_machines',	subgroup:'machines_4',	type:'item',	id:'constructor',	name:'sfy_constructor',	desc:'sfy_constructor_desc',		img:'/fgfactory/icons/constructor.png',		build:{ result:1, seconds:0.25, costs:{ 'cable':8, 'iron_plate_2':2 } },	reqs:{ 'hub_upgrade_3':1 },	},
 
-	{	cat:'inventory',	group:'sfy_machines',	subgroup:'machines_2',	type:'item',	id:'foundry',	name:'sfy_foundry',	desc:'sfy_foundry_desc',		img:'/fgfactory/icons/foundry.png',		build:{ result:1, seconds:0.25, costs:{ 'modular_frame':10, 'rotor':10, 'concrete':20 } },	reqs:{ 'order_3':1 },	},
-	{	cat:'inventory',	group:'sfy_machines',	subgroup:'machines_2',	type:'item',	id:'smelter',	name:'sfy_smelter',	desc:'sfy_smelter_desc',		img:'/fgfactory/icons/smelter.png',		build:{ result:1, seconds:0.25, costs:{ 'wire':8, 'iron_rod':5 } },	reqs:{ 'hub_upgrade_2':1 },	},
+	{	cat:'inventory',	group:'sfy_machines',	subgroup:'machines_3',	type:'item',	id:'foundry',	name:'sfy_foundry',	desc:'sfy_foundry_desc',		img:'/fgfactory/icons/foundry.png',		build:{ result:1, seconds:0.25, costs:{ 'modular_frame':10, 'rotor':10, 'concrete':20 } },	reqs:{ 'order_3':1 },	},
+	{	cat:'inventory',	group:'sfy_machines',	subgroup:'machines_3',	type:'item',	id:'smelter',	name:'sfy_smelter',	desc:'sfy_smelter_desc',		img:'/fgfactory/icons/smelter.png',		build:{ result:1, seconds:0.25, costs:{ 'wire':8, 'iron_rod':5 } },	reqs:{ 'hub_upgrade_2':1 },	},
 
-	{	cat:'inventory',	group:'sfy_machines',	subgroup:'machines_1',	type:'item',	id:'water_pump',	name:'sfy_water_pump',	desc:'sfy_water_pump_desc',		img:'/fgfactory/icons/water_pump.png',		build:{ result:1, seconds:0.25, costs:{ 'copper_sheet':20, 'iron_plate_2':10, 'rotor':10 } },	reqs:{ 'order_2':1 },	},
+	{	cat:'inventory',	group:'sfy_machines',	subgroup:'machines_2',	type:'item',	id:'water_pump',	name:'sfy_water_pump',	desc:'sfy_water_pump_desc',		img:'/fgfactory/icons/water_pump.png',		build:{ result:1, seconds:0.25, costs:{ 'copper_sheet':20, 'iron_plate_2':10, 'rotor':10 } },	reqs:{ 'order_2':1 },	},
+
+	{	cat:'inventory',	group:'sfy_machines',	subgroup:'machines_1',	type:'item',	id:'miner_2',	name:'sfy_miner_2',	desc:'sfy_miner_2_desc',		img:'/fgfactory/icons/miner_2.png',		build:{ result:1, seconds:0.25, costs:{ 'steel_beam_2':10, 'steel_pipe':20, 'modular_frame':10, 'iron_plate':4, 'iron_rod':8 } },	reqs:{ 'order_5':1 },	},
 	{	cat:'inventory',	group:'sfy_machines',	subgroup:'machines_1',	type:'item',	id:'miner_1',	name:'sfy_miner_1',	desc:'sfy_miner_1_desc',		img:'/fgfactory/icons/miner_1.png',		build:{ result:1, seconds:0.25, costs:{ 'concrete':10, 'iron_plate':10, 'iron_plate':12, 'iron_rod':4 } },	reqs:{ 'hub_upgrade_5':1 },	},
 	{	cat:'inventory',	group:'sfy_machines',	subgroup:'machines_1',	type:'item',	id:'miner',	name:'sfy_miner',	desc:'sfy_miner_desc',	max:5,	img:'/fgfactory/icons/miner.png',		build:{ result:1, seconds:0.25, costs:{ 'iron_plate':2, 'iron_rod':4 } },	reqs:{ 'hub_upgrade_1':1 },	},
-													
+	
 	{	cat:'inventory',	group:'sfy_containers',	subgroup:'containers_2',	type:'item',	id:'buffer',	name:'sfy_buffer',	desc:'sfy_buffer_desc',		img:'/fgfactory/icons/buffer.png',		build:{ result:1, seconds:0.25, costs:{ 'modular_frame':5, 'copper_sheet':10 } },	reqs:{ 'order_2':1 },	},
 
 	{	cat:'inventory',	group:'sfy_containers',	subgroup:'containers_1',	type:'item',	id:'box_2',	name:'sfy_box_2',	desc:'sfy_box_2_desc',		img:'/fgfactory/icons/box_2.png',		build:{ result:1, seconds:0.25, costs:{ 'steel_beam':20, 'steel_pipe':20 } },	reqs:{ 'order_4':1 },	},
 	{	cat:'inventory',	group:'sfy_containers',	subgroup:'containers_1',	type:'item',	id:'box_1',	name:'sfy_box_1',	desc:'sfy_box_1_desc',		img:'/fgfactory/icons/box_1.png',		build:{ result:1, seconds:0.25, costs:{ 'iron_plate':10, 'iron_rod':10 } },	reqs:{ 'hub_upgrade_5':1 },	},
 	{	cat:'inventory',	group:'sfy_containers',	subgroup:'containers_1',	type:'item',	id:'box',	name:'sfy_box',	desc:'sfy_box_desc',	max:1,	img:'/fgfactory/icons/box.png',		build:{ result:1, seconds:0.25, costs:{ 'iron_plate':6, 'iron_rod':6 } },	reqs:{ 'hub_upgrade_1':1 },	},
 													
-	{	cat:'inventory',	group:'sfy_structures',	subgroup:'assembly_1',	type:'item',	id:'versatile_framework',	name:'sfy_versatile_framework',	desc:'sfy_versatile_framework_desc',	max:50,	img:'/fgfactory/icons/versatile_framework.png',	prod:0,		reqs:{ 'order_3':1 },	},
+	{	cat:'inventory',	group:'sfy_assembly',	subgroup:'assembly_1',	type:'item',	id:'automated_wiring',	name:'sfy_automated_wiring',	desc:'sfy_automated_wiring_desc',	max:50,	img:'/fgfactory/icons/automated_wiring.png',	prod:0,		reqs:{ 'order_5':1 },	},
+	{	cat:'inventory',	group:'sfy_assembly',	subgroup:'assembly_1',	type:'item',	id:'versatile_framework',	name:'sfy_versatile_framework',	desc:'sfy_versatile_framework_desc',	max:50,	img:'/fgfactory/icons/versatile_framework.png',	prod:0,		reqs:{ 'order_3':1 },	},
 	{	cat:'inventory',	group:'sfy_assembly',	subgroup:'assembly_1',	type:'item',	id:'iron_plate_3',	name:'sfy_iron_plate_3',	desc:'sfy_iron_plate_3_desc',	max:50,	img:'/fgfactory/icons/iron_plate_3.png',	prod:0,		reqs:{ 'order_1':1 },	},
 
+	{	cat:'inventory',	group:'sfy_structures',	subgroup:'structures_1',	type:'item',	id:'motor',	name:'sfy_motor',	desc:'sfy_motor_desc',	max:50,	img:'/fgfactory/icons/motor.png',	prod:0,	build:{ result:1, seconds:3, costs:{ 'rotor':2, 'stator':2 } },	reqs:{ 'order_5':1 },	},
+	{	cat:'inventory',	group:'sfy_structures',	subgroup:'structures_1',	type:'item',	id:'stator',	name:'sfy_stator',	desc:'sfy_stator_desc',	max:100,	img:'/fgfactory/icons/stator.png',	prod:0,	build:{ result:1, seconds:2.25, costs:{ 'steel_pipe':3, 'wire':8 } },	reqs:{ 'order_5':1 },	},
 	{	cat:'inventory',	group:'sfy_structures',	subgroup:'structures_1',	type:'item',	id:'modular_frame',	name:'sfy_modular_frame',	desc:'sfy_modular_frame_desc',	max:100,	img:'/fgfactory/icons/modular_frame.png',	prod:0,	build:{ result:1, seconds:3.75, costs:{ 'iron_plate_2':3, 'iron_rod':12 } },	reqs:{ 'order_2':1 },	},
 	{	cat:'inventory',	group:'sfy_structures',	subgroup:'structures_1',	type:'item',	id:'iron_plate_2',	name:'sfy_iron_plate_2',	desc:'sfy_iron_plate_2_desc',	max:100,	img:'/fgfactory/icons/iron_plate_2.png',	prod:0,	build:{ result:1, seconds:1.5, costs:{ 'screw':12, 'iron_plate':6 } },	reqs:{ 'hub_upgrade_3':1 },	},
 	{	cat:'inventory',	group:'sfy_structures',	subgroup:'structures_1',	type:'item',	id:'rotor',	name:'sfy_rotor',	desc:'sfy_rotor_desc',	max:100,	img:'/fgfactory/icons/rotor.png',	prod:0,	build:{ result:1, seconds:1.5, costs:{ 'screw':25, 'iron_rod':5 } },	reqs:{ 'order_1':1 },	},
 													
+	{	cat:'inventory',	group:'sfy_materials',	subgroup:'materials_4',	type:'item',	id:'steel_beam_2',	name:'sfy_steel_beam_2',	desc:'sfy_steel_beam_2_desc',	max:100,	img:'/fgfactory/icons/steel_beam_2.png',	prod:0,	build:{ result:1, seconds:1.25, costs:{ 'steel_beam':3, 'concrete':6 } },	reqs:{ 'order_5':1 },	},
 	{	cat:'inventory',	group:'sfy_materials',	subgroup:'materials_4',	type:'item',	id:'steel_beam',	name:'sfy_steel_beam',	desc:'sfy_steel_beam_desc',	max:200,	img:'/fgfactory/icons/steel_beam.png',	prod:0,	build:{ result:1, seconds:0.5, costs:{ 'steel_ingot':4 } },	reqs:{ 'order_3':1 },	},
 	{	cat:'inventory',	group:'sfy_materials',	subgroup:'materials_4',	type:'item',	id:'steel_pipe',	name:'sfy_steel_pipe',	desc:'sfy_steel_pipe_desc',	max:200,	img:'/fgfactory/icons/steel_pipe.png',	prod:0,	build:{ result:2, seconds:0.75, costs:{ 'steel_ingot':3 } },	reqs:{ 'order_3':1 },	},
 	
@@ -92,13 +100,17 @@ sfy_vanilla.elems = [
 	
 	//__ PRODUCTION
 	
+	{	cat:'production',	group:'assembler',	subgroup:'assembler_2',	type:'recipe',	id:'assembler_automated_wiring',	name:'sfy_automated_wiring',	img:'/fgfactory/icons/automated_wiring.png',	assign:{ id:'assembler', costs:{ 'energy':15e6 }, output:{ id:'automated_wiring', count:0.05 }, inputs:{ 'stator':0.05, 'cable':0.75 } },	reqs:{ 'order_5':1 },	},
 	{	cat:'production',	group:'assembler',	subgroup:'assembler_2',	type:'recipe',	id:'assembler_versatile_framework',	name:'sfy_versatile_framework',	img:'/fgfactory/icons/versatile_framework.png',	assign:{ id:'assembler', costs:{ 'energy':15e6 }, output:{ id:'versatile_framework', count:0.75 }, inputs:{ 'modular_frame':0.05, 'steel_beam':0.5 } },	reqs:{ 'order_3':1 },	},
 	{	cat:'production',	group:'assembler',	subgroup:'assembler_2',	type:'recipe',	id:'assembler_iron_plate_3',	name:'sfy_iron_plate_3',	img:'/fgfactory/icons/iron_plate_3.png',	assign:{ id:'assembler', costs:{ 'energy':15e6 }, output:{ id:'iron_plate_3', count:0.05 }, inputs:{ 'iron_plate':0.05, 'rotor':0.05 } },	reqs:{ 'order_1':1 },	},
 	
+	{	cat:'production',	group:'assembler',	subgroup:'assembler_1',	type:'recipe',	id:'assembler_motor',	name:'sfy_motor',	desc:'sfy_motor_desc',	img:'/fgfactory/icons/motor.png',	assign:{ id:'assembler', costs:{ 'energy':15e6 }, output:{ id:'motor', count:0.05 }, inputs:{ 'rotor':0.1, 'stator':0.1 } },	reqs:{ 'order_5':1 },	},
+	{	cat:'production',	group:'assembler',	subgroup:'assembler_1',	type:'recipe',	id:'assembler_stator',	name:'sfy_stator',	desc:'sfy_stator_desc',	img:'/fgfactory/icons/stator.png',	assign:{ id:'assembler', costs:{ 'energy':15e6 }, output:{ id:'stator', count:0.05 }, inputs:{ 'steel_pipe':0.25, 'wire':0.15 } },	reqs:{ 'order_5':1 },	},
 	{	cat:'production',	group:'assembler',	subgroup:'assembler_1',	type:'recipe',	id:'assembler_modular_frame',	name:'sfy_modular_frame',	img:'/fgfactory/icons/modular_frame.png',	assign:{ id:'assembler', costs:{ 'energy':15e6 }, output:{ id:'modular_frame', count:0.05 }, inputs:{ 'iron_plate_2':0.05, 'iron_rod':0.25 } },	reqs:{ 'order_2':1 },	},
 	{	cat:'production',	group:'assembler',	subgroup:'assembler_1',	type:'recipe',	id:'assembler_iron_plate_2',	name:'sfy_iron_plate_2',	img:'/fgfactory/icons/iron_plate_2.png',	assign:{ id:'assembler', costs:{ 'energy':15e6 }, output:{ id:'iron_plate_2', count:0.1 }, inputs:{ 'iron_plate':0.5, 'screw':1 } },	reqs:{ 'order_1':1 },	},
 	{	cat:'production',	group:'assembler',	subgroup:'assembler_1',	type:'recipe',	id:'assembler_rotor',	name:'sfy_rotor',	img:'/fgfactory/icons/rotor.png',	assign:{ id:'assembler', costs:{ 'energy':15e6 }, output:{ id:'rotor', count:0.05 }, inputs:{ 'screw':1.5, 'iron_rod':0.25 } },	reqs:{ 'order_1':1 },	},
 	
+	{	cat:'production',	group:'constructor',	subgroup:'constructor_4',	type:'recipe',	id:'constructor_steel_beam_2',	name:'sfy_steel_beam_2',	img:'/fgfactory/icons/steel_beam_2.png',	assign:{ id:'constructor', costs:{ 'energy':4e6 }, output:{ id:'steel_beam_2', count:0.1 }, inputs:{ 'steel_beam':0.3, 'concrete':0.6 } },	reqs:{ 'order_5':1 },	},
 	{	cat:'production',	group:'constructor',	subgroup:'constructor_4',	type:'recipe',	id:'constructor_steel_beam',	name:'sfy_steel_beam',	img:'/fgfactory/icons/steel_beam.png',	assign:{ id:'constructor', costs:{ 'energy':4e6 }, output:{ id:'steel_beam', count:0.25 }, inputs:{ 'steel_ingot':1 } },	reqs:{ 'order_3':1 },	},
 	{	cat:'production',	group:'constructor',	subgroup:'constructor_4',	type:'recipe',	id:'constructor_steel_pipe',	name:'sfy_steel_pipe',	img:'/fgfactory/icons/steel_pipe.png',	assign:{ id:'constructor', costs:{ 'energy':4e6 }, output:{ id:'steel_pipe', count:0.25 }, inputs:{ 'steel_ingot':0.5 } },	reqs:{ 'order_3':1 },	},
 	
@@ -119,6 +131,13 @@ sfy_vanilla.elems = [
 										
 	{	cat:'production',	group:'water_pump',	subgroup:'water_pump_1',	type:'recipe',	id:'water_pump_water',	name:'sfy_water',	img:'/fgfactory/icons/water.png',	assign:{ id:'water_pump', costs:{ 'energy':20e6 }, output:{ id:'water', count:2 } },	reqs:{ 'order_2':1 },	},
 	
+	{	cat:'production',	group:'miner_2',	subgroup:'miner_2_2',	type:'recipe',	id:'miner_2_coal',	name:'sfy_coal',	img:'/fgfactory/icons/coal.png',	assign:{ id:'miner_2', costs:{ 'energy':15e6 }, output:{ id:'coal', count:2 } },	reqs:{ 'order_5':1 },	},
+	{	cat:'production',	group:'miner_2',	subgroup:'miner_2_2',	type:'recipe',	id:'miner_2_stone',	name:'sfy_stone',	img:'/fgfactory/icons/stone.png',	assign:{ id:'miner_2', costs:{ 'energy':15e6 }, output:{ id:'stone', count:2 } },	reqs:{ 'order_5':1 },	},
+	{	cat:'production',	group:'miner_2',	subgroup:'miner_2_2',	type:'recipe',	id:'miner_2_copper_ore',	name:'sfy_copper_ore',	img:'/fgfactory/icons/copper.png',	assign:{ id:'miner_2', costs:{ 'energy':15e6 }, output:{ id:'copper_ore', count:2 } },	reqs:{ 'order_5':1 },	},
+	{	cat:'production',	group:'miner_2',	subgroup:'miner_2_2',	type:'recipe',	id:'miner_2_iron_ore',	name:'sfy_iron_ore',	img:'/fgfactory/icons/iron.png',	assign:{ id:'miner_2', costs:{ 'energy':15e6 }, output:{ id:'iron_ore', count:2 } },	reqs:{ 'order_5':1 },	},
+
+	{	cat:'production',	group:'miner_2',	subgroup:'miner_2_1',	type:'recipe',	id:'miner_2_biomass',	name:'sfy_biomass',	img:'/fgfactory/icons/biomass.png',	assign:{ id:'miner_2', costs:{ 'energy':15e6 }, output:{ id:'biomass', count:2 } },	reqs:{ 'order_5':1 },	},
+
 	{	cat:'production',	group:'miner_1',	subgroup:'miner_1_2',	type:'recipe',	id:'miner_1_coal',	name:'sfy_coal',	img:'/fgfactory/icons/coal.png',	assign:{ id:'miner_1', costs:{ 'energy':5e6 }, output:{ id:'coal', count:1 } },	reqs:{ 'order_2':1 },	},
 	{	cat:'production',	group:'miner_1',	subgroup:'miner_1_2',	type:'recipe',	id:'miner_1_stone',	name:'sfy_stone',	img:'/fgfactory/icons/stone.png',	assign:{ id:'miner_1', costs:{ 'energy':5e6 }, output:{ id:'stone', count:1 } },	reqs:{ 'hub_upgrade_5':1 },	},
 	{	cat:'production',	group:'miner_1',	subgroup:'miner_1_2',	type:'recipe',	id:'miner_1_copper_ore',	name:'sfy_copper_ore',	img:'/fgfactory/icons/copper.png',	assign:{ id:'miner_1', costs:{ 'energy':5e6 }, output:{ id:'copper_ore', count:1 } },	reqs:{ 'hub_upgrade_5':1 },	},
@@ -135,11 +154,14 @@ sfy_vanilla.elems = [
 	
 	//__ STORAGES
 	
-	{	cat:'storages',	group:'buffer',	subgroup:'buffer_1',	type:'storage',	id:'buffer_water',	name:'sfy_water',	img:'/fgfactory/icons/water.png',	assign:{ id:'buffer', storage:{ id:'water', count:400 } },	reqs:{ 'order_4':1 },	},
+	{	cat:'storages',	group:'buffer',	subgroup:'buffer_1',	type:'storage',	id:'buffer_water',	name:'sfy_water',	img:'/fgfactory/icons/water.png',	assign:{ id:'buffer', storage:{ id:'water', count:400 } },	reqs:{ 'order_2':1 },	},
 	
+	{	cat:'storages',	group:'box_2',	subgroup:'box_2_10',	type:'storage',	id:'box_2_automated_wiring',	name:'sfy_automated_wiring',	img:'/fgfactory/icons/automated_wiring.png',	assign:{ id:'box_2', storage:{ id:'automated_wiring', count:100 } },	reqs:{ 'order_5':1 },	},
 	{	cat:'storages',	group:'box_2',	subgroup:'box_2_10',	type:'storage',	id:'box_2_versatile_framework',	name:'sfy_versatile_framework',	img:'/fgfactory/icons/versatile_framework.png',	assign:{ id:'box_2', storage:{ id:'versatile_framework', count:100 } },	reqs:{ 'order_4':1 },	},
 	{	cat:'storages',	group:'box_2',	subgroup:'box_2_10',	type:'storage',	id:'box_2_iron_plate_3',	name:'sfy_iron_plate_3',	img:'/fgfactory/icons/iron_plate_3.png',	assign:{ id:'box_2', storage:{ id:'iron_plate_3', count:100 } },	reqs:{ 'order_4':1 },	},
 
+	{	cat:'storages',	group:'box_2',	subgroup:'box_2_9',	type:'storage',	id:'box_2_motor',	name:'sfy_motor',	img:'/fgfactory/icons/motor.png',	assign:{ id:'box_2', storage:{ id:'motor', count:100 } },	reqs:{ 'order_5':1 },	},
+	{	cat:'storages',	group:'box_2',	subgroup:'box_2_9',	type:'storage',	id:'box_2_stator',	name:'sfy_stator',	img:'/fgfactory/icons/stator.png',	assign:{ id:'box_2', storage:{ id:'stator', count:200 } },	reqs:{ 'order_5':1 },	},
 	{	cat:'storages',	group:'box_2',	subgroup:'box_2_9',	type:'storage',	id:'box_2_modular_frame',	name:'sfy_modular_frame',	img:'/fgfactory/icons/modular_frame.png',	assign:{ id:'box_2', storage:{ id:'modular_frame', count:200 } },	reqs:{ 'order_4':1 },	},
 	{	cat:'storages',	group:'box_2',	subgroup:'box_2_9',	type:'storage',	id:'box_2_iron_plate_2',	name:'sfy_iron_plate_2',	img:'/fgfactory/icons/iron_plate_2.png',	assign:{ id:'box_2', storage:{ id:'iron_plate_2', count:200 } },	reqs:{ 'order_4':1 },	},
 	{	cat:'storages',	group:'box_2',	subgroup:'box_2_9',	type:'storage',	id:'box_2_rotor',	name:'sfy_rotor',	img:'/fgfactory/icons/rotor.png',	assign:{ id:'box_2', storage:{ id:'rotor', count:200 } },	reqs:{ 'order_4':1 },	},
@@ -169,9 +191,12 @@ sfy_vanilla.elems = [
 
 	{	cat:'storages',	group:'box_2',	subgroup:'box_2_1',	type:'storage',	id:'box_2_biomass',	name:'sfy_biomass',	img:'/fgfactory/icons/biomass.png',	assign:{ id:'box_2', storage:{ id:'biomass', count:400 } },	reqs:{ 'order_4':1 },	},
 
+	{	cat:'storages',	group:'box_2',	subgroup:'box_1_10',	type:'storage',	id:'box_1_automated_wiring',	name:'sfy_automated_wiring',	img:'/fgfactory/icons/automated_wiring.png',	assign:{ id:'box_1', storage:{ id:'automated_wiring', count:50 } },	reqs:{ 'order_5':1 },	},
 	{	cat:'storages',	group:'box_1',	subgroup:'box_1_10',	type:'storage',	id:'box_1_versatile_framework',	name:'sfy_versatile_framework',	img:'/fgfactory/icons/versatile_framework.png',	assign:{ id:'box_1', storage:{ id:'versatile_framework', count:50 } },	reqs:{ 'order_3':1 },	},
 	{	cat:'storages',	group:'box_1',	subgroup:'box_1_10',	type:'storage',	id:'box_1_iron_plate_3',	name:'sfy_iron_plate_3',	img:'/fgfactory/icons/iron_plate_3.png',	assign:{ id:'box_1', storage:{ id:'iron_plate_3', count:50 } },	reqs:{ 'order_1':1 },	},
 
+	{	cat:'storages',	group:'box_2',	subgroup:'box_1_9',	type:'storage',	id:'box_1_motor',	name:'sfy_motor',	img:'/fgfactory/icons/motor.png',	assign:{ id:'box_1', storage:{ id:'motor', count:50 } },	reqs:{ 'order_5':1 },	},
+	{	cat:'storages',	group:'box_2',	subgroup:'box_1_9',	type:'storage',	id:'box_1_stator',	name:'sfy_stator',	img:'/fgfactory/icons/stator.png',	assign:{ id:'box_1', storage:{ id:'stator', count:100 } },	reqs:{ 'order_5':1 },	},
 	{	cat:'storages',	group:'box_1',	subgroup:'box_1_9',	type:'storage',	id:'box_1_modular_frame',	name:'sfy_modular_frame',	img:'/fgfactory/icons/modular_frame.png',	assign:{ id:'box_1', storage:{ id:'modular_frame', count:100 } },	reqs:{ 'order_2':1 },	},
 	{	cat:'storages',	group:'box_1',	subgroup:'box_1_9',	type:'storage',	id:'box_1_iron_plate_2',	name:'sfy_iron_plate_2',	img:'/fgfactory/icons/iron_plate_2.png',	assign:{ id:'box_1', storage:{ id:'iron_plate_2', count:100 } },	reqs:{ 'hub_upgrade_5':1 },	},
 	{	cat:'storages',	group:'box_1',	subgroup:'box_1_9',	type:'storage',	id:'box_1_rotor',	name:'sfy_rotor',	img:'/fgfactory/icons/rotor.png',	assign:{ id:'box_1', storage:{ id:'rotor', count:100 } },	reqs:{ 'order_1':1 },	},
@@ -201,15 +226,18 @@ sfy_vanilla.elems = [
 
 	{	cat:'storages',	group:'box_1',	subgroup:'box_1_1',	type:'storage',	id:'box_1_biomass',	name:'sfy_biomass',	img:'/fgfactory/icons/biomass.png',	assign:{ id:'box_1', storage:{ id:'biomass', count:200 } },	reqs:{ 'hub_upgrade_6':1 },	},
 										
-	{	cat:'storages',	group:'box',	subgroup:'box_10',	type:'storage',	id:'box_1_versatile_framework',	name:'sfy_versatile_framework',	img:'/fgfactory/icons/versatile_framework.png',	assign:{ id:'box', storage:{ id:'versatile_framework', count:25 } },	reqs:{ 'order_3':1 },	},
+	{	cat:'storages',	group:'box',	subgroup:'box_10',	type:'storage',	id:'box_automated_wiring',	name:'sfy_automated_wiring',	img:'/fgfactory/icons/automated_wiring.png',	assign:{ id:'box', storage:{ id:'automated_wiring', count:25 } },	reqs:{ 'order_5':1 },	},
+	{	cat:'storages',	group:'box',	subgroup:'box_10',	type:'storage',	id:'box_versatile_framework',	name:'sfy_versatile_framework',	img:'/fgfactory/icons/versatile_framework.png',	assign:{ id:'box', storage:{ id:'versatile_framework', count:25 } },	reqs:{ 'order_3':1 },	},
 	{	cat:'storages',	group:'box',	subgroup:'box_10',	type:'storage',	id:'box_iron_plate_3',	name:'sfy_iron_plate_3',	img:'/fgfactory/icons/iron_plate_3.png',	assign:{ id:'box', storage:{ id:'iron_plate_3', count:25 } },	reqs:{ 'order_1':1 },	},
 
+	{	cat:'storages',	group:'box',	subgroup:'box_9',	type:'storage',	id:'box_motor',	name:'sfy_motor',	img:'/fgfactory/icons/motor.png',	assign:{ id:'box', storage:{ id:'motor', count:25 } },	reqs:{ 'order_5':1 },	},
+	{	cat:'storages',	group:'box',	subgroup:'box_9',	type:'storage',	id:'box_stator',	name:'sfy_stator',	img:'/fgfactory/icons/stator.png',	assign:{ id:'box', storage:{ id:'stator', count:50 } },	reqs:{ 'order_5':1 },	},
 	{	cat:'storages',	group:'box',	subgroup:'box_9',	type:'storage',	id:'box_modular_frame',	name:'sfy_modular_frame',	img:'/fgfactory/icons/modular_frame.png',	assign:{ id:'box', storage:{ id:'modular_frame', count:50 } },	reqs:{ 'order_2':1 },	},
 	{	cat:'storages',	group:'box',	subgroup:'box_9',	type:'storage',	id:'box_iron_plate_2',	name:'sfy_iron_plate_2',	img:'/fgfactory/icons/iron_plate_2.png',	assign:{ id:'box', storage:{ id:'iron_plate_2', count:50 } },	reqs:{ 'hub_upgrade_3':1 },	},
 	{	cat:'storages',	group:'box',	subgroup:'box_9',	type:'storage',	id:'box_rotor',	name:'sfy_rotor',	img:'/fgfactory/icons/rotor.png',	assign:{ id:'box', storage:{ id:'rotor', count:50 } },	reqs:{ 'order_1':1 },	},
 
-	{	cat:'storages',	group:'box',	subgroup:'box_8',	type:'storage',	id:'box_1_steel_beam',	name:'sfy_steel_beam',	img:'/fgfactory/icons/steel_beam.png',	assign:{ id:'box', storage:{ id:'steel_beam', count:100 } },	reqs:{ 'order_3':1 },	},
-	{	cat:'storages',	group:'box',	subgroup:'box_8',	type:'storage',	id:'box_1_steel_pipe',	name:'sfy_steel_pipe',	img:'/fgfactory/icons/steel_pipe.png',	assign:{ id:'box', storage:{ id:'steel_pipe', count:100 } },	reqs:{ 'order_3':1 },	},
+	{	cat:'storages',	group:'box',	subgroup:'box_8',	type:'storage',	id:'box_steel_beam',	name:'sfy_steel_beam',	img:'/fgfactory/icons/steel_beam.png',	assign:{ id:'box', storage:{ id:'steel_beam', count:100 } },	reqs:{ 'order_3':1 },	},
+	{	cat:'storages',	group:'box',	subgroup:'box_8',	type:'storage',	id:'box_steel_pipe',	name:'sfy_steel_pipe',	img:'/fgfactory/icons/steel_pipe.png',	assign:{ id:'box', storage:{ id:'steel_pipe', count:100 } },	reqs:{ 'order_3':1 },	},
 
 	{	cat:'storages',	group:'box',	subgroup:'box_7',	type:'storage',	id:'box_concrete',	name:'sfy_concrete',	img:'/fgfactory/icons/concrete.png',	assign:{ id:'box', storage:{ id:'concrete', count:250 } },	reqs:{ 'hub_upgrade_3':1 },	},
 
@@ -221,7 +249,7 @@ sfy_vanilla.elems = [
 	{	cat:'storages',	group:'box',	subgroup:'box_5',	type:'storage',	id:'box_screw',	name:'sfy_screw',	img:'/fgfactory/icons/screw.png',	assign:{ id:'box', storage:{ id:'screw', count:250 } },	reqs:{ 'hub_upgrade_3':1 },	},
 	{	cat:'storages',	group:'box',	subgroup:'box_5',	type:'storage',	id:'box_iron_rod',	name:'sfy_iron_rod',	img:'/fgfactory/icons/iron_rod.png',	assign:{ id:'box', storage:{ id:'iron_rod', count:100 } },	reqs:{ 'hub_upgrade_1':1 },	},
 
-	{	cat:'storages',	group:'box',	subgroup:'box_4',	type:'storage',	id:'box_1_steel_ingot',	name:'sfy_steel_ingot',	img:'/fgfactory/icons/steel_ingot.png',	assign:{ id:'box', storage:{ id:'steel_ingot', count:50 } },	reqs:{ 'order_3':1 },	},
+	{	cat:'storages',	group:'box',	subgroup:'box_4',	type:'storage',	id:'box_steel_ingot',	name:'sfy_steel_ingot',	img:'/fgfactory/icons/steel_ingot.png',	assign:{ id:'box', storage:{ id:'steel_ingot', count:50 } },	reqs:{ 'order_3':1 },	},
 
 	{	cat:'storages',	group:'box',	subgroup:'box_3',	type:'storage',	id:'box_copper_ingot',	name:'sfy_copper_ingot',	img:'/fgfactory/icons/copper_ingot.png',	assign:{ id:'box', storage:{ id:'copper_ingot', count:50 } },	reqs:{ 'hub_upgrade_2':1 },	},
 	{	cat:'storages',	group:'box',	subgroup:'box_3',	type:'storage',	id:'box_iron_ingot',	name:'sfy_iron_ingot',	img:'/fgfactory/icons/iron_ingot.png',	assign:{ id:'box', storage:{ id:'iron_ingot', count:50 } },	reqs:{ 'hub_upgrade_1':1 },	},

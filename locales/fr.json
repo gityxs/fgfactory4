@@ -114,6 +114,7 @@
 	"sfy_space_elevator_desc": "That’s why you’re sent to that planet. You have to build this thing, you construct this giant Space elevator and you funnel resources into it in a few stages.",
 
 	"sfy_phase_1": "Phase #1",
+	"sfy_phase_2": "Phase #2",
 
 	"sfy_raw": "Ressource",
 	
@@ -251,4 +252,20 @@
 	
 	"sfy_order_4_desc": "Du stockage, il nous faut du stockage, encore du stockage !",
 	"sfy_box_2_desc": "Stocker de grandes quantités d’objets.",
+	
+	
+	
+	"sfy_order_5": "Production d'acier avancée",
+	"sfy_miner_2": "Foreuse Mk.2",
+	"sfy_steel_beam_2": "Poutre industrielle",
+	"sfy_stator": "Stateur",
+	"sfy_motor": "Moteur",
+	"sfy_automated_wiring": "Câblage automatisé",
+
+	"sfy_order_5_desc": "Encore mieux que l'Acier",
+	"sfy_miner_2_desc": "Extrait les ressources du filon sur lequel il est construit.",
+	"sfy_steel_beam_2_desc": "Utilise simultanément la résistance à la compression du Béton et la résistance à la traction de l'Acier.",
+	"sfy_stator_desc": "Je ne suis vraiment pas sûr de ce que c'est.",
+	"sfy_motor_desc": "Je préfère marcher quand il s'agit de transport. Moins de risques d'accidents. Mais à chacun son truc !",
+	"sfy_automated_wiring_desc": "Expédié via l'Ascenseur spatial pour terminer les phases du projet BIG Inc.",
 }

@@ -114,6 +114,7 @@
 	"sfy_space_elevator_desc": "That’s why you’re sent to that planet. You have to build this thing, you construct this giant Space elevator and you funnel resources into it in a few stages.",
 
 	"sfy_phase_1": "Phase #1",
+	"sfy_phase_2": "Phase #2",
 
 	"sfy_raw": "Raw",
 	
@@ -251,4 +252,20 @@
 	
 	"sfy_order_4_desc": "Storage, we need storage, more storage!",
 	"sfy_box_2_desc": "Storing large amounts of items.",
+	
+	
+	
+	"sfy_order_5": "Advanced steel production",
+	"sfy_miner_2": "Miner Mk.2",
+	"sfy_steel_beam_2": "Industrial beam",
+	"sfy_stator": "Stator",
+	"sfy_motor": "Motor",
+	"sfy_automated_wiring": "Automated wiring",
+
+	"sfy_order_5_desc": "More better than Steel",
+	"sfy_miner_2_desc": "Extracts solid resources from the resource node it is built on.",
+	"sfy_steel_beam_2_desc": "Simultaneously utilizes the compressive strength of Concrete and the tensile strength of Steel.",
+	"sfy_stator_desc": "I'm really not sure what this is.",
+	"sfy_motor_desc": "I prefer walking when it comes to transport. Less chance for accidents. But to each their own!",
+	"sfy_automated_wiring_desc": "Ship via the Space elevator to complete phases of BIG Inc. project.",
 }
