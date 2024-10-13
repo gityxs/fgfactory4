@@ -20,9 +20,9 @@
                 <div class="modal-body">
                     <div class="row g-2">
                     
-                        <div class="col-12 text-center">
-							<div class="fs-5 text-white">{{ $t('modalWelcome_title') }}</div>
-							<div v-if="appStore.currentScenario">{{ $t(appStore.currentScenario.name) }}</div>
+                        <div v-if="appStore.currentScenario"class="col-12 text-center">
+							<div class="fs-5 text-white">{{ $t(appStore.currentScenario.title) }}</div>
+							<div>{{ $t(appStore.currentScenario.subtitle) }}</div>
                         </div>
 						
                         <div class="col-12">

@@ -14,7 +14,7 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <span class="text-normal">{{ $t('modalOffline_title') }}</span>
+                    <span class="fs-6 text-white">{{ $t('modalOffline_title') }}</span>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" @click="appStore.currentModalId = null"><font-awesome-icon icon="fas fa-fw fa-times" /></button>
                 </div>
 

@@ -15,8 +15,8 @@
     
 	<div class="row gx-2 align-items-center justify-content-end">
 
-		<div class="col text-truncate text-end">{{ $t(elem.name) }}</div>
 		<div v-if="elem.img != undefined" class="col-auto" :title="$t(elem.name)"><img :src="elem.img" width="16" height="16" /></div>
+		<div class="col text-white text-truncate">{{ $t(elem.name) }}</div>
 
 		<div class="col-auto">
 			<span class="badge d-block" :class="{ 'text-bg-success':elem.count >= count, 'text-bg-danger':elem.count < count }" style="width:55px;">{{ formatNumber(count) }}</span>

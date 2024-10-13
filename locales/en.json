@@ -3,6 +3,10 @@
 
     "screenLoading_text": "Initializing game...",
     
+    "screenCorrupted_text": "Local data corupted",
+    "screenCorrupted_info": "Your current save is not compatible with the current version of the game. This may due to the last relase of the game. You have to wipe your local data and restart from the beginning. Sorry for the inconvenience.",
+    "screenCorrupted_wipeSave": "Wipe",
+	
     "screenError_text": "An error occured during game loading",
     "screenError_info1": "To ask for help, you can contact Freddec on Discord",
     "screenError_info2": "Alternatively, you can wipe your local data to restart the game from the beginning",
@@ -22,8 +26,7 @@
     
     "modalVictory_title": "Victory",
     "modalVictory_subTitle": "Congratulations",
-    "modalVictory_text": "You beat the game!",
-    "modalVictory_info": "Now you could try another one ;)",
+    "modalVictory_text": "You beat this scenario!",
     "modalVictory_close": "Got it!",
     
 	"modalWelcome_title": "Welcome",
@@ -35,14 +38,11 @@
     "toast_importCorrupted": "Data corrupted!",
     
     "disclaimer_text": "This is a prototype. Development is still in progress. Data loss and reset could happen.",
-
-    "page_game": "Game",
-    "page_options": "Options",
     
     "options_title": "Options",
     "options_about": "About",
-    "options_iconsBy": "Icons provided by",
-	"options_scenariosBy": "Scenarios inspired by following games: ",
+    "options_iconsBy": "Icons provided by ",
+	"options_scenariosBy": "Scenarios inspired by ",
     "options_love": "This game has been designed and built with love by Freddec. Please support him ;)",
     "options_patreon": "Become a supporter",
     "options_kofi": "Buy me a Ko-fi",
@@ -55,217 +55,192 @@
     "options_downloadSave": "Download",
     "options_importSave": "Import",
     "options_wipeSave": "Wipe",    
+
+    "page_buildings": "Buildings",
+    "page_milestones": "Milestones",
+    "page_options": "Options",
 	
-	"text_nothing": "Nothing for the moment",
-	
-	"word_cost": "Cost",
+	"word_costs": "Costs",
 	"word_count": "Count",
-	"word_input": "Input",
-	"word_objective": "Objective",
-	"word_output": "Prod",
+	"word_inputs": "Inputs",
+	"word_manuals": "Handcrafting",
+	"word_outputs": "Outputs",
 	"word_prod": "Prod",
-	"word_result": "Result",
-	"word_storage": "Storage",
+	"word_producers": "Producers",
+	"word_results": "Results",
+	"word_storages": "Storages",
+	"word_storers": "Storers",
+	"word_upgrades": "Upgrades",
 	
-	"sfy_vanilla": "Scenario inspired by Satisfactory game",
-	"sfy_vanilla_desc": "As a pioneer working for BIG Inc., you are dropped onto an alien planet and must harvest the planet's natural resources to construct an increasingly complex factory. After you are set up, it will be time to build the Space elevator and begin the BIG Inc. Project, supplying BIG Inc. with increasingly numerous and complex components for their unknown purposes.",
+	"sfy_vanilla_title": "Employee of the Planet",
+	"sfy_vanilla_subtitle": "Scenario inspired by Satisfactory game",
+	"sfy_vanilla_desc": "As a pioneer working for BIG Inc., you are dropped onto an alien planet and must harvest the planet's natural resources to construct an increasingly complex factory. After you are onboarded, it will be time to build the Space Elevator and to begin the BIG Inc. Project, satisfying BIG Inc. orders and supplying BIG Inc. with increasingly numerous and complex components for their unknown purposes.",
 	
-	"sfy_milestones": "Milestones",
-	"sfy_inventory": "Inventory",
-	"sfy_production": "Production",
-	"sfy_storages": "Storages",
-	
-	"sfy_start": "BIG Inc. Recruitment",
-	
-	"sfy_intro": "Sign in",
-	"sfy_intro_desc": "To achieve company milestones according to satisfaction we expect you to construct your BIG Inc. factory. Not only will buildings grow more complex over time, so will the parts they produce. BIG Inc. Project isn’t your average high-school science project. We’re making history here! Go big or go home!",
-	
-	"sfy_tier": "BIG Inc. Onboarding",
-	
-	"sfy_hub_upgrade_1": "HUB upgrade 1",
-	"sfy_hub_upgrade_1_desc": "The HUB, or 'Habitat and Utility Base', is the heart of the factory. Initially only containing a craft bench and a terminal. You have to upgrade it to progress along the milestones.",
-	
-	"sfy_hub_upgrade_2": "HUB upgrade 2",
-	"sfy_hub_upgrade_2_desc": "By completing milestones, you unlock new content to progress and satisfy BIG Inc. orders.",
-
-	"sfy_hub_upgrade_3": "HUB upgrade 3",
-	"sfy_hub_upgrade_3_desc": "Keep satisfying BIG Inc. orders.",
-	
-	"sfy_hub_upgrade_4": "HUB upgrade 4",
-	"sfy_hub_upgrade_4_desc": "Automation is a fun game, isn't it?",
-	
-	"sfy_hub_upgrade_5": "HUB upgrade 5",
-	"sfy_hub_upgrade_5_desc": "The end is not so far!",
-
-	"sfy_hub_upgrade_6": "HUB upgrade 6",
-	"sfy_hub_upgrade_6_desc": "Last step before becoming an onboarded employee.",
-
-	"sfy_orders": "BIG Inc. Orders",
-
-	"sfy_order_1": "Part assembly",
-	"sfy_order_1_desc": "With this order, you will unlock a new automation machine and be able to satisfy the first phase of BIG Inc. project.",
-	
-	"sfy_order_2": "Coal power",
-	"sfy_order_2_desc": "Another source of energy could be usefull.",
-	
+	"sfy_onboarding": "BIG Inc. Onboarding",
+	"sfy_order": "BIG Inc. Orders",
 	"sfy_project": "BIG Inc. Project",
 	
-	"sfy_space_elevator": "Space elevator",
-	"sfy_space_elevator_desc": "That’s why you’re sent to that planet. You have to build this thing, you construct this giant Space elevator and you funnel resources into it in a few stages.",
+	"sfy_hub_upgrade_1": "Step #1",
+	"sfy_hub_upgrade_2": "Step #2",
+	"sfy_hub_upgrade_3": "Step #3",
+	"sfy_hub_upgrade_5": "Step #4",
+	"sfy_hub_upgrade_6": "Step #5",
 
-	"sfy_phase_1": "Phase #1",
-	"sfy_phase_2": "Phase #2",
-
-	"sfy_raw": "Raw",
+	"sfy_part_asssembly": "Part Asssembly",
+	"sfy_coal_power": "Coal Power",
+	"sfy_basic_steel_production": "Basic Steel Production",
+	"sfy_logistics": "Logistics",
+	"sfy_advanced_steel_production": "Advanced Steel Production",
+	"sfy_oil_processing": "Oil Processing",
+	"sfy_petroleum_power": "Petroleum Power",
+	"sfy_industrial_manufacturing": "Industrial Manufacturing",
+	"sfy_bauxite_refinement": "Bauxite Refinement",
+	"sfy_control_system_development": "Control System Development",
+	"sfy_nuclear_power": "Nuclear Power",
+	"sfy_advanced_aluminum_production": "Advanced Aluminum Production",
+	"sfy_leading_edge_production": "Leading-Edge Production",
+	"sfy_particle_enrichment": "Particle Enrichment",
+	"sfy_matter_conversion": "Matter Conversion",
+	"sfy_quantum_encoding": "Quantum Encoding",
+	"sfy_spatial_energy_regulation": "Spatial Energy Regulation",
 	
-	"sfy_biomass": "Biomass",
-	"sfy_biomass_desc": "Primarily used as fuel.",
-
-	"sfy_iron_ore": "Iron ore",
-	"sfy_iron_ore_desc": "The foundation of any factory and the source of all that is beautiful!",
-
-	"sfy_copper_ore": "Copper ore",
-	"sfy_copper_ore_desc": "A basic resource primarily used for electricity.",
+	"sfy_phase_0": "Space Elevator",
+	"sfy_phase_1": "Distribution Platform",
+	"sfy_phase_2": "Construction Dock",
+	"sfy_phase_3": "Main Body",
+	"sfy_phase_4": "Propulsion",
+	"sfy_phase_5": "Assembly",
 	
-	"sfy_stone": "Limestone",
-	"sfy_stone_desc": "Limestone is a basic type of ore which is abundant in the world.",
-
-	"sfy_coal": "Coal",
-	"sfy_coal_desc": "Mainly used as fuel.",
-	
-	"sfy_fluid": "Fluid",
-
-	"sfy_water": "Water",
-	"sfy_water_desc": "It's water.",
-
-	"sfy_ingots": "Ingots",
-
-	"sfy_iron_ingot": "Iron ingot",
-	"sfy_iron_ingot_desc": "Iron in its purest form. For an engineer.",
-	
-	"sfy_copper_ingot": "Copper ingot",
-	"sfy_copper_ingot_desc": "Copper in its purest form. For an engineer.",
-	
-	"sfy_materials": "Materials",
-	
-	"sfy_iron_rod": "Iron rod",
-	"sfy_iron_rod_desc": "There’s all kinds of things you can do with these!",
-	
-	"sfy_screw": "Screw",
-	"sfy_screw_desc": "The best part of the job is making screws.",
-	
-	"sfy_iron_plate": "Iron plate",
-	"sfy_iron_plate_desc": "One of the most basic parts.",
-	
-	"sfy_copper_sheet": "Copper sheet",
-	"sfy_copper_sheet_desc": "Used for crafting.",
-	
-	"sfy_wire": "Wire",
-	"sfy_wire_desc": "Used for crafting. One of the most basic parts.",
-	
-	"sfy_cable": "Cable",
-	"sfy_cable_desc": "Used for crafting.",
-	
-	"sfy_concrete": "Concrete",
-	"sfy_concrete_desc": "Used for building.",
-
-	"sfy_structures": "Structures",
-	
-	"sfy_rotor": "Rotor",
-	"sfy_rotor_desc": "This… goes around and does things, I think.",
-	
-	"sfy_iron_plate_2": "Reinforced plate",
-	"sfy_iron_plate_2_desc": "A sturdier and more durable iron plate.",
-	
-	"sfy_modular_frame": "Modular frame",
-	"sfy_modular_frame_desc": "A multipurpose building block.",
-
-	"sfy_assembly": "Part assembly",
-
-	"sfy_iron_plate_3": "Smart plating",
-	"sfy_iron_plate_3_desc": "Ship via the Space elevator to complete phases of BIG Inc. project.",
-	
-	"sfy_power": "Power",
+	"sfy_container": "Containers",
+	"sfy_generator": "Generators",
+	"sfy_extractor": "Extractors",
+	"sfy_machine": "Machines",
 	
 	"sfy_energy": "Energy",
-	"sfy_energy_desc": "Most buildings require energy to function. Energy is produced in generators and consumed by buildings.",
 	
-	"sfy_generators": "Generators",
+	"sfy_storage_container_1": "Storage Container",
+	"sfy_storage_container_2": "Industrial Storage Container",
+	"sfy_fluid_buffer_1": "Fluid Buffer",
+	"sfy_fluid_buffer_2": "Industrial Fluid Buffer",
 	
-	"sfy_biomass_burner": "Biomass burner",
-	"sfy_biomass_burner_desc": "A factory needs power, and power needs a generator. In comes the biomass generator, cleaning up your lawn, and building a better world in one fell swoop!",
-	
-	"sfy_coal_burner": "Coal generator",
-	"sfy_coal_burner_desc": "Burns Coal to boil Water. The steam produced rotates turbines that generate energy.",
-	
-	"sfy_machines": "Machines",
+	"sfy_biomass_burner": "Biomass Burner",
+	"sfy_coal_generator": "Coal Generator",
+	"sfy_fuel_generator": "Fuel Generator",
+	"sfy_nuclear_power_plant": "Nuclear Power Plant",
 		
-	"sfy_miner": "Portable miner",
-	"sfy_miner_desc": "We don’t want you to harm yourself mining for ore bare-handed.",
-	
+	"sfy_miner_0": "Portable Miner",
 	"sfy_miner_1": "Miner Mk.1",
-	"sfy_miner_1_desc": "Extracts solid resources from the resource node it is built on.",
-	
-	"sfy_water_pump": "Water extractor",
-	"sfy_water_pump_desc": "Extracts water from the body of water it is built on.",
-	
-	"sfy_smelter": "Smelter",
-	"sfy_smelter_desc": "Smelting ore down to usable ingots has never been this easy!",
-	
-	"sfy_constructor": "Constructor",
-	"sfy_constructor_desc": "There to help you automate the creation of single parts out of other single parts. A step up from manual labor if I’ve ever seen one!",
-	
-	"sfy_assembler": "Assembler",
-	"sfy_assembler_desc": "A constructor, but more! Capable of creating more complex parts out of more and more complex parts! A lot of complexity in such a deceptively small building!",
-	
-	"sfy_containers": "Containers",
-	
-	"sfy_box": "Storage box",
-	"sfy_box_desc": "The Storage box is a small container for storing items.",
-	
-	"sfy_box_1": "Storage container",
-	"sfy_box_1_desc": "An improved box capable of storing large quantities of items.",
-
-	"sfy_buffer": "Fluid buffer",
-	"sfy_buffer_desc": "Holds up to 400 m³ of fluid.",
-	
-	
-	
-	"sfy_order_3": "Basic steel production",
-	"sfy_foundry": "Foundry",
-	"sfy_steel_ingot": "Steel ingot",
-	"sfy_steel_pipe": "Steel pipe",
-	"sfy_steel_beam": "Steel beam",
-	"sfy_versatile_framework": "Versatile framework",
-
-	"sfy_order_3_desc": "Steel is better than Iron for most purposes.",
-	"sfy_foundry_desc": "Smelts 2 resources into alloy ingots.",
-	"sfy_steel_ingot_desc": "Smelted from a combination of Iron Ore and Coal.",
-	"sfy_steel_pipe_desc": "Primarily used when constructing slightly more advanced buildings.",
-	"sfy_steel_beam_desc": "Primarily used when constructing slightly more advanced buildings.",
-	"sfy_versatile_framework_desc": "Ship via the Space elevator to complete phases of BIG Inc. project.",
-	
-	
-	
-	"sfy_order_4": "Storage upgrade",
-	"sfy_box_2": "Industrial storage",
-	
-	"sfy_order_4_desc": "Storage, we need storage, more storage!",
-	"sfy_box_2_desc": "Storing large amounts of items.",
-	
-	
-	
-	"sfy_order_5": "Advanced steel production",
 	"sfy_miner_2": "Miner Mk.2",
-	"sfy_steel_beam_2": "Industrial beam",
+	"sfy_miner_3": "Miner Mk.3",
+	"sfy_water_extractor": "Water Extractor",
+	"sfy_oil_extractor": "Oil Extractor",
+	"sfy_gas_extractor": "Gas Extractor",
+		
+	"sfy_smelter": "Smelter",
+	"sfy_constructor": "Constructor",
+	"sfy_assembler": "Assembler",
+	"sfy_foundry": "Foundry",
+	"sfy_refinery": "Refinery",
+	"sfy_manufacturer": "Manufacturer",
+	"sfy_blender": "Blender",
+	"sfy_particle_accelerator": "Particle Accelerator",
+	"sfy_converter": "Converter",
+	"sfy_quantum_encoder": "Quantum Encoder",
+	
+	"sfy_raw": "Raw",
+	"sfy_material": "Materials",
+	"sfy_component": "Components",
+	"sfy_part": "Parts",
+	
+	"sfy_iron_ore": "Iron Ore",
+	"sfy_copper_ore": "Copper Ore",
+	"sfy_limestone": "Limestone",
+	"sfy_biomass": "Biomass",
+	"sfy_coal": "Coal",
+	"sfy_water": "Water",
+	"sfy_crude_oil": "Crude Oil",
+	"sfy_caterium_ore": "Caterium Ore",
+	"sfy_bauxite": "Bauxite",
+	"sfy_raw_quartz": "Raw Quartz",
+	"sfy_sulfur": "Sulfur",
+	"sfy_uranium": "Uranium",
+	"sfy_nitrogen_gas": "Nitrogen Gas",
+	"sfy_sam": "Sam",
+		
+	"sfy_iron_ingot": "Iron Ingot",
+	"sfy_copper_ingot": "Copper Ingot",
+	"sfy_concrete": "Concrete",
+	"sfy_plastic": "Plastic",
+	"sfy_rubber": "Rubber",
+	"sfy_fuel": "Fuel",
+	"sfy_caterium_ingot": "Caterium Ingot",
+	"sfy_steel_ingot": "Steel Ingot",
+	"sfy_aluminum_ingot": "Aluminum Ingot",
+	"sfy_quartz_crystal": "Quartz Crystal",
+	"sfy_silica": "Silica",
+	"sfy_ficsite_ingot": "BIG Inc. Ingot",
+	"sfy_diamonds": "Diamonds",
+	
+	"sfy_iron_rod": "Iron Rod",
+	"sfy_iron_plate": "Iron Plate",
+	"sfy_wire": "Wire",
+	"sfy_cable": "Cable",
+	"sfy_screw": "Screw",
+	"sfy_reinforced_iron_plate": "Reinforced Iron Plate",
+	"sfy_copper_sheet": "Copper Sheet",
+	"sfy_rotor": "Rotor",
+	"sfy_modular_frame": "Modular Frame",
+	"sfy_steel_beam": "Steel Beam",
+	"sfy_steel_pipe": "Steel Pipe",
+	"sfy_encased_industrial_beam": "Encased Industrial Beam",
 	"sfy_stator": "Stator",
 	"sfy_motor": "Motor",
-	"sfy_automated_wiring": "Automated wiring",
-
-	"sfy_order_5_desc": "More better than Steel",
-	"sfy_miner_2_desc": "Extracts solid resources from the resource node it is built on.",
-	"sfy_steel_beam_2_desc": "Simultaneously utilizes the compressive strength of Concrete and the tensile strength of Steel.",
-	"sfy_stator_desc": "I'm really not sure what this is.",
-	"sfy_motor_desc": "I prefer walking when it comes to transport. Less chance for accidents. But to each their own!",
-	"sfy_automated_wiring_desc": "Ship via the Space elevator to complete phases of BIG Inc. project.",
+	"sfy_circuit_board": "Circuit Board",
+	"sfy_quickwire": "Quickwire",
+	"sfy_computer": "Computer",
+	"sfy_heavy_modular_frame": "Heavy Modular Frame",
+	"sfy_alumina_solution": "Alumina Solution",
+	"sfy_aluminum_scrap": "Aluminum Scrap",
+	"sfy_alclad_aluminum_sheet": "Alclad Aluminum Sheet",
+	"sfy_aluminum_casing": "Aluminum Casing",
+	"sfy_ai_limiter": "AI Limiter",
+	"sfy_crystal_oscillator": "Crystal Oscillator",
+	"sfy_radio_control_unit": "Radio Control Unit",
+	"sfy_sulfuric_acid": "Sulfuric Acid",
+	"sfy_high_speed_connector": "High-Speed Connector",
+	"sfy_battery": "Battery",
+	"sfy_supercomputer": "Supercomputer",
+	"sfy_encased_uranium_cell": "Encased Uranium Cell",
+	"sfy_electromagnetic_control_rod": "Electromagnetic Control Rod",
+	"sfy_uranium_fuel_rod": "Uranium Fuel Rod",
+	"sfy_heat_sink": "Heat Sink",
+	"sfy_cooling_system": "Cooling System",
+	"sfy_fused_modular_frame": "Fused Modular Frame",
+	"sfy_turbo_motor": "Turbo Motor",
+	"sfy_copper_powder": "Copper Powder",
+	"sfy_pressure_conversion_cube": "Pressure Conversion Cube",
+	"sfy_nuclear_pasta": "Nuclear Pasta",
+	"sfy_time_crystal": "Time Crystal",
+	"sfy_ficsite_trigon": "BIG Inc. Trigon",
+	"sfy_reanimated_sam": "Reanimated Sam",
+	"sfy_sam_fluctuator": "Sam Fluctuator",
+	"sfy_dark_matter_residue": "Dark Matter Residue",
+	"sfy_excited_photonic_matter": "Excited Photonic Matter",
+	"sfy_dark_matter_crystal": "Dark Matter Crystal",
+	"sfy_superposition_oscillator": "Superposition Oscillator",
+	"sfy_neural_quantum_processor": "Neural-Quantum Processor",
+	"sfy_singularity_cell": "Singularity Cell",
+		
+	"sfy_smart_plating": "Smart Plating",
+	"sfy_versatile_framework": "Versatile Framework",
+	"sfy_automated_wiring": "Automated Wiring",
+	"sfy_modular_engine": "Modular Engine",
+	"sfy_adaptive_control_unit": "Adaptive Control Unit",
+	"sfy_assembly_director_system": "Assembly Director System",
+	"sfy_magnetic_field_generator": "Magnetic Field Generator",
+	"sfy_nuclear_pasta": "Nuclear Pasta",
+	"sfy_thermal_propulsion_rocket": "Thermal Propulsion Rocket",
+	"sfy_biochemical_sculptor": "Biochemical Sculptor",
+	"sfy_ai_expansion_server": "AI Expansion Server",
+	"sfy_ballistic_warp_drive": "Ballistic Warp Drive",
 }

@@ -14,12 +14,11 @@ export const useAppStore = defineStore({
 
     state: () => { return {
 		
-		collapsed: [],
+		corrupted: false,
 		currentModalId: null,
         currentScenarioId: null,
 		error: null,
 		firstTime: true,
-		gameTabId: 'milestones',
 		isAppRunning: false,
 		loaded: false,
 		lastSavedTime: Date.now(),	
@@ -27,7 +26,8 @@ export const useAppStore = defineStore({
 		loopInterval: null,
 		offlineTime: 0,
 		resetInProgress: false,
-		version: 0.08,
+		sidebarOpen: false,
+		version: 0.09,
 		
         scenarios: [ sfy_vanilla ],
     }},
@@ -36,8 +36,6 @@ export const useAppStore = defineStore({
         
         localStorageData: (state) => { return localStorage.getItem(state.localStorageName) },
 
-		isCollapsed: (state) => (group) => { return state.collapsed.includes(group) },
-		
 		currentScenario: (state) => { return state.scenarios.find(s => s.id == state.currentScenarioId) },
     },
     
@@ -62,6 +60,12 @@ export const useAppStore = defineStore({
 					loadedData = JSON.parse(text)
 					
 					console.log(loadedData)
+					
+					if (!loadedData.version) {
+						
+						this.corrupted = true
+						return
+					}
 					
 					this.loadAppState(loadedData)
 					
@@ -91,10 +95,8 @@ export const useAppStore = defineStore({
 		
 		loadAppState(loadedData) {
 			
-			this.collapsed = loadedData.collapsed ?? this.collapsed
 			this.currentScenarioId = loadedData.currentScenarioId ?? this.currentScenarioId
 			this.firstTime = loadedData.firstTime ?? this.firstTime
-			this.gameTabId = loadedData.gameTabId ?? this.gameTabId
 			this.lastSavedTime = loadedData.lastSavedTime ?? this.lastSavedTime
 		},
 		
@@ -119,11 +121,10 @@ export const useAppStore = defineStore({
 			
 			let appState = {}
 			
-			appState.collapsed = this.collapsed
 			appState.currentScenarioId = this.currentScenarioId
 			appState.firstTime = this.firstTime
-			appState.gameTabId = this.gameTabId
 			appState.lastSavedTime = this.lastSavedTime
+			appState.version = this.version
 			
 			let gameStore = useGameStore()
 			gameStore.saveGameState(appState)
@@ -163,7 +164,7 @@ export const useAppStore = defineStore({
             this.resetInProgress = true
             
             localStorage.setItem(this.localStorageName, importData)
-            window.location.replace('/fgfactory/game')
+            window.location.replace('/fgfactory')
         },
 
         wipeAppState() {
@@ -171,7 +172,7 @@ export const useAppStore = defineStore({
             this.resetInProgress = true
 
             localStorage.removeItem(this.localStorageName)
-            window.location.replace('/fgfactory/game')
+            window.location.replace('/fgfactory')
         },
 		
 		startGameLoop() {
@@ -233,16 +234,6 @@ export const useAppStore = defineStore({
             let node = document.getElementById(modalElementId)
             let modal = new bootstrap.Modal(node)
             modal.show()
-        },
-		
-        toggleCollapsed(group) {
-			
-			if (this.isCollapsed(group)) {
-				
-				let index = this.collapsed.indexOf(group)
-				this.collapsed.splice(index, 1)
-			}
-			else this.collapsed.push(group)
         },
     },
 })

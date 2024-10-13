@@ -51,7 +51,7 @@
     --bs-border-color-translucent: rgba(0, 0, 0, 0.5);
     --bs-border-radius: 0.5rem;
     
-    --bs-box-shadow: 0px 0.5rem 0.5rem 5px rgba(0, 0, 0, 0.15);
+    --bs-box-shadow: 0px 0.35rem 0.35rem 0.35rem rgba(0, 0, 0, 0.25);
 }
 
 html, body, #__nuxt {
@@ -241,6 +241,15 @@ a {
     background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity, 1)) !important;
 }
 
+.text-subtitle {
+	
+	text-transform: uppercase !important;
+	font-size: .875em;
+	opacity: .5;
+	color: var(--bs-white) !important;
+	font-weight: bold !important;
+}
+
 .btn {
     
     --bs-btn-padding-x: calc(var(--bs-spacer) * .75);
@@ -305,7 +314,7 @@ a {
     --bs-btn-hover-bg: #3d444e;
     --bs-btn-hover-border-color: var(--bs-border-color-translucent);
     --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #434a54;
+    --bs-btn-active-bg: var(--bs-secondary);
     --bs-btn-active-border-color: var(--bs-border-color-translucent);
     --bs-btn-disabled-color: var(--bs-body-color);
     --bs-btn-disabled-bg: var(--bs-secondary);
@@ -402,6 +411,8 @@ a {
 
 .badge {
     
+	--bs-badge-padding-x: 0.5em;
+    --bs-badge-padding-y: 0.25em;
     --bs-badge-font-size: 0.8em;
 
     display: inline;
@@ -471,11 +482,11 @@ a {
 .list-group {
 
     --bs-list-group-color: var(--bs-body-color);
-    --bs-list-group-bg: var(--bs-body-bg);
+    --bs-list-group-bg: var(--bs-dark);
     --bs-list-group-border-color: var(--bs-border-color-translucent);
     --bs-list-group-border-width: var(--bs-border-width);
     --bs-list-group-border-radius: var(--bs-border-radius);
-    --bs-list-group-item-padding-x: calc(var(--bs-spacer) * .5);
+    --bs-list-group-item-padding-x: calc(var(--bs-spacer) * .75);
     --bs-list-group-item-padding-y: calc(var(--bs-spacer) * .5);
     --bs-list-group-action-color: var(--bs-secondary-color);
     --bs-list-group-action-hover-color: var(--bs-emphasis-color);
@@ -525,13 +536,16 @@ a {
     --bs-modal-padding: var(--bs-spacer);
     --bs-modal-color: var(--bs-body-color);
     --bs-modal-bg: var(--bs-body-bg);
-    --bs-modal-border-color: var(--bs-border-color);
+    --bs-modal-border-color: var(--bs-border-color-translucent);
     --bs-modal-border-width: var(--bs-border-width);
     --bs-modal-border-radius: var(--bs-border-radius);
     --bs-modal-header-padding-x: var(--bs-spacer);
     --bs-modal-header-padding-y: calc(var(--bs-spacer) * .75);
     --bs-modal-header-padding: calc(var(--bs-spacer) * .75) var(--bs-spacer);
     --bs-modal-header-border-width: var(--bs-border-width);
+    --bs-modal-header-border-color: var(--bs-border-color-translucent);
+    
+    box-shadow: var(--bs-box-shadow);
 }
 
 .modal-header {

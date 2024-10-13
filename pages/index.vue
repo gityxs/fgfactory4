@@ -1,7 +1,7 @@
 <script setup>
     
     const router = useRouter()
-    router.push('/game')
+    router.push('/milestones')
 
 </script>
 

@@ -7,45 +7,29 @@ class Elem {
         let names = Object.getOwnPropertyNames(data) 
         names.forEach(name => { Object.defineProperty(this, name, Object.getOwnPropertyDescriptor(data, name)) })
 		
-		this.count = this.count ? this.count : 0
-		this.max = this.max ? this.max : Infinity
-		this.notified = false
 		this.unlocked = this.reqs ? false : true
-		
-		if (this.assign) {
-			
-			if (!this.assign.count) this.assign.count = 0
-			if (!this.select) this.select = { count:1, values:[ 1 ] }
-		}
-		
-		if (this.build) {
-			
-			if (!this.build.status) this.build.status = 'waiting'
-			if (!this.select) this.select = { count:1, values:[ 1 ] }
-		}
+		this.notified = false
 	}
 
     load(data) {
 		
         if (data.assignCount) this.assign.count = data.assignCount
         if (data.count) this.count = data.count
-		if (data.notified) this.notified = data.notified
-        if (data.remainingSeconds) this.build.remainingSeconds = data.remainingSeconds
-        if (data.selectCount) this.select.count = data.selectCount
-        if (data.status) this.build.status = data.status        
+        if (data.notified) this.notified = data.notified
+        if (data.remainingSeconds) this.remainingSeconds = data.remainingSeconds
+        if (data.status) this.status = data.status        
 	}
     
     getDataToSave() {
         
         let data = {}
-
+		
         if (this.assign) data.assignCount = this.assign.count
-        if (this.build && this.build.remainingSeconds) data.remainingSeconds = this.build.remainingSeconds
-        if (this.build && this.build.status) data.status = this.build.status
+        if (this.notified) data.notified = this.notified
+        if (this.remainingSeconds) data.remainingSeconds = this.remainingSeconds
+        if (this.status) data.status = this.status
         if (this.count) data.count = this.count
-        if (this.id) data.id = this.id
-		if (this.notified) data.notified = this.notified
-        if (this.select) data.selectCount = this.select.count
+        if (this.id) data.id = this.id		
         
         return data
     }
@@ -57,15 +41,32 @@ export const useGameStore = defineStore({
 
     state: () => { return {
 		
-        elems: [],		
+        elems: [],
+		
 		victory: false,
+		victoryReqs: null,
     }},
     
     getters: {
         
 		getElem: (state) => (id) => { return state.elems.find(e => e.id == id) },
-        		
-        checkElemCounts: (state) => (counts) => {
+        
+		isVictoryReached: (state) => {
+			
+			if (state.victory) return false			
+			if (state.victoryReqs && state.checkCounts(state.victoryReqs)) return true
+			
+			return false
+		},
+		
+		getCosts: (state) => (elem) => { return elem.costs },
+		getInputs: (state) => (elem) => { return elem.inputs },
+		getOutputs: (state) => (elem) => { return elem.outputs },
+		getResults: (state) => (elem) => { return elem.results },
+		getUpgrades: (state) => (elem) => { return elem.upgrades },
+		getStorages: (state) => (elem) => { return elem.storages },
+		
+        checkCounts: (state) => (counts) => {
             
             let check = true
             
@@ -77,8 +78,8 @@ export const useGameStore = defineStore({
             
             return check
         },
-        
-        checkElemProds: (state) => (prods) => {
+
+        checkProds: (state) => (prods) => {
             
             let check = true
             
@@ -90,7 +91,20 @@ export const useGameStore = defineStore({
             
             return check
         },
-        
+
+        checkResults: (state) => (results) => {
+            
+            let check = true
+            
+            for (let id in results) {
+                
+                let elem = state.getElem(id)
+                if (elem.count + results[id] > elem.max) check = false
+            }
+            
+            return check
+        },
+		
         getAvailableCount: (state) => (elemId) => {
             
             let elem = state.getElem(elemId)
@@ -101,118 +115,26 @@ export const useGameStore = defineStore({
             
             return ret
         },
-		
-        getBuildCosts: (state) => (elem) => {
+
+        checkAvailables: (state) => (availables) => {
             
-            if (elem.build && elem.build.costs) {
+            let check = true
+            
+            for (let id in availables) {
                 
-                let ret = {}
-                
-                for (let id in elem.build.costs) ret[id] = elem.build.costs[id] * elem.select.count
-                
-                return ret
+                let availableCount = state.getAvailableCount(id)
+                if (availableCount < availables[id]) check = false
             }
             
-            return null
+            return check
         },
-        
-        getBuildInputs: (state) => (elem) => {
-            
-            if (elem.build && elem.build.inputs) {
-                
-                let ret = {}
-                
-                for (let id in elem.build.inputs) ret[id] = elem.build.inputs[id] * elem.select.count
-                
-                return ret
-            }
-            
-            return null
-        },
-		
-        getBuildResults: (state) => (elem) => {
-            
-            if (elem.build && elem.build.result) {
-                
-                let ret = {}                
-                ret[elem.id] = elem.build.result * elem.select.count
-                
-				if (elem.build.rewards) {					
-					for (let id in elem.build.rewards) ret[id] = elem.build.rewards[id] * elem.select.count
-				}
-				
-                return ret
-            }
-            
-            return null
-        },
-		
-        getAssignCosts: (state) => (elem) => {
-            
-            if (elem.assign && elem.assign.costs) {
-                
-                let ret = {}
-                
-                for (let id in elem.assign.costs) ret[id] = elem.assign.costs[id] * elem.select.count
-                
-                return ret
-            }
-            
-            return null
-        },
-        
-        getAssignInputs: (state) => (elem) => {
-            
-            if (elem.assign && elem.assign.inputs) {
-                
-                let ret = {}
-                
-                for (let id in elem.assign.inputs) ret[id] = elem.assign.inputs[id] * elem.select.count
-                
-                return ret
-            }
-            
-            return null
-        },
-        
-        getAssignOutputs: (state) => (elem) => {
-            
-            if (elem.assign && elem.assign.output) {
-                
-                let ret = {}
-                ret[elem.assign.output.id] = elem.assign.output.count * elem.select.count
-                
-                return ret
-            }
-            
-            return null
-        },
-        
-        getAssignStorages: (state) => (elem) => {
-            
-            if (elem.assign && elem.assign.storage) {
-                
-                let ret = {}
-                ret[elem.assign.storage.id] = elem.assign.storage.count * elem.select.count
-                
-                return ret
-            }
-            
-            return null
-        },
-		
-		isVictoryReached: (state) => {
-			
-			if (state.victory) return false
-			if (state.terraformationIndex >= 5e12) return true
-			
-			return false
-		},
     },
     
     actions: {
 		
 		loadScenario(scenario) {
+			
+			this.victoryReqs = scenario.victoryReqs
 			
             let elems = scenario.elems
             elems.forEach(e => {
@@ -220,6 +142,17 @@ export const useGameStore = defineStore({
                 let newElem = new Elem(e)
                 this.elems.push(newElem)
             })
+			
+			let buildings = this.elems.filter(e => e.type == 'building')
+			buildings.forEach(b => {
+				
+				let assignments = this.elems.filter(e => e.assign && e.assign.id == b.id)
+				assignments.forEach(a => {
+					
+					a.reqs = b.reqs
+					a.unlocked = false
+				})
+			})
 		},
 		
 		loadGameState(loadedData) {
@@ -229,46 +162,42 @@ export const useGameStore = defineStore({
                 let elem = this.getElem(loadedElem.id)
                 if (elem) elem.load(loadedElem)
             })
-		
-			this.victory = loadedData.victory ?? this.victory
 			
 			let unlocks = this.elems.filter(e => e.reqs)
-			unlocks.forEach(unlock => { unlock.unlocked = this.checkElemCounts(unlock.reqs) })
+			unlocks.forEach(u => { u.unlocked = this.checkCounts(u.reqs) })
 			
-			let assignments = this.elems.filter(e => (e.assign && e.assign.count > 0) || (e.build && e.build.inputs && e.count > 0))
-			assignments.forEach(assignment => {
+			let assignments = this.elems.filter(e => e.assign && e.assign.count > 0)
+			assignments.forEach(a => {
 				
-				if (assignment.build && assignment.build.inputs) {
-					for (let id in assignment.build.inputs) {
+				if (a.inputs) {
+					for (let id in a.inputs) {
 					
 						let elem = this.getElem(id)
-						elem.prod -= assignment.build.inputs[id] * assignment.count
+						elem.prod -= a.inputs[id] * a.assign.count
 						elem.prod = Math.round(elem.prod * 100) / 100
 					}
 				}
 				
-				if (assignment.assign && assignment.assign.inputs) {
-					for (let id in assignment.assign.inputs) {
+				if (a.outputs) {
+					for (let id in a.outputs) {
 					
 						let elem = this.getElem(id)
-						elem.prod -= assignment.assign.inputs[id] * assignment.assign.count
+						elem.prod += a.outputs[id] * a.assign.count
 						elem.prod = Math.round(elem.prod * 100) / 100
 					}
 				}
 				
-				if (assignment.assign && assignment.assign.output) {
+				if (a.storages) {
+					for (let id in a.storages) {
 					
-					let elem = this.getElem(assignment.assign.output.id)
-					elem.prod += assignment.assign.output.count * assignment.assign.count
-					elem.prod = Math.round(elem.prod * 100) / 100
-				}
-				
-				if (assignment.assign && assignment.assign.storage) {
-					
-					let elem = this.getElem(assignment.assign.storage.id)
-					elem.max += assignment.assign.storage.count * assignment.assign.count
+						let elem = this.getElem(id)
+						elem.max += a.storages[id] * a.assign.count
+						elem.max = Math.round(elem.max * 100) / 100
+					}
 				}
 			})
+		
+			this.victory = this.checkCounts(this.victoryReqs)
 		},
 
 		computeOfflineProgress(seconds) {
@@ -286,18 +215,18 @@ export const useGameStore = defineStore({
 		
 		doTick(seconds) {
 			
-            let buildings = this.elems.filter(elem => elem.build && elem.build.status === 'started')
-            buildings.forEach(elem => {
+            let manuals = this.elems.filter(e => e.status === 'started')
+            manuals.forEach(m => {
                 
-                elem.build.remainingSeconds -= seconds
-                if (elem.build.remainingSeconds <= 0) this.onBuild(elem)
+                m.remainingSeconds -= seconds
+                if (m.remainingSeconds <= 0) this.onBuild(m)
             })
 			
-            let productions = this.elems.filter(elem => elem.prod > 0 && elem.count < elem.max)
-            productions.forEach(elem => {
+            let productions = this.elems.filter(e => e.prod > 0 && e.count < e.max)
+            productions.forEach(p => {
                 
-                elem.count += elem.prod * seconds				
-                if (elem.count >= elem.max) elem.count = elem.max                    
+                p.count += p.prod * seconds				
+                if (p.count >= p.max) p.count = p.max                    
             })
 		},
 		
@@ -305,16 +234,16 @@ export const useGameStore = defineStore({
 			
 			this.victory = true
 		},
-		
+
 		onBuild(elem) {
 			
-			if (elem.build) {
+			if (elem.status) {
 				
-				if (elem.build.status) elem.build.status = 'waiting'
-				if (elem.build.remainingSeconds) elem.build.remainingSeconds = 0
+				elem.status = 'waiting'
+				elem.remainingSeconds = 0
 			}
 			
-			let results = this.getBuildResults(elem)
+			let results = this.getResults(elem)
 			if (results) {
 				for (let id in results) {
 					
@@ -328,12 +257,16 @@ export const useGameStore = defineStore({
 				}
 			}
 			
-			let unlocks = this.elems.filter(e => e.reqs && e.unlocked == false)
-			unlocks.forEach(unlock => {
+			let unlocks = this.elems.filter(e => e.reqs)
+			unlocks.forEach(unlock => { 
 				
-				unlock.notified = true
-				unlock.unlocked = this.checkElemCounts(unlock.reqs)
-			})			
+				let newUnlocked = this.checkCounts(unlock.reqs)
+				if (newUnlocked != unlock.unlocked) {
+					
+					unlock.unlocked = newUnlocked
+					unlock.notified = true 
+				}
+			})
 		},
     },
 })
