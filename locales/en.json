@@ -137,7 +137,7 @@
 	"sfy_gas_extractor": "Gas Extractor",
 		
 	"sfy_smelter": "Smelter",
-	"sfy_constructor": "Constructor",
+	"sfy_builder": "Constructor",
 	"sfy_assembler": "Assembler",
 	"sfy_foundry": "Foundry",
 	"sfy_refinery": "Refinery",
