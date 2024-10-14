@@ -9,6 +9,8 @@ class Elem {
 		
 		this.unlocked = this.reqs ? false : true
 		this.notified = false
+		
+		if (this.assign) this.assign.count = 0
 	}
 
     load(data) {
@@ -134,6 +136,9 @@ export const useGameStore = defineStore({
 		
 		loadScenario(scenario) {
 			
+			this.elems = []
+			
+			this.victory = false
 			this.victoryReqs = scenario.victoryReqs
 			
             let elems = scenario.elems

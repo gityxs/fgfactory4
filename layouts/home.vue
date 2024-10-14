@@ -181,6 +181,13 @@
 					</div>
 					
 					<div class="col-auto">
+						<NuxtLink :to="localePath('/scenarios')" class="btn btn-primary d-flex align-items-center" exactActiveClass="active" @click="appStore.sidebarOpen = false;">
+							<span class="ms-0"><font-awesome-icon icon="fas fa-list" /></span>
+							<span class="d-none d-lg-inline ms-2">{{ $t('page_scenarios') }}</span>
+						</NuxtLink>
+					</div>
+					
+					<div class="col-auto">
 						<NuxtLink :to="localePath('/options')" class="btn btn-primary d-flex align-items-center" exactActiveClass="active" @click="appStore.sidebarOpen = false;">
 							<span class="ms-0"><font-awesome-icon icon="fas fa-cog" /></span>
 							<span class="d-none d-lg-inline ms-2">{{ $t('page_options') }}</span>

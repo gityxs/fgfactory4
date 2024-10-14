@@ -31,6 +31,11 @@
     
 	"modalWelcome_title": "Welcome",
 	"modalWelcome_close": "Let's go!",
+
+    "modalScenario_title": "Change scenario",
+    "modalScenario_text": "Are you sure you want to change scenario?",
+    "modalScenario_info": "You will lose your current progression and you will start the new scenario at the beginning.",
+    "modalScenario_close": "Change",
 	
     "toast_close": "Close",
     "toast_export": "Local data copied in clipboard!",
@@ -59,6 +64,7 @@
     "page_buildings": "Buildings",
     "page_milestones": "Milestones",
     "page_options": "Options",
+    "page_scenarios": "Scenarios",
 	
 	"word_costs": "Costs",
 	"word_count": "Count",

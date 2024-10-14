@@ -27,7 +27,7 @@ export const useAppStore = defineStore({
 		offlineTime: 0,
 		resetInProgress: false,
 		sidebarOpen: false,
-		version: 0.10,
+		version: 0.11,
 		
         scenarios: [ sfy_vanilla ],
     }},
@@ -182,7 +182,6 @@ export const useAppStore = defineStore({
 			
 			let fps = 1 / 60
 			let lastFrameTime = performance.now()
-			let seconds = 0
 			
 			let AppLoop = () => {
 
@@ -190,15 +189,8 @@ export const useAppStore = defineStore({
 				
 				let currentTime = performance.now()
 				
-				let delta = (currentTime - lastFrameTime) / 1000
-				seconds += delta
-				
-				if (seconds >= fps) {
-					
-					gameStore.doTick(fps)
-					
-					seconds -= fps
-				}
+				let seconds = (currentTime - lastFrameTime) / 1000
+				gameStore.doTick(seconds)
 				
 				lastFrameTime = currentTime
 
