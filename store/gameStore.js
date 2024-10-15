@@ -171,6 +171,21 @@ export const useGameStore = defineStore({
 			let unlocks = this.elems.filter(e => e.reqs)
 			unlocks.forEach(u => { u.unlocked = this.checkCounts(u.reqs) })
 			
+			let buildings = this.elems.filter(e => e.type == 'building' && e.count > 0)
+			buildings.forEach(b => {
+				
+				let manuals = this.elems.filter(e => e.type == 'manual' && e.results[b.id] && e.inputs)
+				manuals.forEach(m => {
+					
+					for (let id in m.inputs) {
+						
+						let elem = this.getElem(id)
+						elem.prod -= m.inputs[id] * b.count
+						elem.prod = Math.round(elem.prod * 100) / 100
+					}
+				})
+			})
+			
 			let assignments = this.elems.filter(e => e.assign && e.assign.count > 0)
 			assignments.forEach(a => {
 				
