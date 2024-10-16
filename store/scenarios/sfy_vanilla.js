@@ -522,7 +522,7 @@ sfy_vanilla.elems = [
 	{	type:'producer',	id:'producer_uranium_3',	outputs:{ 'uranium':4 },	assign:{ id:'miner_3', count:0 },	costs:{ 'energy':45e6 },	},
 	{	type:'producer',	id:'producer_sam_3',	outputs:{ 'sam':4 },	assign:{ id:'miner_3', count:0 },	costs:{ 'energy':45e6 },	},
 
-	{	type:'producer',	id:'producer_water',	outputs:{ 'water':1 },	assign:{ id:'water_extractor', count:0 },	costs:{ 'energy':20e6 },	},
+	{	type:'producer',	id:'producer_water',	outputs:{ 'water':2 },	assign:{ id:'water_extractor', count:0 },	costs:{ 'energy':20e6 },	},
 
 	{	type:'producer',	id:'producer_crude_oil',	outputs:{ 'crude_oil':1 },	assign:{ id:'oil_extractor', count:0 },	costs:{ 'energy':40e6 },	},
 
