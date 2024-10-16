@@ -272,7 +272,6 @@ sfy_vanilla.elems = [
 	{	type:'manual',	id:'manual_quartz_crystal',	results:{ 'quartz_crystal':3 },	status:'waiting',	seconds:0.25*8,	costs:{ 'raw_quartz':5 },	},
 	{	type:'manual',	id:'manual_quickwire',	results:{ 'quickwire':5 },	status:'waiting',	seconds:0.25*5,	costs:{ 'caterium_ingot':1 },	},
 	{	type:'manual',	id:'manual_radio_control_unit',	results:{ 'radio_control_unit':2 },	status:'waiting',	seconds:0.25*24,	costs:{ 'aluminum_casing':32, 'crystal_oscillator':1, 'computer':2 },	},
-	{	type:'manual',	id:'manual_high_speed_connector',	results:{ 'high_speed_connector':1 },	status:'waiting',	seconds:0.25*8,	costs:{ 'quickwire':56, 'cable':10, 'circuit_board':1 },	},
 	{	type:'manual',	id:'manual_reanimated_sam',	results:{ 'reanimated_sam':1 },	status:'waiting',	seconds:0.25*1,	costs:{ 'sam':4 },	},
 	{	type:'manual',	id:'manual_reinforced_iron_plate',	results:{ 'reinforced_iron_plate':1 },	status:'waiting',	seconds:0.25*6,	costs:{ 'iron_plate':6, 'screw':12 },	},
 	{	type:'manual',	id:'manual_rotor',	results:{ 'rotor':1 },	status:'waiting',	seconds:0.25*6,	costs:{ 'iron_rod':5, 'screw':25 },	},
