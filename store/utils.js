@@ -71,8 +71,6 @@ export const formatNumber = function(value, unit, fixed) {
 		ret = (Math.floor(100 * absValue) / 100)
 		if (fixed >= 0) ret = ret.toFixed(fixed)
 	}
-
-    if (absValue >= 1e3 && fixed >= 0) ret = ret.toFixed(fixed)
     
     let unitSymbol = unit ? unit : ''
     return sign + ret.toLocaleString() + (symbol ? ' ' + symbol + unitSymbol : (unit ? ' ' + unit : ''))

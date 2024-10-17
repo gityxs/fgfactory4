@@ -66,8 +66,10 @@
     "page_options": "Options",
     "page_scenarios": "Scenarios",
 	
+	"word_consumers": "Consumers",
 	"word_costs": "Costs",
 	"word_count": "Count",
+	"word_generators": "Generators",
 	"word_inputs": "Inputs",
 	"word_manuals": "Handcrafting",
 	"word_outputs": "Outputs",

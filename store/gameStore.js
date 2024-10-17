@@ -10,7 +10,41 @@ class Elem {
 		this.unlocked = this.reqs ? false : true
 		this.notified = false
 		
-		if (this.assign) this.assign.count = 0
+		if (this.type == 'milestone') {
+			
+			this.max = this.max ? this.max : 1
+			this.count = this.count ? this.count : 0
+		}
+		else if (this.type == 'power') {
+			
+			this.max = this.max ? this.max : Infinity
+			this.count = this.count ? this.count : 0
+		}
+		else if (this.type == 'generator') {
+			
+			this.max = this.max ? this.max : Infinity
+			this.count = this.count ? this.count : 0
+		}
+		else if (this.type == 'building') {
+			
+			this.max = this.max ? this.max : Infinity
+			this.count = this.count ? this.count : 0
+		}
+		else if (this.type == 'item') {
+			
+			this.prod = this.prod ? this.prod : 0
+			this.count = this.count ? this.count : 0
+		}
+		else if (this.type == 'storer') {
+			
+			this.mainId = Object.keys(this.storages)[0]
+			this.assign.count = this.assign.count ? this.assign.count : 0
+		}
+		else if (this.type == 'producer') {
+			
+			this.mainId = Object.keys(this.outputs)[0]
+			this.assign.count = this.assign.count ? this.assign.count : 0
+		}
 	}
 
     load(data) {
@@ -147,6 +181,14 @@ export const useGameStore = defineStore({
                 let newElem = new Elem(e)
                 this.elems.push(newElem)
             })
+			
+			elems = this.elems.filter(e => e.mainId)
+			elems.forEach(e => {
+				
+				let main = this.getElem(e.mainId)
+				e.img = main.img
+				e.name = main.name
+			})
 			
 			let buildings = this.elems.filter(e => e.type == 'building')
 			buildings.forEach(b => {
