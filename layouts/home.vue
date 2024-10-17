@@ -86,7 +86,7 @@
 	const buildings = computed(() => gameStore.elems.filter(e => e.unlocked && e.type == 'building').length)
 	const newBuildings = computed(() => gameStore.elems.filter(e => e.unlocked && e.notified && e.type == 'building').length)
 	
-	const groups = computed(() => [...new Set(gameStore.elems.filter(e => e.unlocked && e.type == 'item').map(e => e.group))])	
+	const groups = computed(() => [...new Set(gameStore.elems.filter(e => (appStore.showLocked ? true : e.unlocked) && e.type == 'item').map(e => e.group))])	
 	
 </script>
 

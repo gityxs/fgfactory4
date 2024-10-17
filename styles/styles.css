@@ -442,6 +442,22 @@ a {
     opacity: .25;
 }
 
+.form-check {
+	
+	min-height: auto;
+	margin-bottom: 0;
+}
+.form-check-input:checked {
+	
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+.form-check-input:focus {
+	
+    border-color: var(--bs-primary);
+	box-shadow: 0 0 0 .25rem rgba(var(--bs-primary-rgb), .25);
+}
+
 .progress {
     
     --bs-progress-font-size: var(--bs-body-font-size);

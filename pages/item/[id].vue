@@ -5,15 +5,18 @@
     definePageMeta({ layout:'home' })
 	
 	const route = useRoute()
+
+    import { useAppStore } from '~/store/appStore.js'    
+    const appStore = useAppStore()
     
     import { useGameStore } from '~/store/gameStore.js'    
     const gameStore = useGameStore()
 
 	const item = computed(() => gameStore.elems.find(e => e.type == 'item' && e.id == route.params.id))
 
-	const storers = computed(() => gameStore.elems.filter(e => e.unlocked && e.type == 'storer' && e.storages[route.params.id]))
-	const manuals = computed(() => gameStore.elems.filter(e => e.unlocked && e.type == 'manual' && e.results[route.params.id]))
-	const producers = computed(() => gameStore.elems.filter(e => e.unlocked && e.type == 'producer' && e.outputs[route.params.id]))
+	const storers = computed(() => gameStore.elems.filter(e => (appStore.showLocked ? true : e.unlocked) && e.type == 'storer' && e.storages[route.params.id]))
+	const manuals = computed(() => gameStore.elems.filter(e => (appStore.showLocked ? true : e.unlocked) && e.type == 'manual' && e.results[route.params.id]))
+	const producers = computed(() => gameStore.elems.filter(e => (appStore.showLocked ? true : e.unlocked) && e.type == 'producer' && e.outputs[route.params.id]))
 	
 	const consumers = computed(() => {
 	
@@ -130,7 +133,7 @@
 										</div>
 										
 										<div v-for="storer in storers" :key="storer.id" class="col-12">
-											<div class="row gx-2 align-items-center">
+											<div v-if="storer.unlocked" class="row gx-2 align-items-center">
 
 												<div class="col-auto">		
 													<storer-info :id="storer.id" />			
@@ -154,6 +157,19 @@
 												
 												<div class="col-auto">
 													<assign-button :id="storer.id" />
+												</div>
+												
+											</div>
+											<div v-else class="row gx-2 align-items-center">
+											
+												<div class="col-auto">
+													<button type="button" class="btn btn-secondary" disabled>
+														<font-awesome-icon icon="fas fa-lock" fixed-width />
+													</button>
+												</div>
+												
+												<div class="col text-truncate">
+													<span class="opacity-50">{{ $t('word_locked') }}</span>
 												</div>
 												
 											</div>
@@ -196,7 +212,7 @@
 										</div>
 						
 										<div v-for="producer in producers" :key="producer.id" class="col-12">
-											<div class="row gx-2 align-items-center">
+											<div v-if="producer.unlocked" class="row gx-2 align-items-center">
 
 												<div class="col-auto">		
 													<producer-info :id="producer.id" />			
@@ -222,6 +238,19 @@
 													<assign-button :id="producer.id" />
 												</div>
 
+											</div>
+											<div v-else class="row gx-2 align-items-center">
+											
+												<div class="col-auto">
+													<button type="button" class="btn btn-secondary" disabled>
+														<font-awesome-icon icon="fas fa-lock" fixed-width />
+													</button>
+												</div>
+												
+												<div class="col text-truncate">
+													<span class="opacity-50">{{ $t('word_locked') }}</span>
+												</div>
+												
 											</div>
 										</div>
 

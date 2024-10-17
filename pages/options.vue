@@ -95,16 +95,32 @@
 				<div class="card">
 				
 					<div class="card-header">
-						<span class="fs-6 text-white">{{ $t('options_language') }}</span>
+						<span class="fs-6 text-white">{{ $t('options_settings') }}</span>
 					</div>
 
 					<div class="card-body">
 						<div class="row g-2">
+
 							<div v-for="l in locales" :key="l.code" class="col-auto">
 								<button type="button" class="btn btn-secondary" :class="{ 'text-bg-primary': locale == l.code }" @click="changeLocale(l.code)">
 									<img :src="'/fgfactory/flags/' + l.code + '.png'" width="24" height="24" />
 								</button>
 							</div>
+
+							<div class="col-12">
+								<div class="ms-1 form-check">
+									<input type="checkbox" class="form-check-input" id="showLocked" v-model="appStore.showLocked">
+									<label class="form-check-label" for="showLocked">{{ $t('options_showLocked') }}</label>
+								</div>
+							</div>
+							
+							<div class="col-12">
+								<div class="ms-1 form-check">
+									<input type="checkbox" class="form-check-input" id="showCompleted" v-model="appStore.showCompleted">
+									<label class="form-check-label" for="showCompleted">{{ $t('options_showCompleted') }}</label>
+								</div>
+							</div>
+							
 						</div>
 					</div>
 

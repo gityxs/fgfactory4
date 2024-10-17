@@ -2,11 +2,14 @@
     
     definePageMeta({ layout:'home', title:'page_milestones' })
 
+    import { useAppStore } from '~/store/appStore.js'    
+    const appStore = useAppStore()
+
     import { useGameStore } from '~/store/gameStore.js'    
     const gameStore = useGameStore()
     
-	const groups = computed(() => [...new Set(gameStore.elems.filter(e => e.unlocked && e.type == 'milestone').map(e => e.group))])
-	const ids = function(group) { return gameStore.elems.filter(e => e.unlocked && e.type == 'milestone' && e.group == group).map(e => e.id) }
+	const groups = computed(() => [...new Set(gameStore.elems.filter(e => (appStore.showLocked ? true : e.unlocked) && e.type == 'milestone' && (e.count < 1 || appStore.showCompleted)).map(e => e.group))])
+	const ids = function(group) { return gameStore.elems.filter(e => (appStore.showLocked ? true : e.unlocked) && e.type == 'milestone' && e.group == group && (e.count < 1 || appStore.showCompleted)).map(e => e.id) }
 	
 </script>
 
@@ -19,7 +22,7 @@
 				<div class="card">
 					
 					<div class="card-header">
-						<span class="fs-6 text-white">{{ $t(group) }}</span>
+						<milestone-group :group="group" />
 					</div>
 					
 					<div class="list-group list-group-flush">

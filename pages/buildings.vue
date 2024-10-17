@@ -2,13 +2,16 @@
     
     definePageMeta({ layout:'home', title:'page_buildings' })
 
+    import { useAppStore } from '~/store/appStore.js'    
+    const appStore = useAppStore()
+
     import { useGameStore } from '~/store/gameStore.js'    
     const gameStore = useGameStore()
     
-	const generators = computed(() => gameStore.elems.filter(e => e.unlocked && e.type == 'generator'))
+	const generators = computed(() => gameStore.elems.filter(e => (appStore.showLocked ? true : e.unlocked) && e.type == 'generator'))
 	
-	const groups = computed(() => [...new Set(gameStore.elems.filter(e => e.unlocked && e.type == 'building').map(e => e.group))])
-	const ids = function(group) { return gameStore.elems.filter(e => e.unlocked && e.type == 'building' && e.group == group).map(e => e.id) }
+	const groups = computed(() => [...new Set(gameStore.elems.filter(e => (appStore.showLocked ? true : e.unlocked) && e.type == 'building').map(e => e.group))])
+	const ids = function(group) { return gameStore.elems.filter(e => (appStore.showLocked ? true : e.unlocked) && e.type == 'building' && e.group == group).map(e => e.id) }
 	
 	const energyElem = computed(() => gameStore.getElem('energy'))
 	
@@ -19,8 +22,8 @@
 	<div class="container">
 		<div class="row g-3">
 			
-			<div v-if="energyElem.unlocked" class="col-12">				
-				<div class="card card-body">
+			<div v-if="appStore.showLocked ? true : energyElem.unlocked" class="col-12">				
+				<div class="card card-body bg-secondary">
 					<div class="row gx-2 align-items-center">
 						
 						<div class="col">

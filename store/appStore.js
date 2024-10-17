@@ -26,8 +26,10 @@ export const useAppStore = defineStore({
 		loopInterval: null,
 		offlineTime: 0,
 		resetInProgress: false,
+		showCompleted: true,
+		showLocked: false,
 		sidebarOpen: false,
-		version: 0.15,
+		version: 0.16,
 		
         scenarios: [ sfy_vanilla ],
     }},
@@ -98,6 +100,8 @@ export const useAppStore = defineStore({
 			this.currentScenarioId = loadedData.currentScenarioId ?? this.currentScenarioId
 			this.firstTime = loadedData.firstTime ?? this.firstTime
 			this.lastSavedTime = loadedData.lastSavedTime ?? this.lastSavedTime
+			this.showCompleted = loadedData.showCompleted ?? this.showCompleted
+			this.showLocked = loadedData.showLocked ?? this.showLocked
 		},
 		
 		computeOfflineProgress() {
@@ -124,6 +128,8 @@ export const useAppStore = defineStore({
 			appState.currentScenarioId = this.currentScenarioId
 			appState.firstTime = this.firstTime
 			appState.lastSavedTime = this.lastSavedTime
+			appState.showCompleted = this.showCompleted
+			appState.showLocked = this.showLocked
 			appState.version = this.version
 			
 			let gameStore = useGameStore()
