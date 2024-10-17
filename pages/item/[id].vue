@@ -24,9 +24,9 @@
 		let generators = gameStore.elems.filter(e => e.unlocked && e.type == 'generator' && e.count > 0)
 		generators.forEach(g => {
 			
-			let manuals = gameStore.elems.filter(e => e.unlocked && e.type == 'manual' && e.inputs && e.inputs[route.params.id])
+			let manuals = gameStore.elems.filter(e => e.unlocked && e.type == 'manual' && e.results[g.id] && e.inputs && e.inputs[route.params.id])
 			manuals.forEach(m => { 
-			
+				
 				let newConsumer = { id:g.id, img:g.img, name:g.name, inputs:m.inputs, assign:{ count:g.count }}
 				ret.push(newConsumer)
 			})
