@@ -23,37 +23,33 @@
 		<div class="row g-3">
 			
 			<div v-if="appStore.showLocked ? true : energyElem.unlocked" class="col-12">				
-				<div class="card card-body bg-secondary">
-					<div class="row gx-2 align-items-center">
-						
-						<div class="col">
-							<span class="fs-6 text-white">{{ $t(energyElem.name) }}</span>
-						</div>
-						
-						<div class="col-auto">
-							<span class="fs-6 text-white"><img :src="energyElem.img" width="16" height="16" /> <item-count id="energy" /></span>
-						</div>
-						
-					</div>
-				</div>				
-			</div>
-			
-			<div v-if="generators.length > 0" class="col-12">
 				<div class="card">
-					
+				
 					<div class="card-header">
-						<span class="fs-6 text-white">{{ $t('word_generators') }}</span>
-					</div>
-					
-					<div class="list-group list-group-flush">
-						<div v-for="generator in generators" :key="generator.id" class="list-group-item">
-							<generator :id="generator.id" />
+						<div class="row gx-2 align-items-center">
+							
+							<div class="col">
+								<span class="fs-6 text-white">{{ $t(energyElem.name) }}</span>
+							</div>
+							
+							<div class="col-auto">
+								<span class="fs-6 text-white"><img :src="energyElem.img" width="16" height="16" /> <item-count id="energy" /></span>
+							</div>
+							
 						</div>
 					</div>
 
-				</div>
+					<div v-if="generators.length > 0" class="card-body">
+						<div class="row g-1">							
+							<div v-for="generator in generators" :key="generator.id" class="col-12">
+								<generator :id="generator.id" />
+							</div>
+						</div>
+					</div>
+					
+				</div>				
 			</div>
-			
+						
 			<div v-for="group in groups" :key="group" class="col-12">
 				<div class="card">
 					
@@ -61,9 +57,11 @@
 						<span class="fs-6 text-white">{{ $t(group) }}</span>
 					</div>
 					
-					<div class="list-group list-group-flush">
-						<div v-for="id in ids(group)" :key="id" class="list-group-item">
-							<building :id="id" />
+					<div class="card-body">
+						<div class="row g-1">
+							<div v-for="id in ids(group)" :key="id" class="col-12">
+								<building :id="id" />
+							</div>
 						</div>
 					</div>
 

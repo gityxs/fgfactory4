@@ -9,7 +9,9 @@
     const gameStore = useGameStore()
     
 	const groups = computed(() => [...new Set(gameStore.elems.filter(e => (appStore.showLocked ? true : e.unlocked) && e.type == 'milestone' && (e.count < 1 || appStore.showCompleted)).map(e => e.group))])
-	const ids = function(group) { return gameStore.elems.filter(e => (appStore.showLocked ? true : e.unlocked) && e.type == 'milestone' && e.group == group && (e.count < 1 || appStore.showCompleted)).map(e => e.id) }
+
+	const completedIds = function(group) { return gameStore.elems.filter(e => (appStore.showLocked ? true : e.unlocked) && e.type == 'milestone' && e.group == group&& e.count > 0).map(e => e.id) }
+	const uncompletedIds = function(group) { return gameStore.elems.filter(e => (appStore.showLocked ? true : e.unlocked) && e.type == 'milestone' && e.group == group && e.count < 1).map(e => e.id) }
 	
 </script>
 
@@ -25,9 +27,17 @@
 						<milestone-group :group="group" />
 					</div>
 					
-					<div class="list-group list-group-flush">
-						<div v-for="id in ids(group)" :key="id" class="list-group-item">
-							<milestone :id="id" />
+					<div class="card-body">
+						<div class="row g-1">
+
+							<div v-if="appStore.showCompleted" v-for="id in completedIds(group)" :key="id" class="col-6 col-lg-3">
+								<milestone :id="id" />
+							</div>
+							
+							<div v-for="id in uncompletedIds(group)" :key="id" class="col-12">
+								<milestone :id="id" />
+							</div>
+
 						</div>
 					</div>
 

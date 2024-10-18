@@ -29,7 +29,7 @@ export const useAppStore = defineStore({
 		showCompleted: true,
 		showLocked: false,
 		sidebarOpen: false,
-		version: 0.16,
+		version: 0.17,
 		
         scenarios: [ sfy_vanilla ],
     }},

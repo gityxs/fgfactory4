@@ -86,6 +86,8 @@
 	const buildings = computed(() => gameStore.elems.filter(e => e.unlocked && e.type == 'building').length)
 	const newBuildings = computed(() => gameStore.elems.filter(e => e.unlocked && e.notified && e.type == 'building').length)
 	
+	const energyElem = computed(() => gameStore.getElem('energy'))
+	
 	const groups = computed(() => [...new Set(gameStore.elems.filter(e => (appStore.showLocked ? true : e.unlocked) && e.type == 'item').map(e => e.group))])	
 	
 </script>
@@ -135,6 +137,22 @@
 								</NuxtLink>
 							</div>
 							
+						</div>
+					</div>
+
+					<div v-if="appStore.showLocked ? true : energyElem.unlocked" class="col-12">
+						<div class="card card-body">
+							<div class="row gx-2 align-items-center">
+								
+								<div class="col">
+									<span>{{ $t(energyElem.name) }}</span>
+								</div>
+								
+								<div class="col-auto">
+									<span class="text-white"><img :src="energyElem.img" width="16" height="16" /> <item-count id="energy" /></span>
+								</div>
+								
+							</div>
 						</div>
 					</div>
 
