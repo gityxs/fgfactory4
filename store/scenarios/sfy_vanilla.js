@@ -68,7 +68,7 @@ sfy_vanilla.elems = [
 	{	type:'building',	group:'sfy_extractor',	id:'water_extractor',	name:'sfy_water_extractor',	img:'/fgfactory/sfy/water_extractor.png',	reqs:{ 'coal_power':1 },	},
 	{	type:'building',	group:'sfy_extractor',	id:'oil_extractor',	name:'sfy_oil_extractor',	img:'/fgfactory/sfy/oil_extractor.png',	reqs:{ 'oil_processing':1 },	},
 	{	type:'building',	group:'sfy_extractor',	id:'gas_extractor',	name:'sfy_gas_extractor',	img:'/fgfactory/sfy/gas_extractor.png',	reqs:{ 'advanced_aluminum_production':1 },	},
-								
+	
 	{	type:'building',	group:'sfy_machine',	id:'smelter',	name:'sfy_smelter',	img:'/fgfactory/sfy/smelter.png',	reqs:{ 'hub_upgrade_2':1 },	},
 	{	type:'building',	group:'sfy_machine',	id:'builder',	name:'sfy_builder',	img:'/fgfactory/sfy/builder.png',	reqs:{ 'hub_upgrade_3':1 },	},
 	{	type:'building',	group:'sfy_machine',	id:'assembler',	name:'sfy_assembler',	img:'/fgfactory/sfy/assembler.png',	reqs:{ 'part_asssembly':1 },	},
@@ -542,7 +542,7 @@ sfy_vanilla.elems = [
 	{	type:'producer',	id:'producer_ficsite_trigon',	outputs:{ 'ficsite_trigon':0.25 },	assign:{ id:'builder' },	costs:{ 'energy':4e6 },	inputs:{ 'ficsite_ingot':0.75 },	},
 	{	type:'producer',	id:'producer_iron_plate',	outputs:{ 'iron_plate':0.25 },	assign:{ id:'builder' },	costs:{ 'energy':4e6 },	inputs:{ 'iron_ingot':0.5 },	},
 	{	type:'producer',	id:'producer_iron_rode',	outputs:{ 'iron_rod':0.25 },	assign:{ id:'builder' },	costs:{ 'energy':4e6 },	inputs:{ 'iron_ingot':0.25 },	},
-	{	type:'producer',	id:'producer_quickwire',	outputs:{ 'quickwire':0.2 },	assign:{ id:'builder' },	costs:{ 'energy':4e6 },	inputs:{ 'caterium_ingot':1 },	},
+	{	type:'producer',	id:'producer_quickwire',	outputs:{ 'quickwire':1 },	assign:{ id:'builder' },	costs:{ 'energy':4e6 },	inputs:{ 'caterium_ingot':0.2 },	},
 	{	type:'producer',	id:'producer_reanimated_sam',	outputs:{ 'reanimated_sam':0.5 },	assign:{ id:'builder' },	costs:{ 'energy':4e6 },	inputs:{ 'sam':2 },	},
 	{	type:'producer',	id:'producer_screw',	outputs:{ 'screw':0.8 },	assign:{ id:'builder' },	costs:{ 'energy':4e6 },	inputs:{ 'iron_rod':0.2 },	},
 	{	type:'producer',	id:'producer_steel_beam',	outputs:{ 'steel_beam':0.25 },	assign:{ id:'builder' },	costs:{ 'energy':4e6 },	inputs:{ 'steel_ingot':1 },	},

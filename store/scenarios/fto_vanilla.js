@@ -12,7 +12,7 @@ fto_vanilla.elems = [
 
 	// MILESTONES
 
-	{	type:'milestone',	group:'fto_final',	id:'rocket_launch',	name:'sfy_rocket_launch',	},
+	{	type:'milestone',	group:'fto_final',	id:'rocket_launch',	name:'fto_rocket_launch',	},
 	
 	// ENERGY
 	
@@ -20,15 +20,27 @@ fto_vanilla.elems = [
 	
 	// GENERATORS
 
-	{	type:'generator',	id:'coal_engine',	name:'sfy_coal_engine',	img:'/fgfactory/fto/coal_engine.png',	},
-	{	type:'generator',	id:'solar_engine',	name:'sfy_solar_engine',	img:'/fgfactory/fto/solar_engine.png',	},
-	{	type:'generator',	id:'nuclear_turbine',	name:'sfy_nuclear_turbine',	img:'/fgfactory/fto/nuclear_turbine.png',	},
+	{	type:'generator',	id:'coal_engine',	name:'fto_coal_engine',	img:'/fgfactory/fto/coal_engine.png',	},
+	{	type:'generator',	id:'solar_engine',	name:'fto_solar_engine',	img:'/fgfactory/fto/solar_engine.png',	},
+	{	type:'generator',	id:'nuclear_turbine',	name:'fto_nuclear_turbine',	img:'/fgfactory/fto/nuclear_turbine.png',	},
 	
 	// BUILDINGS
 
-	{	type:'building',	group:'fto_container',	id:'iron_chest',	name:'sfy_iron_chest',	img:'/fgfactory/fto/iron_chest.png',	},
-	{	type:'building',	group:'fto_container',	id:'steel_chest',	name:'sfy_steel_chest',	img:'/fgfactory/fto/steel_chest.png',	},
-	{	type:'building',	group:'fto_container',	id:'storage_tank',	name:'sfy_storage_tank',	img:'/fgfactory/fto/storage_tank.png',	},
+	{	type:'building',	group:'fto_container',	id:'iron_chest',	name:'fto_iron_chest',	img:'/fgfactory/fto/iron_chest.png',	},
+	{	type:'building',	group:'fto_container',	id:'steel_chest',	name:'fto_steel_chest',	img:'/fgfactory/fto/steel_chest.png',	},
+	{	type:'building',	group:'fto_container',	id:'storage_tank',	name:'fto_storage_tank',	img:'/fgfactory/fto/storage_tank.png',	},
+
+	{	type:'building',	group:'fto_extractor',	id:'burner_mining_drill',	name:'fto_burner_mining_drill',	img:'/fgfactory/fto/burner_mining_drill.png',	},
+	{	type:'building',	group:'fto_extractor',	id:'electric_mining_drill',	name:'fto_electric_mining_drill',	img:'/fgfactory/fto/electric_mining_drill.png',	},
+	{	type:'building',	group:'fto_extractor',	id:'offshore_pump',	name:'fto_offshore_pump',	img:'/fgfactory/fto/offshore_pump.png',	},
+	{	type:'building',	group:'fto_extractor',	id:'pumpjack',	name:'fto_pumpjack',	img:'/fgfactory/fto/pumpjack.png',	},
+
+	{	type:'building',	group:'fto_machine',	id:'stone_furnace',	name:'fto_stone_furnace',	img:'/fgfactory/fto/stone_furnace.png',	},
+	{	type:'building',	group:'fto_machine',	id:'steel_furnace',	name:'fto_steel_furnace',	img:'/fgfactory/fto/steel_furnace.png',	},
+	{	type:'building',	group:'fto_machine',	id:'electric_furnace',	name:'fto_electric_furnace',	img:'/fgfactory/fto/electric_furnace.png',	},
+	{	type:'building',	group:'fto_machine',	id:'assembling_machine_1',	name:'fto_assembling_machine_1',	img:'/fgfactory/fto/assembling_machine_1.png',	},
+	{	type:'building',	group:'fto_machine',	id:'assembling_machine_2',	name:'fto_assembling_machine_2',	img:'/fgfactory/fto/assembling_machine_2.png',	},
+	{	type:'building',	group:'fto_machine',	id:'assembling_machine_3',	name:'fto_assembling_machine_3',	img:'/fgfactory/fto/assembling_machine_3.png',	},
 	
 	// ITEMS
 	
