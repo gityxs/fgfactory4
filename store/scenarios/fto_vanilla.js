@@ -41,6 +41,9 @@ fto_vanilla.elems = [
 	{	type:'building',	group:'fto_machine',	id:'assembling_machine_1',	name:'fto_assembling_machine_1',	img:'/fgfactory/fto/assembling_machine_1.png',	},
 	{	type:'building',	group:'fto_machine',	id:'assembling_machine_2',	name:'fto_assembling_machine_2',	img:'/fgfactory/fto/assembling_machine_2.png',	},
 	{	type:'building',	group:'fto_machine',	id:'assembling_machine_3',	name:'fto_assembling_machine_3',	img:'/fgfactory/fto/assembling_machine_3.png',	},
+	{	type:'building',	group:'fto_machine',	id:'oil_refinery',	name:'fto_oil_refinery',	img:'/fgfactory/fto/oil_refinery.png',	},
+	{	type:'building',	group:'fto_machine',	id:'chemical_plant',	name:'fto_chemical_plant',	img:'/fgfactory/fto/chemical_plant.png',	},
+	{	type:'building',	group:'fto_machine',	id:'centrifuge',	name:'fto_centrifuge',	img:'/fgfactory/fto/centrifuge.png',	},
 	
 	// ITEMS
 	
@@ -55,6 +58,12 @@ fto_vanilla.elems = [
 	{	type:'item',	group:'fto_material',	id:'iron_plate',	name:'fto_iron_plate',	img:'/fgfactory/fto/iron_plate.png',	max:100,	},
 	{	type:'item',	group:'fto_material',	id:'copper_plate',	name:'fto_copper_plate',	img:'/fgfactory/fto/copper_plate.png',	max:100,	},
 	{	type:'item',	group:'fto_material',	id:'steel_plate',	name:'fto_steel_plate',	img:'/fgfactory/fto/steel_plate.png',	max:100,	},
+
+	{	type:'item',	group:'fto_science',	id:'automation_science_pack',	name:'fto_automation_science_pack',	img:'/fgfactory/fto/automation_science_pack.png',	max:200,	},
+	{	type:'item',	group:'fto_science',	id:'logistic_science_pack',	name:'fto_logistic_science_pack',	img:'/fgfactory/fto/logistic_science_pack.png',	max:200,	},
+	{	type:'item',	group:'fto_science',	id:'chemical_science_pack',	name:'fto_chemical_science_pack',	img:'/fgfactory/fto/chemical_science_pack.png',	max:200,	},
+	{	type:'item',	group:'fto_science',	id:'production_science_pack',	name:'fto_production_science_pack',	img:'/fgfactory/fto/production_science_pack.png',	max:200,	},
+	{	type:'item',	group:'fto_science',	id:'utility_science_pack',	name:'fto_utility_science_pack',	img:'/fgfactory/fto/utility_science_pack.png',	max:200,	},
 	
 	{	type:'item',	group:'fto_chemistry',	id:'petroleum_gas',	name:'fto_petroleum_gas',	img:'/fgfactory/fto/petroleum_gas.png',	max:25000,	},
 	{	type:'item',	group:'fto_chemistry',	id:'plastic_bar',	name:'fto_plastic_bar',	img:'/fgfactory/fto/plastic_bar.png',	max:100,	},

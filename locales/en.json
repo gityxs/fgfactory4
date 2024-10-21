@@ -68,6 +68,7 @@
     "page_options": "Options",
     "page_scenarios": "Scenarios",
 	
+	"word_completed": "Completed",
 	"word_consumers": "Consumers",
 	"word_costs": "Costs",
 	"word_count": "Count",
@@ -81,6 +82,7 @@
 	"word_results": "Results",
 	"word_storages": "Storages",
 	"word_storers": "Storers",
+	"word_uncompleted": "Current",
 	"word_upgrades": "Upgrades",
 	
 	"sfy_vanilla_title": "Employee of the Planet",
@@ -157,11 +159,6 @@
 	"sfy_particle_accelerator": "Particle Accelerator",
 	"sfy_converter": "Converter",
 	"sfy_quantum_encoder": "Quantum Encoder",
-	
-	"sfy_raw": "Raw",
-	"sfy_material": "Materials",
-	"sfy_component": "Components",
-	"sfy_part": "Parts",
 	
 	"sfy_iron_ore": "Iron Ore",
 	"sfy_copper_ore": "Copper Ore",

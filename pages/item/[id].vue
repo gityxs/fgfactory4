@@ -96,7 +96,7 @@
 										</div>
 										
 										<div v-for="manual in manuals" :key="manual.id" class="col-12">
-											<div class="row gx-2 align-items-center">
+											<div class="row gx-1 align-items-center">
 
 												<div class="col-auto">		
 													<manual-info :id="manual.id" :img="item.img" />			
@@ -133,7 +133,7 @@
 										</div>
 										
 										<div v-for="storer in storers" :key="storer.id" class="col-12">
-											<div v-if="storer.unlocked" class="row gx-2 align-items-center">
+											<div v-if="storer.unlocked" class="row gx-1 align-items-center">
 
 												<div class="col-auto">		
 													<storer-info :id="storer.id" />			
@@ -150,6 +150,10 @@
 												<div class="col-auto">
 													<small>x</small> <assign-count :id="storer.id" />
 												</div>
+												
+												<div class="col-auto">
+													<item-select :id="storer.id" />
+												</div>
 
 												<div class="col-auto">
 													<unassign-button :id="storer.id" />
@@ -160,7 +164,7 @@
 												</div>
 												
 											</div>
-											<div v-else class="row gx-2 align-items-center">
+											<div v-else class="row gx-1 align-items-center">
 											
 												<div class="col-auto">
 													<button type="button" class="btn btn-secondary" disabled>
@@ -212,7 +216,7 @@
 										</div>
 						
 										<div v-for="producer in producers" :key="producer.id" class="col-12">
-											<div v-if="producer.unlocked" class="row gx-2 align-items-center">
+											<div v-if="producer.unlocked" class="row gx-1 align-items-center">
 
 												<div class="col-auto">		
 													<producer-info :id="producer.id" />			
@@ -231,6 +235,10 @@
 												</div>
 
 												<div class="col-auto">
+													<item-select :id="producer.id" />
+												</div>
+
+												<div class="col-auto">
 													<unassign-button :id="producer.id" />
 												</div>
 												
@@ -239,7 +247,7 @@
 												</div>
 
 											</div>
-											<div v-else class="row gx-2 align-items-center">
+											<div v-else class="row gx-1 align-items-center">
 											
 												<div class="col-auto">
 													<button type="button" class="btn btn-secondary" disabled>
@@ -265,7 +273,7 @@
 										</div>
 						
 										<div v-for="consumer in consumers" :key="consumer.id" class="col-12">
-											<div class="row gx-2 align-items-center">
+											<div class="row gx-1 align-items-center">
 											
 												<div class="col-auto">
 													<img v-if="consumer.img" :src="consumer.img" width="18" height="18" />

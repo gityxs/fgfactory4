@@ -31,7 +31,7 @@
 						<div class="row gx-2 gy-3">
 
 							<div class="col-12">
-								<div class="row g-2">
+								<div class="row gy-2 gx-1">
 
 									<div class="col-12">
 										<span>{{ $t('options_love') }}</span>
@@ -99,7 +99,7 @@
 					</div>
 
 					<div class="card-body">
-						<div class="row g-2">
+						<div class="row gy-2 gx-1">
 
 							<div v-for="l in locales" :key="l.code" class="col-auto">
 								<button type="button" class="btn btn-secondary" :class="{ 'text-bg-primary': locale == l.code }" @click="changeLocale(l.code)">
@@ -135,10 +135,10 @@
 					</div>
 					
 					<div class="card-body">
-						<div class="row gx-3 gy-3">
+						<div class="row gx-1 gy-3">
 						
 							<div class="col-12 col-md-6">
-								<div class="row g-2">
+								<div class="row gy-2 gx-1">
 								
 									<div class="col-12">
 										<textarea id="localData" spellcheck="false" rows="3" class="w-100 form-control" disabled readonly>{{ appStore.localStorageData }}</textarea>
@@ -169,7 +169,7 @@
 							</div>
 
 							<div class="col-12 col-md-6">
-								<div class="row g-2">
+								<div class="row gy-2 gx-1">
 								
 									<div class="col-12">
 										<textarea spellcheck="false" rows="3" id="importData" class="w-100 form-control"></textarea>

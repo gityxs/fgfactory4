@@ -104,7 +104,7 @@
 				<div class="row g-3">
 				
 					<div class="col-12">
-						<div class="row g-2 align-items-center justify-content-lg-center">
+						<div class="row g-1 align-items-center justify-content-lg-center">
 						
 							<div class="col-auto"><img src="/favicon.png" width="24" height="24" class="rounded" /></div>
 							<div class="col col-lg-auto"><span class="fs-5 text-white">{{ $t('game_title') }}</span></div>
@@ -140,9 +140,9 @@
 						</div>
 					</div>
 
-					<div v-if="appStore.showLocked ? true : energyElem.unlocked" class="col-12">
+					<div v-if="appStore.showLocked ? true : energyElem.unlocked" class="col-12 mb-3">
 						<div class="card card-body">
-							<div class="row gx-2 align-items-center">
+							<div class="row gx-1 align-items-center">
 								
 								<div class="col">
 									<span>{{ $t(energyElem.name) }}</span>
@@ -166,7 +166,7 @@
 	
 		<div id="topbar" class="bg-dark border-bottom border-2 border-translucent">
 			<div class="px-3 py-2">
-				<div class="row g-2 align-items-center flex-nowrap">
+				<div class="row g-1 align-items-center flex-nowrap">
 
 					<div class="col-auto d-lg-none">
 						<button type="button" class="btn btn-primary" @click="appStore.sidebarOpen = true;">
@@ -175,7 +175,7 @@
 					</div>
 					
 					<div class="col text-truncate">
-						<div class="row g-2 align-items-center flex-nowrap">
+						<div class="row gx-1 align-items-center flex-nowrap">
 
 							<div v-if="pageImg" class="col-auto"><img :src="pageImg" width="24" height="24" /></div>
 							<div class="col text-truncate"><span class="fs-5 text-white">{{ $t(pageTitle) }}</span></div>
@@ -229,20 +229,20 @@
 			<div class="card">
 				
 				<div class="card-header">
-					<div class="row gx-2 align-items-center justify-content-center">
+					<div class="row gx-1 align-items-center justify-content-center">
 						<div class="col-auto"><img src="/favicon.png" width="24" height="24" class="rounded" /></div>
 						<div class="col-auto"><span class="fs-5 text-white">{{ $t('game_title') }}</span></div>
 					</div>
 				</div>
 
 				<div class="card-body">
-					<div class="row g-2 justify-content-center">
+					<div class="row g-1 justify-content-center">
 						<div class="col-12 text-danger text-center fs-6">{{ $t('screenCorrupted_text') }}</div>
 					</div>
 				</div>
 				
 				<div class="card-body">
-					<div class="row g-2 justify-content-center">
+					<div class="row g-1 justify-content-center">
 						<div class="col-12 text-center">
 							<span class="text-normal">{{ $t('screenCorrupted_info') }}</span>
 						</div>
@@ -267,14 +267,14 @@
 			<div class="card">
 			
 				<div class="card-header">
-					<div class="row gx-2 align-items-center justify-content-center">
+					<div class="row gx-1 align-items-center justify-content-center">
 						<div class="col-auto"><img src="/favicon.png" width="24" height="24" class="rounded" /></div>
 						<div class="col-auto"><span class="fs-5 text-white">{{ $t('game_title') }}</span></div>
 					</div>
 				</div>
 				
 				<div class="card-body">
-					<div class="row g-2 justify-content-center">
+					<div class="row g-1 justify-content-center">
 						<div class="col-12 text-danger text-center fs-6">{{ $t('screenError_text') }}</div>
 						<div class="col-12 text-center">{{ $t('screenError_info1') }}</div>
 						<div class="col-5 col-lg-3">
@@ -287,7 +287,7 @@
 				</div>
 				
 				<div v-if="appStore.localStorageData" class="card-body">
-					<div class="row g-2 justify-content-center">
+					<div class="row g-1 justify-content-center">
 						<div class="col-12">
 							<textarea spellcheck="false" rows="3" class="form-control" disabled readonly>{{ appStore.localStorageData }}</textarea>
 						</div>
@@ -307,7 +307,7 @@
 				</div>
 				
 				<div class="card-body">
-					<div class="row g-2 justify-content-center">
+					<div class="row g-1 justify-content-center">
 						<div class="col-12 text-center">
 							<span class="text-normal">{{ $t('screenError_info2') }}</span>
 						</div>
@@ -333,7 +333,7 @@
 	<div v-else class="w-100 h-100 d-flex align-items-center justify-content-center">
         <div class="container p-3" style="max-width:320px;">
             <div class="card card-body">
-                <div class="row g-2">
+                <div class="row g-1">
                 
                     <div class="col-12">
                         <div class="row gx-2 align-items-center justify-content-center">

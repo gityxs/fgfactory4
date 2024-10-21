@@ -13,7 +13,7 @@
 
 <template>
     
-	<div class="row gx-2 align-items-center justify-content-end">
+	<div class="row gx-1 align-items-center justify-content-end">
 
 		<div v-if="elem.img != undefined" class="col-auto" :title="$t(elem.name)"><img :src="elem.img" width="16" height="16" /></div>
 		<div class="col text-white text-truncate">{{ $t(elem.name) }}</div>

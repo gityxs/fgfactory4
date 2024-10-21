@@ -18,12 +18,32 @@
 	<div class="container">
 		<div class="row g-3 justify-content-center">
 			
-			<div v-for="scenario in appStore.scenarios" :key="scenario.id" class="col-12 col-lg-6">
-				<button type="button" class="w-100 btn btn-secondary text-start" :class="{ 'text-bg-primary':scenario.id == appStore.currentScenarioId }" @click="selectScenario(scenario.id);">
-					<div class="row g-1 align-items-center">
-						<div class="col-12 text-center"><span class="fs-6">{{ $t(scenario.title) }}</span></div>
+			<div v-for="scenario in appStore.scenarios" :key="scenario.id" class="col-12">
+				<div class="card" :class="{ 'border-primary':scenario.id == appStore.currentScenarioId }">
+				
+					<div class="card-header">
+						<span class="fs-6 text-white">{{ $t(scenario.title) }}</span>
+						<div class="opacity-50">{{ $t(scenario.subtitle) }}</div>
 					</div>
-				</button>
+					
+					<div class="card-body">
+						<div class="row g-1 align-items-center">
+						
+							<div class="col-12">
+								<span>{{ $t(scenario.desc) }}</span>
+							</div>
+
+							<div class="col-12 text-end">
+								<button type="button" class="btn btn-secondary text-start" :disabled="scenario.id == appStore.currentScenarioId" @click="selectScenario(scenario.id);">
+									<font-awesome-icon icon="fas fa-sync-alt" />
+									<span class="ms-2">{{ $t('modalScenario_close') }}</span>
+								</button>
+							</div>
+							
+						</div>
+					</div>
+					
+				</div>
 			</div>
 		
 		</div>

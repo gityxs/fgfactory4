@@ -53,6 +53,7 @@ class Elem {
         if (data.count) this.count = data.count
         if (data.notified) this.notified = data.notified
         if (data.remainingSeconds) this.remainingSeconds = data.remainingSeconds
+        if (data.selectCount) this.select.count = data.selectCount
         if (data.status) this.status = data.status        
 	}
     
@@ -63,6 +64,7 @@ class Elem {
         if (this.assign) data.assignCount = this.assign.count
         if (this.notified) data.notified = this.notified
         if (this.remainingSeconds) data.remainingSeconds = this.remainingSeconds
+        if (this.select) data.selectCount = this.select.count
         if (this.status) data.status = this.status
         if (this.count) data.count = this.count
         if (this.id) data.id = this.id		
@@ -95,12 +97,78 @@ export const useGameStore = defineStore({
 			return false
 		},
 		
-		getCosts: (state) => (elem) => { return elem.costs },
-		getInputs: (state) => (elem) => { return elem.inputs },
-		getOutputs: (state) => (elem) => { return elem.outputs },
-		getResults: (state) => (elem) => { return elem.results },
-		getUpgrades: (state) => (elem) => { return elem.upgrades },
-		getStorages: (state) => (elem) => { return elem.storages },
+		getCosts: (state) => (elem) => {
+			
+			if (!elem.costs) return null
+			
+			let ret = {}
+			
+			for (let id in elem.costs)
+				ret[id] = elem.costs[id] * elem.select.count
+			
+			return ret
+		},
+		
+		getInputs: (state) => (elem) => {
+						
+			if (!elem.inputs) return null
+			
+			let ret = {}
+			
+			for (let id in elem.inputs)
+				ret[id] = elem.inputs[id] * elem.select.count
+			
+			return ret
+		},
+		
+		getOutputs: (state) => (elem) => {
+						
+			if (!elem.outputs) return null
+			
+			let ret = {}
+			
+			for (let id in elem.outputs)
+				ret[id] = elem.outputs[id] * elem.select.count
+			
+			return ret
+		},
+		
+		getResults: (state) => (elem) => {
+						
+			if (!elem.results) return null
+			
+			let ret = {}
+			
+			for (let id in elem.results)
+				ret[id] = elem.results[id] * elem.select.count
+			
+			return ret
+		},
+		
+		getUpgrades: (state) => (elem) => {
+						
+			if (!elem.upgrades) return null
+			
+			let ret = {}
+			
+			for (let id in elem.upgrades)
+				ret[id] = elem.upgrades[id] * elem.select.count
+			
+			return ret
+		},
+		
+		getStorages: (state) => (elem) => {
+						
+			if (!elem.storages) return null
+			
+			let ret = {}
+			
+			for (let id in elem.storages)
+				ret[id] = elem.storages[id] * elem.select.count
+			
+			return ret
+		},
+		
 		
         checkCounts: (state) => (counts) => {
             
