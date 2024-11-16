@@ -145,21 +145,21 @@
 									</div>
 									
 									<div class="col-4">
-										<button type="button" class="w-100 btn btn-danger px-0" @click="appStore.showModal('modalWipe');">
+										<button type="button" class="w-100 btn btn-danger text-truncate" @click="appStore.showModal('modalWipe');">
 											<span><font-awesome-icon icon="fas fa-skull" /></span>
 											<span class="ms-2">{{ $t('options_wipeSave') }}</span>
 										</button>
 									</div>
 									
 									<div class="col-4">
-										<button type="button" class="w-100 btn btn-secondary px-0" @click="appStore.exportAppState();">
+										<button type="button" class="w-100 btn btn-secondary text-truncate" @click="appStore.exportAppState();">
 											<span><font-awesome-icon icon="fas fa-copy" /></span>
 											<span class="ms-2">{{ $t('options_exportSave') }}</span>
 										</button>
 									</div>
 									
 									<div class="col-4">
-										<button type="button" class="w-100 btn btn-secondary px-0" @click="appStore.downloadAppState();">
+										<button type="button" class="w-100 btn btn-secondary text-truncate" @click="appStore.downloadAppState();">
 											<span><font-awesome-icon icon="fas fa-download" /></span>
 											<span class="ms-2">{{ $t('options_downloadSave') }}</span>
 										</button>
@@ -176,7 +176,7 @@
 									</div>
 									
 									<div class="col-4 ms-auto">
-										<button type="button" class="w-100 btn btn-secondary px-0" @click="appStore.importAppState();">
+										<button type="button" class="w-100 btn btn-secondary text-truncate" @click="appStore.importAppState();">
 											<span><font-awesome-icon icon="fas fa-upload" /></span>
 											<span class="ms-2">{{ $t('options_importSave') }}</span>
 										</button>
@@ -192,13 +192,5 @@
 		
 		</div>
 	</div>
-	
-	<div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3">
-		<toast-export />
-		<toast-import-empty />
-		<toast-import-corrupted />
-	</div>
-	
-	<modal-wipe />
 	
 </template>

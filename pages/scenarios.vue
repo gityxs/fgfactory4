@@ -25,11 +25,11 @@
 			<div v-for="scenario in scenarios" :key="scenario.id" class="col-12">
 				<div class="card" :class="{ 'border-primary':scenario.id == appStore.currentScenarioId }">
 				
-					<div class="card-header">
+					<div class="card-body">
 						<div class="row gx-1 align-items-center">
 						
 							<div class="col">
-								<span class="fs-6 text-white">{{ $t(scenario.title) }}</span>
+								<span class="fs-5 text-white">{{ $t(scenario.title) }}</span>
 								<div class="opacity-50">{{ $t(scenario.subtitle) }}</div>
 							</div>
 							
@@ -62,7 +62,5 @@
 		
 		</div>
 	</div>
-    
-    <modal-scenario />
 	
 </template>

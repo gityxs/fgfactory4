@@ -2,6 +2,8 @@
 
     import { formatNumber } from '~/store/utils.js'
 	
+	const localePath = useLocalePath()
+	
     definePageMeta({ layout:'home' })
 	
 	const route = useRoute()
@@ -79,7 +81,7 @@
 								</div>
 
 								<div class="col-auto">
-									<span class="fs-6 text-white"><item-count :id="item.id" /> / <item-max :id="item.id" /></span>
+									<span class="text-white"><item-count :id="item.id" /> / <item-max :id="item.id" /></span>
 								</div>
 								
 							</div>
@@ -199,110 +201,101 @@
 								</div>
 
 								<div class="col-auto">
-									<span class="fs-6 text-white"><item-prod :id="item.id" /></span>
+									<span class="text-white"><item-prod :id="item.id" /></span>
 								</div>
 									
 							</div>
 						</div>
 							
-						<div class="card-body">
-							<div class="row g-3">
+						<div v-if="producers.length > 0" class="card-body">
+							<div class="row g-1">
 
-								<div v-if="producers.length > 0" class="col-12">
-									<div class="row g-1">
+								<div class="col-12">
+									<span class="text-subtitle">{{ $t('word_producers') }}</span> <span v-if="rawprod != 0" class="ms-2 text-success">+ {{ formatNumber(rawprod) }} /s</span>
+								</div>
+				
+								<div v-for="producer in producers" :key="producer.id" class="col-12">
+									<div v-if="producer.unlocked" class="row gx-1 align-items-center">
 
-										<div class="col-12">
-											<span class="text-subtitle">{{ $t('word_producers') }}</span> <span v-if="rawprod != 0" class="ms-2 text-success">+ {{ formatNumber(rawprod) }} /s</span>
+										<div class="col-auto">		
+											<producer-info :id="producer.id" />			
 										</div>
-						
-										<div v-for="producer in producers" :key="producer.id" class="col-12">
-											<div v-if="producer.unlocked" class="row gx-1 align-items-center">
 
-												<div class="col-auto">		
-													<producer-info :id="producer.id" />			
-												</div>
+										<div class="col text-truncate">
+											<span class="text-white"><assign-name :id="producer.id" /></span>
+										</div>
 
-												<div class="col text-truncate">
-													<span class="text-white"><assign-name :id="producer.id" /></span>
-												</div>
+										<div class="col-auto">
+											<item-available :id="producer.assign.id" />
+										</div>
+										
+										<div class="col-auto">
+											<small>x</small> <assign-count :id="producer.id" />
+										</div>
 
-												<div class="col-auto">
-													<item-available :id="producer.assign.id" />
-												</div>
-												
-												<div class="col-auto">
-													<small>x</small> <assign-count :id="producer.id" />
-												</div>
+										<div class="col-auto">
+											<item-select :id="producer.id" />
+										</div>
 
-												<div class="col-auto">
-													<item-select :id="producer.id" />
-												</div>
-
-												<div class="col-auto">
-													<unassign-button :id="producer.id" />
-												</div>
-												
-												<div class="col-auto">
-													<assign-button :id="producer.id" />
-												</div>
-
-											</div>
-											<div v-else class="row gx-1 align-items-center">
-											
-												<div class="col-auto">
-													<button type="button" class="btn btn-secondary" disabled>
-														<font-awesome-icon icon="fas fa-lock" fixed-width />
-													</button>
-												</div>
-												
-												<div class="col text-truncate">
-													<span class="opacity-50">{{ $t('word_locked') }}</span>
-												</div>
-												
-											</div>
+										<div class="col-auto">
+											<unassign-button :id="producer.id" />
+										</div>
+										
+										<div class="col-auto">
+											<assign-button :id="producer.id" />
 										</div>
 
 									</div>
-								</div>
-
-								<div v-if="consumers.length > 0" class="col-12">
-									<div class="row g-1">
-
-										<div class="col-12">
-											<span class="text-subtitle">{{ $t('word_consumers') }}</span> <span v-if="rawconsu != 0" class="ms-2 text-danger">- {{ formatNumber(rawconsu) }} /s</span>
+									<div v-else class="row gx-1 align-items-center">
+									
+										<div class="col-auto">
+											<button type="button" class="btn btn-secondary" disabled>
+												<font-awesome-icon icon="fas fa-lock" fixed-width />
+											</button>
 										</div>
-						
-										<div v-for="consumer in consumers" :key="consumer.id" class="col-12">
-											<div class="row gx-1 align-items-center">
-											
-												<div class="col-auto">
-													<img v-if="consumer.img" :src="consumer.img" width="18" height="18" />
-													<font-awesome-icon v-else icon="fas fa-info-circle" fixed-width />
-												</div>
-												
-												<div class="col text-truncate">
-													<span class="text-white">{{ $t(consumer.name) }}</span>
-												</div>
-
-												<div class="col-auto">
-													<span class="text-danger">- {{ formatNumber(consumer.assign.count * consumer.inputs[item.id]) }} /s</span>
-												</div>
-
-												<div class="col-auto">
-													<NuxtLink v-if="consumer.mainId" :to="localePath('/item/' + consumer.mainId)" class="w-100 btn btn-primary" :title="$t(consumer.name)">
-														<font-awesome-icon icon="fas fa-arrow-right" fixed-width />
-													</NuxtLink>
-													<NuxtLink v-else :to="localePath('/buildings/')" class="w-100 btn btn-primary" :title="$t(consumer.name)">
-														<font-awesome-icon icon="fas fa-arrow-right" fixed-width />
-													</NuxtLink>
-												</div>
-												
-											</div>
+										
+										<div class="col text-truncate">
+											<span class="opacity-50">{{ $t('word_locked') }}</span>
 										</div>
-
+										
 									</div>
 								</div>
-								
+
+							</div>
+						</div>
+
+						<div v-if="consumers.length > 0" class="card-body">
+							<div class="row g-1">
+
+								<div class="col-12">
+									<span class="text-subtitle">{{ $t('word_consumers') }}</span> <span v-if="rawconsu != 0" class="ms-2 text-danger">- {{ formatNumber(rawconsu) }} /s</span>
+								</div>
+				
+								<div v-for="consumer in consumers" :key="consumer.id" class="col-12 col-lg-4">
+									<div class="row gx-1 align-items-center">
+									
+										<div class="col-auto">
+											<NuxtLink v-if="consumer.mainId" :to="localePath('/item/' + consumer.mainId)" class="w-100 btn btn-primary" :title="$t(consumer.name)">
+												<img v-if="consumer.img" :src="consumer.img" width="18" height="18" />
+												<font-awesome-icon v-else icon="fas fa-info-circle" fixed-width />
+											</NuxtLink>
+											<NuxtLink v-else :to="localePath('/buildings/')" class="w-100 btn btn-primary" :title="$t(consumer.name)">
+												<img v-if="consumer.img" :src="consumer.img" width="18" height="18" />
+												<font-awesome-icon v-else icon="fas fa-info-circle" fixed-width />
+											</NuxtLink>
+										</div>
+										
+										<div class="col col-lg-auto text-truncate">
+											<span class="text-white">{{ $t(consumer.name) }}</span>
+										</div>
+
+										<div class="col-auto">
+											<span class="text-danger">- {{ formatNumber(consumer.assign.count * consumer.inputs[item.id]) }} /s</span>
+										</div>
+										
+									</div>
+								</div>
+
 							</div>
 						</div>
 

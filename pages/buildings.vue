@@ -33,7 +33,7 @@
 							</div>
 							
 							<div class="col-auto">
-								<span class="fs-6 text-white"><img :src="energyElem.img" width="16" height="16" /> <item-count id="energy" /></span>
+								<span class="text-white"><img :src="energyElem.img" width="16" height="16" /> <item-count id="energy" /></span>
 							</div>
 							
 						</div>

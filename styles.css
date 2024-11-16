@@ -1,3 +1,31 @@
+/* FONTS */
+
+@font-face {
+	
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-Bold-webfont.woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+	
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-Regular-webfont.woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+	
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-Light-webfont.woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+
 :root {
 
     --bs-spacer: .75rem;
@@ -9,8 +37,8 @@
     --bs-secondary-rgb: 86, 91, 98;
     --bs-secondary-color: rgba(197, 209, 222, 0.75);
     
-    --bs-success: #54c95c;
-    --bs-success-rgb: 84, 201, 92;
+    --bs-success: #64ef6d;
+    --bs-success-rgb: 100, 239, 109;
     
     --bs-info: #6ab8ff;
     --bs-info-rgb: 106, 184, 255;
@@ -24,13 +52,13 @@
     --bs-light: #818489;
     --bs-light-rgb: 129, 132, 137;
 
-    --bs-dark: #2d333b;
-    --bs-dark-rgb: 45, 51, 59;    
+    --bs-dark: #24282f;
+    --bs-dark-rgb: 36, 40, 47;    
     
     --bs-green: #00ff00;
     --bs-yellow: #ffff00;
     
-    --bs-body-font-family: "Open Sans", sans-serif;
+    --bs-body-font-family: 'Roboto', 'Lucida Grande', 'DejaVu Sans', 'Bitstream Vera Sans', 'Verdana', 'Arial', sans-serif;
     --bs-body-font-size: 0.75rem;
     --bs-body-font-weight: 400;
     --bs-body-line-height: 1.5;
@@ -250,7 +278,6 @@ a {
 	font-size: .875em;
 	opacity: .5;
 	color: var(--bs-white) !important;
-	font-weight: bold !important;
 }
 
 .btn {
@@ -304,7 +331,7 @@ a {
     --bs-btn-active-bg: var(--bs-primary);
     --bs-btn-active-border-color: var(--bs-border-color-translucent);
     --bs-btn-disabled-color: var(--bs-primary);
-    --bs-btn-disabled-bg: var(--bs-secondary);
+    --bs-btn-disabled-bg: var(--bs-dark);
     --bs-btn-disabled-border-color: var(--bs-border-color-translucent);
 }
 
@@ -320,7 +347,7 @@ a {
     --bs-btn-active-bg: var(--bs-secondary);
     --bs-btn-active-border-color: var(--bs-border-color-translucent);
     --bs-btn-disabled-color: var(--bs-body-color);
-    --bs-btn-disabled-bg: var(--bs-secondary);
+    --bs-btn-disabled-bg: var(--bs-dark);
     --bs-btn-disabled-border-color: var(--bs-border-color-translucent);
 }
 
@@ -336,7 +363,7 @@ a {
     --bs-btn-active-bg: var(--bs-success);
     --bs-btn-active-border-color: var(--bs-border-color-translucent);
     --bs-btn-disabled-color: var(--bs-success);
-    --bs-btn-disabled-bg: var(--bs-secondary);
+    --bs-btn-disabled-bg: var(--bs-dark);
     --bs-btn-disabled-border-color: var(--bs-border-color-translucent);
 }
 
@@ -352,7 +379,7 @@ a {
     --bs-btn-active-bg: var(--bs-info);
     --bs-btn-active-border-color: var(--bs-border-color-translucent);
     --bs-btn-disabled-color: var(--bs-info);
-    --bs-btn-disabled-bg: var(--bs-secondary);
+    --bs-btn-disabled-bg: var(--bs-dark);
     --bs-btn-disabled-border-color: var(--bs-border-color-translucent);
 }
 
@@ -368,7 +395,7 @@ a {
     --bs-btn-active-bg: var(--bs-warning);
     --bs-btn-active-border-color: var(--bs-border-color-translucent);
     --bs-btn-disabled-color: var(--bs-warning);
-    --bs-btn-disabled-bg: var(--bs-secondary);
+    --bs-btn-disabled-bg: var(--bs-dark);
     --bs-btn-disabled-border-color: var(--bs-border-color-translucent);
 }
 
@@ -384,7 +411,7 @@ a {
     --bs-btn-active-bg: var(--bs-danger);
     --bs-btn-active-border-color: var(--bs-border-color-translucent);
     --bs-btn-disabled-color: var(--bs-danger);
-    --bs-btn-disabled-bg: var(--bs-secondary);
+    --bs-btn-disabled-bg: var(--bs-dark);
     --bs-btn-disabled-border-color: var(--bs-border-color-translucent);
 }
 
@@ -481,14 +508,14 @@ a {
 
 .card {
     
-    --bs-card-spacer-y: calc(var(--bs-spacer) * .5);
+    --bs-card-spacer-y: calc(var(--bs-spacer) * .75);
     --bs-card-spacer-x: calc(var(--bs-spacer) * .75);
     --bs-card-title-spacer-y: calc(var(--bs-spacer) * .5);
     --bs-card-border-width: var(--bs-border-width);
     --bs-card-border-color: var(--bs-border-color-translucent);
     --bs-card-border-radius: var(--bs-border-radius);
     --bs-card-inner-border-radius: var(--bs-border-radius);
-    --bs-card-cap-padding-y: calc(var(--bs-spacer) * .5);
+    --bs-card-cap-padding-y: calc(var(--bs-spacer) * .75);
     --bs-card-cap-padding-x: calc(var(--bs-spacer) * .75);
     --bs-card-cap-bg: var(--bs-secondary);
     --bs-card-cap-color: var(--bs-white);
@@ -552,13 +579,13 @@ a {
 
 .modal {
     
-    --bs-modal-padding: var(--bs-spacer);
+    --bs-modal-padding: calc(var(--bs-spacer) * .75);
     --bs-modal-color: var(--bs-body-color);
     --bs-modal-bg: var(--bs-body-bg);
     --bs-modal-border-color: var(--bs-border-color-translucent);
     --bs-modal-border-width: var(--bs-border-width);
     --bs-modal-border-radius: var(--bs-border-radius);
-    --bs-modal-header-padding-x: var(--bs-spacer);
+    --bs-modal-header-padding-x: calc(var(--bs-spacer) * .75);
     --bs-modal-header-padding-y: calc(var(--bs-spacer) * .75);
     --bs-modal-header-padding: calc(var(--bs-spacer) * .75) var(--bs-spacer);
     --bs-modal-header-border-width: var(--bs-border-width);

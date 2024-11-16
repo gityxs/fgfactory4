@@ -62,6 +62,7 @@
     "options_settings": "Settings",
     "options_showLocked": "Show locked content",
     "options_showCompleted": "Show completed milestones",
+	"options_support": "To support the dev",
 	
     "page_buildings": "Buildings",
     "page_milestones": "Milestones",
@@ -159,6 +160,18 @@
 	"sfy_particle_accelerator": "Particle Accelerator",
 	"sfy_converter": "Converter",
 	"sfy_quantum_encoder": "Quantum Encoder",
+	
+	"sfy_raw": "Raw",
+	"sfy_material": "Material",
+	"sfy_component_1": "Tier 1",
+	"sfy_component_2": "Tier 2",
+	"sfy_component_3": "Tier 3",
+	"sfy_component_4": "Tier 4",
+	"sfy_component_5": "Tier 5",
+	"sfy_component_6": "Tier 6",
+	"sfy_component_7": "Tier 7",
+	"sfy_component_8": "Tier 8",
+	"sfy_component_9": "Tier 9",
 	
 	"sfy_iron_ore": "Iron Ore",
 	"sfy_copper_ore": "Copper Ore",

@@ -15,13 +15,12 @@ export const useAppStore = defineStore({
 
     state: () => { return {
 		
+		appStatus: 'starting',
 		corrupted: false,
 		currentModalId: null,
         currentScenarioId: null,
-		error: null,
 		firstTime: true,
 		isAppRunning: false,
-		loaded: false,
 		lastSavedTime: Date.now(),	
 		localStorageName: 'fgfactory',
 		loopInterval: null,
@@ -30,7 +29,7 @@ export const useAppStore = defineStore({
 		showCompleted: true,
 		showLocked: false,
 		sidebarOpen: false,
-		version: 0.20,
+		version: 0.21,
 		
         scenarios: [ sfy_vanilla, fto_vanilla ],
 		completedScenarios: [],
@@ -47,31 +46,38 @@ export const useAppStore = defineStore({
 		
 		startApp() {
 			
-			if (this.loaded == true) return
-			
-			this.error = null
-			this.loaded = false
-			
-			let gameStore = useGameStore()
+			this.appStatus = 'starting'
 			
 			try {
 				
 				let loadedData = localStorage.getItem(this.localStorageName)
-				if (loadedData && loadedData !== null && loadedData.length % 4 == 0) {
+				if (loadedData && loadedData !== null) {
+					
+					if (loadedData.length % 4 != 0) {
+						
+						this.appStatus = 'corrupted'
+						return
+					}
 					
 					let text = LZString.decompressFromBase64(loadedData)
-					if (!text) throw 'Local data corrupted'
-					loadedData = JSON.parse(text)
+					if (!text) {
+						
+						this.appStatus = 'corrupted'
+						return
+					}
 					
+					loadedData = JSON.parse(text)					
 					console.log(loadedData)
 					
 					if (!loadedData.version) {
 						
-						this.corrupted = true
+						this.appStatus = 'corrupted'
 						return
 					}
 					
 					this.loadAppState(loadedData)
+					
+					let gameStore = useGameStore()
 					
 					let scenario = this.scenarios.find(s => s.id == this.currentScenarioId)
 					gameStore.loadScenario(scenario)
@@ -86,18 +92,21 @@ export const useAppStore = defineStore({
 					
 					this.currentScenarioId = this.scenarios[0].id
 					
+					let gameStore = useGameStore()
+					
 					let scenario = this.scenarios.find(s => s.id == this.currentScenarioId)
 					gameStore.loadScenario(scenario)
 				}
 				
 				this.computeOfflineProgress()
 				
-				this.loaded = true
+				this.lastSavedTime = Date.now()
+				this.appStatus = 'started'
 			}
-			catch (error) {
+			catch(error) {
 				
-				this.error = error
-				console.error(this.error)
+				this.appStatus = 'error'
+				console.error(error)
 			}
 		},
 		
