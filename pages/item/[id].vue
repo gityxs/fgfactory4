@@ -65,7 +65,7 @@
 <template>
 
     <div class="w-100 h-100 scroll-content">	
-		<div class="container">
+		<div class="container p-2">
 			<div class="row g-3">
 
 				<div class="col-12">

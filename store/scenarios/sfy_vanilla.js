@@ -187,7 +187,7 @@ sfy_vanilla.elems = [
 	{	type:'manual',	id:'manual_hub_upgrade_3',	select:{ count:1, values:[ 1 ] },	results:{ 'hub_upgrade_3':1 },	costs:{ 'iron_rod':20, 'iron_plate':20, 'wire':20 },	},		
 	{	type:'manual',	id:'manual_hub_upgrade_5',	select:{ count:1, values:[ 1 ] },	results:{ 'hub_upgrade_5':1, 'energy':20e6 },	costs:{ 'iron_rod':75, 'cable':50, 'concrete':20 },	},		
 	{	type:'manual',	id:'manual_hub_upgrade_6',	select:{ count:1, values:[ 1 ] },	results:{ 'hub_upgrade_6':1 },	costs:{ 'iron_rod':100, 'iron_plate':100, 'wire':100, 'concrete':50 },	},		
-									
+	
 	{	type:'manual',	id:'manual_part_asssembly',	select:{ count:1, values:[ 1 ] },	results:{ 'part_asssembly':1 },	costs:{ 'cable':200, 'iron_rod':200, 'screw':500, 'iron_plate':300 },	},		
 	{	type:'manual',	id:'manual_coal_power',	select:{ count:1, values:[ 1 ] },	results:{ 'coal_power':1 },	costs:{ 'reinforced_iron_plate':150, 'rotor':50, 'cable':500 },	},		
 	{	type:'manual',	id:'manual_basic_steel_production',	select:{ count:1, values:[ 1 ] },	results:{ 'basic_steel_production':1 },	costs:{ 'modular_frame':50, 'rotor':150, 'concrete':500, 'wire':1000 },	},		

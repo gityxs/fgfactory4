@@ -5,25 +5,39 @@
     import { useAppStore } from '~/store/appStore.js'    
     const appStore = useAppStore()
 
+	const scenarios = computed(() => appStore.scenarios.filter(s => !s.implementing))
+
     const selectScenario = function(scenarioId) {
         
         appStore.newScenarioId = scenarioId
         appStore.showModal('modalScenario')
     }
     
+	const isCompleted = function(scenarioId) { return appStore.completedScenarios.indexOf(scenarioId) }
+	
 </script>
 
 <template>
 
-	<div class="container">
+	<div class="container p-2">
 		<div class="row g-3 justify-content-center">
 			
-			<div v-for="scenario in appStore.scenarios" :key="scenario.id" class="col-12">
+			<div v-for="scenario in scenarios" :key="scenario.id" class="col-12">
 				<div class="card" :class="{ 'border-primary':scenario.id == appStore.currentScenarioId }">
 				
 					<div class="card-header">
-						<span class="fs-6 text-white">{{ $t(scenario.title) }}</span>
-						<div class="opacity-50">{{ $t(scenario.subtitle) }}</div>
+						<div class="row gx-1 align-items-center">
+						
+							<div class="col">
+								<span class="fs-6 text-white">{{ $t(scenario.title) }}</span>
+								<div class="opacity-50">{{ $t(scenario.subtitle) }}</div>
+							</div>
+							
+							<div v-if="isCompleted(scenario.id) > -1" class="col-auto">
+								<img src="/victory.png" width="24" height="24" />
+							</div>
+							
+						</div>
 					</div>
 					
 					<div class="card-body">

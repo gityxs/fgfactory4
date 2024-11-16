@@ -100,7 +100,7 @@
     <div v-if="appStore.loaded" class="w-100 h-100 d-flex">
 
 		<div id="sidebar" class="bg-dark border-end border-2 border-translucent" :class="{ 'open':appStore.sidebarOpen }">
-			<div class="h-100 px-3 py-2 scroll-content">
+			<div class="h-100 p-2 scroll-content">
 				<div class="row g-3">
 				
 					<div class="col-12">
@@ -165,7 +165,7 @@
 		</div>
 	
 		<div id="topbar" class="bg-dark border-bottom border-2 border-translucent">
-			<div class="px-3 py-2">
+			<div class="p-2">
 				<div class="row g-1 align-items-center flex-nowrap">
 
 					<div class="col-auto d-lg-none">
@@ -177,8 +177,8 @@
 					<div class="col text-truncate">
 						<div class="row gx-1 align-items-center flex-nowrap">
 
-							<div v-if="pageImg" class="col-auto"><img :src="pageImg" width="24" height="24" /></div>
-							<div class="col text-truncate"><span class="fs-5 text-white">{{ $t(pageTitle) }}</span></div>
+							<div v-if="pageImg" class="col-auto"><img :src="pageImg" width="18" height="18" /></div>
+							<div class="col text-truncate"><span class="fs-6 text-white">{{ $t(pageTitle) }}</span></div>
 						
 						</div>
 					</div>
@@ -225,7 +225,7 @@
     </div>
 	<div v-else-if="appStore.corrupted" class="w-100 h-100 d-flex align-items-center justify-content-center">
 	
-		<div class="container p-3" style="max-width:512px;">
+		<div class="container p-2" style="max-width:512px;">
 			<div class="card">
 				
 				<div class="card-header">
@@ -248,7 +248,7 @@
 						</div>
 						<div class="col-5 col-lg-3">
 							<button type="button" class="w-100 btn btn-danger" @click="appStore.showModal('modalWipe')">
-								<font-awesome-icon icon="fas fa-fw fa-skull" />
+								<font-awesome-icon icon="fas fa-skull" />
 								<span class="ms-2">{{ $t('screenCorrupted_wipeSave') }}</span>
 							</button>
 						</div>
@@ -263,7 +263,7 @@
     </div>
 	<div v-else-if="appStore.error" class="w-100 h-100 d-flex align-items-center justify-content-center">
 		
-		<div class="container p-3" style="max-width:512px;">
+		<div class="container p-2" style="max-width:512px;">
 			<div class="card">
 			
 				<div class="card-header">
@@ -279,7 +279,7 @@
 						<div class="col-12 text-center">{{ $t('screenError_info1') }}</div>
 						<div class="col-5 col-lg-3">
 							<a href="https://discord.gg/ZXrggavUpv" target="_blank" class="w-100 btn btn-secondary">
-								<span><font-awesome-icon icon="fa-brands fa-fw fa-discord" /></span>
+								<span><font-awesome-icon icon="fa-brands fa-discord" /></span>
 								<span class="ms-2">Discord</span>
 							</a>
 						</div>
@@ -293,13 +293,13 @@
 						</div>
 						<div class="col-5 col-lg-3">
 							<button type="button" class="w-100 btn btn-secondary" @click="appStore.exportAppState()">
-								<font-awesome-icon icon="fas fa-fw fa-copy" />
+								<font-awesome-icon icon="fas fa-copy" />
 								<span class="ms-2">{{ $t('screenError_exportSave') }}</span>
 							</button>
 						</div>
 						<div class="col-5 col-lg-3">
 							<button type="button" class="w-100 btn btn btn-secondary" @click="appStore.downloadAppState()">
-								<font-awesome-icon icon="fas fa-fw fa-download" />
+								<font-awesome-icon icon="fas fa-download" />
 								<span class="ms-2">{{ $t('screenError_downloadSave') }}</span>
 							</button>
 						</div>
@@ -313,7 +313,7 @@
 						</div>
 						<div class="col-5 col-lg-3">
 							<button type="button" class="w-100 btn btn-danger" @click="appStore.showModal('modalWipe')">
-								<font-awesome-icon icon="fas fa-fw fa-skull" />
+								<font-awesome-icon icon="fas fa-skull" />
 								<span class="ms-2">{{ $t('screenError_wipeSave') }}</span>
 							</button>
 						</div>
@@ -331,7 +331,7 @@
 		
     </div>
 	<div v-else class="w-100 h-100 d-flex align-items-center justify-content-center">
-        <div class="container p-3" style="max-width:320px;">
+        <div class="container p-2" style="max-width:320px;">
             <div class="card card-body">
                 <div class="row g-1">
                 

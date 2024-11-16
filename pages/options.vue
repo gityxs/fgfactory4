@@ -17,7 +17,7 @@
 
 <template>
 
-	<div class="container">
+	<div class="container p-2">
 		<div class="row g-3">
 			
 			<div class="col-12">
@@ -146,21 +146,21 @@
 									
 									<div class="col-4">
 										<button type="button" class="w-100 btn btn-danger px-0" @click="appStore.showModal('modalWipe');">
-											<span><font-awesome-icon icon="fas fa-fw fa-skull" /></span>
+											<span><font-awesome-icon icon="fas fa-skull" /></span>
 											<span class="ms-2">{{ $t('options_wipeSave') }}</span>
 										</button>
 									</div>
 									
 									<div class="col-4">
 										<button type="button" class="w-100 btn btn-secondary px-0" @click="appStore.exportAppState();">
-											<span><font-awesome-icon icon="fas fa-fw fa-copy" /></span>
+											<span><font-awesome-icon icon="fas fa-copy" /></span>
 											<span class="ms-2">{{ $t('options_exportSave') }}</span>
 										</button>
 									</div>
 									
 									<div class="col-4">
 										<button type="button" class="w-100 btn btn-secondary px-0" @click="appStore.downloadAppState();">
-											<span><font-awesome-icon icon="fas fa-fw fa-download" /></span>
+											<span><font-awesome-icon icon="fas fa-download" /></span>
 											<span class="ms-2">{{ $t('options_downloadSave') }}</span>
 										</button>
 									</div>
@@ -177,7 +177,7 @@
 									
 									<div class="col-4 ms-auto">
 										<button type="button" class="w-100 btn btn-secondary px-0" @click="appStore.importAppState();">
-											<span><font-awesome-icon icon="fas fa-fw fa-upload" /></span>
+											<span><font-awesome-icon icon="fas fa-upload" /></span>
 											<span class="ms-2">{{ $t('options_importSave') }}</span>
 										</button>
 									</div>

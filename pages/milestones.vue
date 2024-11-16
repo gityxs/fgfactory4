@@ -17,7 +17,7 @@
 
 <template>
 
-	<div class="container">
+	<div class="container p-2">
 		<div class="row g-3">
 			
 			<div v-for="group in groups" :key="group" class="col-12">

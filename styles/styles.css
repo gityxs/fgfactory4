@@ -114,8 +114,11 @@ a {
 
 .container, .container-fluid {
 
+    --bs-gutter-x: var(--bs-spacer);
     --bs-gutter-y: var(--bs-spacer);
     
+    padding-right: var(--bs-gutter-x);
+    padding-left: var(--bs-gutter-x);
     padding-top: var(--bs-gutter-y);
     padding-bottom: var(--bs-gutter-y);
 }

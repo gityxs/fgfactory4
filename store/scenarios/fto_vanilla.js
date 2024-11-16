@@ -5,6 +5,7 @@ fto_vanilla.id = 'fto_vanilla'
 fto_vanilla.title = 'fto_vanilla_title'
 fto_vanilla.subtitle = 'fto_vanilla_subtitle'
 fto_vanilla.desc = 'fto_vanilla_desc'
+fto_vanilla.implementing = true
 
 fto_vanilla.victoryReqs = { 'rocket_launch':1 }
 
@@ -98,8 +99,30 @@ fto_vanilla.elems = [
 	
 	// MANUALS
 
+	{	type:'manual',	id:'manual_rocket_launch',	select:{ count:1, values:[ 1 ] },	results:{ 'rocket_launch':1 },	costs:{ 'rocket_part':100, 'satellite':1 },	},		
+	
 	// STORERS
+	
+	{	type:'manual',	id:'manual_iron_chest',	select:{ count:1, values:[ 1, 5, 10, 25 ] },	results:{ 'iron_chest':1 },	costs:{ 'iron_plate':8 },	},
+	{	type:'manual',	id:'manual_steel_chest',	select:{ count:1, values:[ 1, 5, 10, 25 ] },	results:{ 'steel_chest':1 },	costs:{ 'steel_plate':8 },	},
+	{	type:'manual',	id:'manual_storage_tank',	select:{ count:1, values:[ 1, 5, 10, 25 ] },	results:{ 'storage_tank':1 },	costs:{ 'iron_plate':20, 'steel_plate':5 },	},
 
+	{	type:'manual',	id:'manual_burner_mining_drill',	select:{ count:1, values:[ 1, 5, 10, 25 ] },	results:{ 'burner_mining_drill':1 },	costs:{ 'iron_plate':3, 'iron_gear_wheel':3 },	upgrades:{ 'stone_furnace':1 },	},
+	{	type:'manual',	id:'manual_electric_mining_drill',	select:{ count:1, values:[ 1, 5, 10, 25 ] },	results:{ 'electric_mining_drill':1 },	costs:{ 'iron_plate':10, 'iron_gear_wheel':5, 'electronic_circuit':3 },	},
+	{	type:'manual',	id:'manual_offshore_pump',	select:{ count:1, values:[ 1, 5, 10, 25 ] },	results:{ 'offshore_pump':1 },	costs:{ 'pipe':1, 'iron_gear_wheel':1, 'electronic_circuit':2 },	},
+	{	type:'manual',	id:'manual_pumpjack',	select:{ count:1, values:[ 1, 5, 10, 25 ] },	results:{ 'pumpjack':1 },	costs:{ 'steel_plate':10, 'pipe':10, 'iron_gear_wheel':1, 'electronic_circuit':2 },	},
+	
+	{	type:'manual',	id:'manual_stone_furnace',	select:{ count:1, values:[ 1, 5, 10, 25 ] },	results:{ 'stone_furnace':1 },	costs:{},	},
+	{	type:'manual',	id:'manual_steel_furnace',	select:{ count:1, values:[ 1, 5, 10, 25 ] },	results:{ 'steel_furnace':1 },	costs:{},	},
+	{	type:'manual',	id:'manual_electric_furnace',	select:{ count:1, values:[ 1, 5, 10, 25 ] },	results:{ 'electric_furnace':1 },	costs:{},	},
+	{	type:'manual',	id:'manual_assembling_machine_1',	select:{ count:1, values:[ 1, 5, 10, 25 ] },	results:{ 'assembling_machine_1':1 },	costs:{},	},
+	{	type:'manual',	id:'manual_assembling_machine_2',	select:{ count:1, values:[ 1, 5, 10, 25 ] },	results:{ 'assembling_machine_2':1 },	costs:{},	},
+	{	type:'manual',	id:'manual_assembling_machine_3',	select:{ count:1, values:[ 1, 5, 10, 25 ] },	results:{ 'assembling_machine_3':1 },	costs:{},	},
+	{	type:'manual',	id:'manual_oil_refinery',	select:{ count:1, values:[ 1, 5, 10, 25 ] },	results:{ 'oil_refinery':1 },	costs:{},	},
+	{	type:'manual',	id:'manual_chemical_plant',	select:{ count:1, values:[ 1, 5, 10, 25 ] },	results:{ 'chemical_plant':1 },	costs:{},	},
+	{	type:'manual',	id:'manual_centrifuge',	select:{ count:1, values:[ 1, 5, 10, 25 ] },	results:{ 'centrifuge':1 },	costs:{},	},
+	
 	// PRODUCERS
-
+	
+	
 ]

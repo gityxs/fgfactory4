@@ -326,7 +326,22 @@ export const useGameStore = defineStore({
 					}
 				}
 			})
-		
+			
+			let generators = this.elems.filter(e => e.type == 'generator' && e.count > 0)
+			generators.forEach(g => {
+				
+				let manuals = this.elems.filter(e => e.type == 'manual' && e.results[g.id] && e.inputs)
+				manuals.forEach(m => {
+					
+					for (let id in m.inputs) {
+					
+						let elem = this.getElem(id)
+						elem.prod -= m.inputs[id] * g.count
+						elem.prod = Math.round(elem.prod * 100) / 100
+					}
+				})
+			})
+			
 			this.victory = this.checkCounts(this.victoryReqs)
 		},
 

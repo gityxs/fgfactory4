@@ -3,6 +3,7 @@ import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import LZString from 'lz-string'
 
 import sfy_vanilla from '~/store/scenarios/sfy_vanilla.js'
+import fto_vanilla from '~/store/scenarios/fto_vanilla.js'
 
 import { useGameStore } from '~/store/gameStore.js'    
 
@@ -29,9 +30,10 @@ export const useAppStore = defineStore({
 		showCompleted: true,
 		showLocked: false,
 		sidebarOpen: false,
-		version: 0.19,
+		version: 0.20,
 		
-        scenarios: [ sfy_vanilla ],
+        scenarios: [ sfy_vanilla, fto_vanilla ],
+		completedScenarios: [],
     }},
     
     getters: {
@@ -75,6 +77,10 @@ export const useAppStore = defineStore({
 					gameStore.loadScenario(scenario)
 					
 					gameStore.loadGameState(loadedData)
+					
+					let index = this.completedScenarios.indexOf(scenario.id)
+					if (index == -1 && gameStore.victory) this.completedScenarios.push(scenario.id)
+					else if (index != -1 && !gameStore.victory) this.completedScenario.splice(index, 1)
 				}
 				else {
 					
@@ -97,6 +103,7 @@ export const useAppStore = defineStore({
 		
 		loadAppState(loadedData) {
 			
+			this.completedScenarios = loadedData.completedScenarios ?? this.completedScenarios
 			this.currentScenarioId = loadedData.currentScenarioId ?? this.currentScenarioId
 			this.firstTime = loadedData.firstTime ?? this.firstTime
 			this.lastSavedTime = loadedData.lastSavedTime ?? this.lastSavedTime
@@ -125,6 +132,7 @@ export const useAppStore = defineStore({
 			
 			let appState = {}
 			
+			appState.completedScenarios = this.completedScenarios
 			appState.currentScenarioId = this.currentScenarioId
 			appState.firstTime = this.firstTime
 			appState.lastSavedTime = this.lastSavedTime

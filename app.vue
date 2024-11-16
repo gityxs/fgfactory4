@@ -11,7 +11,7 @@
 </script>
 
 <template>
-        
+    
 	<NuxtLoadingIndicator color="#f89e1a" />
 	
 	<NuxtLayout>	
