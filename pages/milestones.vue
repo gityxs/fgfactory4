@@ -29,20 +29,6 @@
 					
 					<div class="card-body">
 						<div class="row g-3">
-
-							<div v-if="appStore.showCompleted && completedIds(group).length > 0" class="col-12">
-								<div class="row g-1">
-									
-									<div class="col-12">
-										<span class="text-subtitle">{{ $t('word_completed')}}</span>
-									</div>
-									
-									<div v-for="id in completedIds(group)" :key="id" class="col-6 col-lg-3">
-										<milestone :id="id" />
-									</div>
-									
-								</div>							
-							</div>
 								
 							<div v-if="uncompletedIds(group).length > 0" class="col-12">
 								<div class="row g-1">
@@ -56,6 +42,20 @@
 									</div>
 
 								</div>
+							</div>
+
+							<div v-if="appStore.showCompleted && completedIds(group).length > 0" class="col-12">
+								<div class="row g-1">
+									
+									<div class="col-12">
+										<span class="text-subtitle">{{ $t('word_completed')}}</span>
+									</div>
+									
+									<div v-for="id in completedIds(group)" :key="id" class="col-6 col-lg-3">
+										<milestone :id="id" />
+									</div>
+									
+								</div>							
 							</div>
 
 						</div>
