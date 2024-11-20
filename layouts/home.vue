@@ -78,7 +78,7 @@
 					</div>
 
 					<div class="col-auto d-lg-none">
-						<button type="button" class="btn btn-primary" @click="appStore.sidebarOpen = false;">
+						<button type="button" class="btn btn-secondary" @click="appStore.sidebarOpen = false;">
 							<font-awesome-icon icon="fas fa-times" fixed-width />
 						</button>
 					</div>
@@ -160,7 +160,7 @@
 					</form>
 
 					<div class="col">
-						<a href="https://discord.gg/ZXrggavUpv" class="w-100 btn btn-secondary" target="_blank" :title="$t('options_discord')">
+						<a href="https://discord.gg/WhvQvZqyq5" class="w-100 btn btn-secondary" target="_blank" :title="$t('options_discord')">
 							<img src="/discord.png" width="16" height="16" />
 						</a>
 					</div>

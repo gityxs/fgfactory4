@@ -61,7 +61,7 @@
 									</form>
 
 									<div class="col">
-										<a href="https://discord.gg/ZXrggavUpv" class="w-100 btn btn-secondary" target="_blank">
+										<a href="https://discord.gg/WhvQvZqyq5" class="w-100 btn btn-secondary" target="_blank">
 											<img src="/discord.png" width="16" height="16" />
 											<span class="ms-2 d-none d-sm-inline">{{ $t('options_discord') }}</span>
 										</a>

@@ -25,7 +25,7 @@
 			<div v-for="scenario in scenarios" :key="scenario.id" class="col-12">
 				<div class="card" :class="{ 'border-primary':scenario.id == appStore.currentScenarioId }">
 				
-					<div class="card-body">
+					<div class="card-header">
 						<div class="row gx-1 align-items-center">
 						
 							<div class="col">

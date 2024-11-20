@@ -17,7 +17,7 @@ sfy_vanilla.elems = [
 	{	type:'milestone',	group:'sfy_onboarding',	id:'hub_upgrade_3',	name:'sfy_hub_upgrade_3',	reqs:{ 'hub_upgrade_2':1 },	},
 	{	type:'milestone',	group:'sfy_onboarding',	id:'hub_upgrade_5',	name:'sfy_hub_upgrade_5',	reqs:{ 'hub_upgrade_3':1 },	},
 	{	type:'milestone',	group:'sfy_onboarding',	id:'hub_upgrade_6',	name:'sfy_hub_upgrade_6',	reqs:{ 'hub_upgrade_5':1 },	},
-							
+	
 	{	type:'milestone',	group:'sfy_order',	id:'part_asssembly',	name:'sfy_part_asssembly',	reqs:{ 'hub_upgrade_6':1 },	},
 	{	type:'milestone',	group:'sfy_order',	id:'coal_power',	name:'sfy_coal_power',	reqs:{ 'phase_1':1 },	},
 	{	type:'milestone',	group:'sfy_order',	id:'basic_steel_production',	name:'sfy_basic_steel_production',	reqs:{ 'phase_1':1 },	},
