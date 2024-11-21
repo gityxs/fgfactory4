@@ -107,20 +107,18 @@
 							</NuxtLink>
 						</div>
 						
-						<div v-if="appStore.showLocked ? true : energyElem.unlocked" class="col-12">
-							<div class="card card-body">
-								<div class="row gx-2 align-items-center">
-									
-									<div class="col">
-										<span>{{ $t(energyElem.name) }}</span>
-									</div>
-									
-									<div class="col-auto">
-										<span class="text-white"><img :src="energyElem.img" width="16" height="16" /> <item-count id="energy" /></span>
-									</div>
-									
-								</div>
-							</div>
+					</div>
+				</div>
+				
+				<div v-if="appStore.showLocked ? true : energyElem.unlocked" class="p-2">
+					<div class="row gx-2 align-items-center justify-content-center">
+						
+						<div class="col-auto">
+							<span>{{ $t(energyElem.name) }}</span>
+						</div>
+						
+						<div class="col-auto">
+							<span class="text-white"><img :src="energyElem.img" width="16" height="16" /> <item-count id="energy" /></span>
 						</div>
 						
 					</div>

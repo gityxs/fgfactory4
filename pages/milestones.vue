@@ -31,13 +31,13 @@
 						<div class="row g-3">
 								
 							<div v-if="uncompletedIds(group).length > 0" class="col-12">
-								<div class="row g-1">
+								<div class="row gy-1 gx-4">
 
 									<div class="col-12">
 										<span class="text-subtitle">{{ $t('word_uncompleted')}}</span>
 									</div>
 
-									<div v-for="id in uncompletedIds(group)" :key="id" class="col-12">
+									<div v-for="id in uncompletedIds(group)" :key="id" class="col-12 col-lg-6">
 										<milestone :id="id" />
 									</div>
 

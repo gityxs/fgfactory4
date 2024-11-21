@@ -60,7 +60,7 @@
     
     --bs-body-font-family: 'Roboto', 'Lucida Grande', 'DejaVu Sans', 'Bitstream Vera Sans', 'Verdana', 'Arial', sans-serif;
     --bs-body-font-size: 0.75rem;
-    --bs-body-font-weight: 400;
+    --bs-body-font-weight: 300;
     --bs-body-line-height: 1.5;
     --bs-body-color: #c5d1de;
     --bs-body-color-rgb: 197, 209, 222;
@@ -166,7 +166,11 @@ a {
 .g-2, .gx-2 { --bs-gutter-x: calc(var(--bs-spacer) * .75); }
 .g-2, .gy-2 { --bs-gutter-y: calc(var(--bs-spacer) * .75); }
 
+.g-3, .gx-3 { --bs-gutter-x: var(--bs-spacer); }
 .g-3, .gy-3 { --bs-gutter-y: var(--bs-spacer); }
+
+.g-4, .gx-4 { --bs-gutter-x: calc(var(--bs-spacer) * 2); }
+.g-4, .gy-4 { --bs-gutter-y: calc(var(--bs-spacer) * 2); }
 
 .p-2 { padding: calc(var(--bs-spacer) * .75) !important; }
 

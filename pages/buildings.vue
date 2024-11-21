@@ -33,15 +33,17 @@
 							</div>
 							
 							<div class="col-auto">
-								<span class="text-white"><img :src="energyElem.img" width="16" height="16" /> <item-count id="energy" /></span>
+								<div class="bg-dark rounded py-1 px-2">
+									<span class="text-white"><img :src="energyElem.img" width="16" height="16" /> <item-count id="energy" /></span>
+								</div>
 							</div>
 							
 						</div>
 					</div>
 
 					<div v-if="generators.length > 0" class="card-body">
-						<div class="row g-1">							
-							<div v-for="generator in generators" :key="generator.id" class="col-12">
+						<div class="row gy-1 gx-4">							
+							<div v-for="generator in generators" :key="generator.id" class="col-12 col-lg-6">
 								<generator :id="generator.id" />
 							</div>
 						</div>
@@ -58,8 +60,8 @@
 					</div>
 					
 					<div class="card-body">
-						<div class="row g-1">
-							<div v-for="id in ids(group)" :key="id" class="col-12">
+						<div class="row gy-1 gx-4">
+							<div v-for="id in ids(group)" :key="id" class="col-12 col-lg-6">
 								<building :id="id" />
 							</div>
 						</div>

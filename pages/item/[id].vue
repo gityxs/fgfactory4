@@ -81,7 +81,9 @@
 								</div>
 
 								<div class="col-auto">
-									<span class="text-white"><item-count :id="item.id" /> / <item-max :id="item.id" /></span>
+									<div class="bg-dark rounded py-1 px-2">
+										<span class="text-white"><item-count :id="item.id" /> / <item-max :id="item.id" /></span>
+									</div>
 								</div>
 								
 							</div>
@@ -98,7 +100,7 @@
 										</div>
 										
 										<div v-for="manual in manuals" :key="manual.id" class="col-12">
-											<div class="row gx-1 align-items-center">
+											<div class="row gx-2 align-items-center">
 
 												<div class="col-auto">		
 													<manual-info :id="manual.id" :img="item.img" />			
@@ -128,48 +130,44 @@
 								</div>
 								
 								<div v-if="storers.length > 0" class="col-12">
-									<div class="row g-1">
+									<div class="row gy-1 gx-4">
 
 										<div class="col-12">
 											<span class="text-subtitle">{{ $t('word_storers') }}</span>
 										</div>
 										
-										<div v-for="storer in storers" :key="storer.id" class="col-12">
-											<div v-if="storer.unlocked" class="row gx-1 align-items-center">
+										<div v-for="storer in storers" :key="storer.id" class="col-12 col-lg-6">
+											<div v-if="storer.unlocked" class="row gx-2 align-items-center">
 
-												<div class="col-auto">		
-													<storer-info :id="storer.id" />			
+												<div class="col-auto position-relative">		
+
+													<storer-info :id="storer.id" />
+													
+													<item-available :id="storer.assign.id" class="position-absolute" style="top:0; left:0px;" />
+
 												</div>
 
 												<div class="col text-truncate">
 													<span class="text-white"><assign-name :id="storer.id" /></span>
 												</div>
-
-												<div class="col-auto">
-													<item-available :id="storer.assign.id" />
-												</div>
 												
 												<div class="col-auto">
 													<small>x</small> <assign-count :id="storer.id" />
 												</div>
-												
-												<div class="col-auto">
-													<item-select :id="storer.id" />
-												</div>
 
 												<div class="col-auto">
-													<unassign-button :id="storer.id" />
-												</div>
-												
-												<div class="col-auto">
-													<assign-button :id="storer.id" />
+													<div class="input-group">
+														<unassign-button :id="storer.id" />
+														<item-select :id="storer.id" />
+														<assign-button :id="storer.id" />
+													</div>
 												</div>
 												
 											</div>
-											<div v-else class="row gx-1 align-items-center">
+											<div v-else class="row gx-2 align-items-center">
 											
 												<div class="col-auto">
-													<button type="button" class="btn btn-secondary" disabled>
+													<button type="button" class="btn btn-secondary" disabled style="width:40px;">
 														<font-awesome-icon icon="fas fa-lock" fixed-width />
 													</button>
 												</div>
@@ -201,32 +199,34 @@
 								</div>
 
 								<div class="col-auto">
-									<span class="text-white"><item-prod :id="item.id" /></span>
+									<div class="bg-dark rounded py-1 px-2">
+										<span class="text-white"><item-prod :id="item.id" /></span>
+									</div>
 								</div>
 									
 							</div>
 						</div>
 							
 						<div v-if="producers.length > 0" class="card-body">
-							<div class="row g-1">
+							<div class="row gy-1 gx-4">
 
 								<div class="col-12">
 									<span class="text-subtitle">{{ $t('word_producers') }}</span> <span v-if="rawprod != 0" class="ms-2 text-success">+ {{ formatNumber(rawprod) }} /s</span>
 								</div>
 				
-								<div v-for="producer in producers" :key="producer.id" class="col-12">
-									<div v-if="producer.unlocked" class="row gx-1 align-items-center">
+								<div v-for="producer in producers" :key="producer.id" class="col-12 col-lg-6">
+									<div v-if="producer.unlocked" class="row gx-2 align-items-center">
 
-										<div class="col-auto">		
-											<producer-info :id="producer.id" />			
+										<div class="col-auto position-relative">
+										
+											<producer-info :id="producer.id" />
+											
+											<item-available :id="producer.assign.id" class="position-absolute" style="top:0; left:0px;" />
+											
 										</div>
 
 										<div class="col text-truncate">
 											<span class="text-white"><assign-name :id="producer.id" /></span>
-										</div>
-
-										<div class="col-auto">
-											<item-available :id="producer.assign.id" />
 										</div>
 										
 										<div class="col-auto">
@@ -234,22 +234,18 @@
 										</div>
 
 										<div class="col-auto">
-											<item-select :id="producer.id" />
-										</div>
-
-										<div class="col-auto">
-											<unassign-button :id="producer.id" />
-										</div>
-										
-										<div class="col-auto">
-											<assign-button :id="producer.id" />
+											<div class="input-group">
+												<unassign-button :id="producer.id" />
+												<item-select :id="producer.id" />
+												<assign-button :id="producer.id" />
+											</div>
 										</div>
 
 									</div>
-									<div v-else class="row gx-1 align-items-center">
+									<div v-else class="row gx-2 align-items-center">
 									
 										<div class="col-auto">
-											<button type="button" class="btn btn-secondary" disabled>
+											<button type="button" class="btn btn-secondary" disabled style="width:40px;">
 												<font-awesome-icon icon="fas fa-lock" fixed-width />
 											</button>
 										</div>
@@ -265,14 +261,14 @@
 						</div>
 
 						<div v-if="consumers.length > 0" class="card-body">
-							<div class="row g-1">
+							<div class="row gy-1 gx-4">
 
 								<div class="col-12">
 									<span class="text-subtitle">{{ $t('word_consumers') }}</span> <span v-if="rawconsu != 0" class="ms-2 text-danger">- {{ formatNumber(rawconsu) }} /s</span>
 								</div>
 				
-								<div v-for="consumer in consumers" :key="consumer.id" class="col-12 col-lg-4">
-									<div class="row gx-1 align-items-center">
+								<div v-for="consumer in consumers" :key="consumer.id" class="col-12 col-lg-6">
+									<div class="row gx-2 align-items-center">
 									
 										<div class="col-auto">
 											<NuxtLink v-if="consumer.mainId" :to="localePath('/item/' + consumer.mainId)" class="w-100 btn btn-primary" :title="$t(consumer.name)">
