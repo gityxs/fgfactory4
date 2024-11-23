@@ -15,10 +15,11 @@ class Elem {
 			this.max = this.max ? this.max : 1
 			this.count = this.count ? this.count : 0
 		}
-		else if (this.type == 'power') {
+		else if (this.type == 'other') {
 			
-			this.max = this.max ? this.max : Infinity
 			this.count = this.count ? this.count : 0
+			this.max = this.max ? this.max : Infinity
+			this.prod = this.prod ? this.prod : 0
 		}
 		else if (this.type == 'generator') {
 			
@@ -34,6 +35,7 @@ class Elem {
 			
 			this.prod = this.prod ? this.prod : 0
 			this.count = this.count ? this.count : 0
+			this.max = this.max ? this.max : Infinity
 		}
 		else if (this.type == 'storer') {
 			
@@ -51,6 +53,7 @@ class Elem {
 		
         if (data.assignCount) this.assign.count = data.assignCount
         if (data.count) this.count = data.count
+        if (data.level) this.level = data.level
         if (data.notified) this.notified = data.notified
         if (data.remainingSeconds) this.remainingSeconds = data.remainingSeconds
         if (data.selectCount) this.select.count = data.selectCount
@@ -67,7 +70,8 @@ class Elem {
         if (this.select) data.selectCount = this.select.count
         if (this.status) data.status = this.status
         if (this.count) data.count = this.count
-        if (this.id) data.id = this.id		
+        if (this.level) data.level = this.level
+        if (this.id) data.id = this.id
         
         return data
     }
@@ -80,6 +84,7 @@ export const useGameStore = defineStore({
     state: () => { return {
 		
         elems: [],
+		currentScenario: null,
 		
 		victory: false,
 		victoryReqs: null,
@@ -101,9 +106,11 @@ export const useGameStore = defineStore({
 			
 			if (!elem.costs) return null
 			
+			if (elem.getCosts) return elem.getCosts(state, elem)
+			
 			let ret = {}
 			
-			for (let id in elem.costs)
+			for (let id in elem.costs)				
 				ret[id] = elem.costs[id] * elem.select.count
 			
 			return ret
@@ -175,8 +182,8 @@ export const useGameStore = defineStore({
             let check = true
             
             for (let id in counts) {
-                
-                let elem = state.getElem(id)
+                				
+                let elem = state.getElem(id)				
                 if (elem.count < counts[id]) check = false
             }
             
@@ -239,6 +246,7 @@ export const useGameStore = defineStore({
 		loadScenario(scenario) {
 			
 			this.elems = []
+			this.currentScenario = scenario
 			
 			this.victory = false
 			this.victoryReqs = scenario.victoryReqs
@@ -264,7 +272,12 @@ export const useGameStore = defineStore({
 				let assignments = this.elems.filter(e => e.assign && e.assign.id == b.id)
 				assignments.forEach(a => {
 					
-					a.reqs = b.reqs
+					if (!a.reqs) a.reqs = {}
+					
+					for (let id in b.reqs) {
+						a.reqs[id] = b.reqs[id]
+					}
+					
 					a.unlocked = false
 				})
 			})
@@ -278,9 +291,11 @@ export const useGameStore = defineStore({
                 if (elem) elem.load(loadedElem)
             })
 			
+			//---
+			
 			let unlocks = this.elems.filter(e => e.reqs)
 			unlocks.forEach(u => { u.unlocked = this.checkCounts(u.reqs) })
-			
+
 			let buildings = this.elems.filter(e => e.type == 'building' && e.count > 0)
 			buildings.forEach(b => {
 				
@@ -295,6 +310,8 @@ export const useGameStore = defineStore({
 					}
 				})
 			})
+			
+			let usedPlaces = 0
 			
 			let assignments = this.elems.filter(e => e.assign && e.assign.count > 0)
 			assignments.forEach(a => {
@@ -325,6 +342,8 @@ export const useGameStore = defineStore({
 						elem.max = Math.round(elem.max * 100) / 100
 					}
 				}
+				
+				if (a.costs && a.costs['place']) usedPlaces += a.assign.count * a.costs['place']
 			})
 			
 			let generators = this.elems.filter(e => e.type == 'generator' && e.count > 0)
@@ -340,9 +359,19 @@ export const useGameStore = defineStore({
 						elem.prod = Math.round(elem.prod * 100) / 100
 					}
 				})
+				
+				if (g.costs && g.costs['place']) usedPlaces += g.count * g.costs['place']
 			})
 			
 			this.victory = this.checkCounts(this.victoryReqs)
+			
+			let scenarioPlaceElem = this.currentScenario.elems.find(e => e.id == 'place')
+			let placeInitialCount = scenarioPlaceElem.count
+			
+			let elemPlace = this.getElem('place')
+			let totalPlaceCount = placeInitialCount + elemPlace.level
+			
+			elemPlace.count = totalPlaceCount - usedPlaces
 		},
 
 		computeOfflineProgress(seconds) {
@@ -401,6 +430,8 @@ export const useGameStore = defineStore({
 					result.count = Math.round(result.count * 100) / 100
 				}
 			}
+			
+			if (elem.onBuild) elem.onBuild(this, elem)
 			
 			let unlocks = this.elems.filter(e => e.reqs)
 			unlocks.forEach(unlock => { 

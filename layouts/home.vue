@@ -53,7 +53,10 @@
 	
 	const buildings = computed(() => gameStore.elems.filter(e => e.unlocked && e.type == 'building').length)
 	const newBuildings = computed(() => gameStore.elems.filter(e => e.unlocked && e.notified && e.type == 'building').length)
+
+	const recyclers = computed(() => gameStore.elems.filter(e => e.unlocked && e.id == 'recycler').length)
 	
+	const placeElem = computed(() => gameStore.getElem('place'))
 	const energyElem = computed(() => gameStore.getElem('energy'))
 	
 	const groups = computed(() => [...new Set(gameStore.elems.filter(e => (appStore.showLocked ? true : e.unlocked) && e.type == 'item').map(e => e.group))])	
@@ -107,18 +110,45 @@
 							</NuxtLink>
 						</div>
 						
+						<div v-if="recyclers > 0" class="col-6">
+							<NuxtLink :to="localePath('/recycling')" class="btn btn-primary position-relative d-flex align-items-center justify-content-center" exactActiveClass="active" @click="appStore.sidebarOpen = false;">
+								<font-awesome-icon icon="fas fa-recycle" fixed-width />
+								<span class="ms-2">{{ $t('page_recycling') }}</span>
+							</NuxtLink>
+						</div>
+						
 					</div>
 				</div>
 				
-				<div v-if="appStore.showLocked ? true : energyElem.unlocked" class="p-2">
+				<div class="p-2">
 					<div class="row gx-2 align-items-center justify-content-center">
 						
-						<div class="col-auto">
-							<span>{{ $t(energyElem.name) }}</span>
+						<div class="col-6">
+							<div class="row gx-2 align-items-center justify-content-center">
+							
+								<div class="col-auto">
+									<span>{{ $t(placeElem.name) }}</span>
+								</div>
+								
+								<div class="col-auto">
+									<span class="text-white"><img :src="placeElem.img" width="16" height="16" /><item-count id="place" class="ms-2" /></span>
+								</div>
+								
+							</div>
 						</div>
 						
-						<div class="col-auto">
-							<span class="text-white"><img :src="energyElem.img" width="16" height="16" /> <item-count id="energy" /></span>
+						<div v-if="appStore.showLocked ? true : energyElem.unlocked" class="col-6">
+							<div class="row gx-2 align-items-center justify-content-center">
+							
+								<div class="col-auto">
+									<span>{{ $t(energyElem.name) }}</span>
+								</div>
+								
+								<div class="col-auto">
+									<span class="text-white"><img :src="energyElem.img" width="16" height="16" /><item-count id="energy" class="ms-2" /></span>
+								</div>
+								
+							</div>
 						</div>
 						
 					</div>
@@ -131,7 +161,7 @@
 			</div>
 
 			<div class="p-2 border-top border-2 border-translucent">
-				<div class="row g-2 justify-content-center">
+				<div class="row g-1 justify-content-center">
 				
 					<div class="col-12 text-center">
 						<span class="opacity-75">{{ $t('options_support') }}</span>
@@ -181,10 +211,15 @@
 						</div>
 						
 						<div class="col text-truncate">
-							<div class="row gx-1 align-items-center flex-nowrap">
+							<div class="row gx-2 align-items-center flex-nowrap">
 
-								<div v-if="pageImg" class="col-auto"><img :src="pageImg" width="24" height="24" /></div>
-								<div class="col text-truncate"><span class="fs-5 text-white">{{ $t(pageTitle) }}</span></div>
+								<div v-if="pageImg" class="col-auto">
+									<img :src="pageImg" width="24" height="24" />
+								</div>
+								
+								<div class="col text-truncate">
+									<span class="fs-5 text-white">{{ $t(pageTitle) }}</span>
+								</div>
 							
 							</div>
 						</div>

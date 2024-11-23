@@ -239,6 +239,7 @@
 
 	<modal-offline />
 	<modal-scenario />
+	<modal-version />
 	<modal-victory />
 	<modal-welcome />
 	<modal-wipe />

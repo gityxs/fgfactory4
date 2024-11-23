@@ -29,7 +29,7 @@ export const useAppStore = defineStore({
 		showCompleted: true,
 		showLocked: false,
 		sidebarOpen: false,
-		version: 0.24,
+		version: 0.25,
 		
         scenarios: [ sfy_vanilla, fto_vanilla ],
 		completedScenarios: [],
@@ -73,6 +73,11 @@ export const useAppStore = defineStore({
 						
 						this.appStatus = 'corrupted'
 						return
+					}
+
+					if (loadedData.version < 0.25) {
+						
+						this.showModal('modalVersion')
 					}
 					
 					this.loadAppState(loadedData)

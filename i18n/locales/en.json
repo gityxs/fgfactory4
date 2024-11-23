@@ -24,6 +24,11 @@
     "modalOffline_info": "You were away for",
     "modalOffline_close": "Continue",
     
+    "modalVersion_title": "Warning",
+	"modalVersion_text": "Your version is not up-to-date and some changes could let in you a situation that won't occur if you restart from the beginning.",
+	"modalVersion_info": "Click on 'Wipe' button to restart from the beginning or continue to play with problematic situation to solve. Sorry for this inconvenience.",
+    "modalVersion_close": "Got it!",
+	
     "modalVictory_title": "Victory",
     "modalVictory_subTitle": "Congratulations",
     "modalVictory_text": "You beat this scenario!",
@@ -67,6 +72,7 @@
     "page_buildings": "Buildings",
     "page_milestones": "Milestones",
     "page_options": "Options",
+    "page_recycling": "Recycling",
     "page_scenarios": "Scenarios",
 	
 	"word_completed": "Completed",
@@ -101,6 +107,7 @@
 	"sfy_hub_upgrade_6": "Step #5",
 
 	"sfy_part_asssembly": "Part Asssembly",
+	"sfy_recycling_program": "Recycling Program",
 	"sfy_coal_power": "Coal Power",
 	"sfy_basic_steel_production": "Basic Steel Production",
 	"sfy_logistics": "Logistics",
@@ -131,6 +138,9 @@
 	"sfy_machine": "Machines",
 	
 	"sfy_energy": "Energy",
+	"sfy_place": "Place",
+	
+	"sfy_point": "Recycling point",
 	
 	"sfy_storage_container_1": "Storage Container",
 	"sfy_storage_container_2": "Industrial Storage Container",
@@ -153,6 +163,7 @@
 	"sfy_smelter": "Smelter",
 	"sfy_builder": "Constructor",
 	"sfy_assembler": "Assembler",
+	"sfy_recycler": "Recycler",
 	"sfy_foundry": "Foundry",
 	"sfy_refinery": "Refinery",
 	"sfy_manufacturer": "Manufacturer",

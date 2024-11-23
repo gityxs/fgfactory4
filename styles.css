@@ -30,9 +30,9 @@
 
     --bs-spacer: .75rem;
     
-    --bs-primary: #f89e1a;
-    --bs-primary-rgb: 248, 158, 26;
-
+    --bs-primary: #fabb5e;
+    --bs-primary-rgb: 250, 187, 94;
+	
     --bs-secondary: #4d5158;
     --bs-secondary-rgb: 77, 81, 88;
     --bs-secondary-color: rgba(197, 209, 222, 0.75);
@@ -79,7 +79,7 @@
     --bs-border-color-translucent: rgba(0, 0, 0, 0.5);
     --bs-border-radius: 0.5rem;
     
-    --bs-box-shadow: 0px 0.35rem 0.35rem 0.35rem rgba(0, 0, 0, 0.25);
+    --bs-box-shadow: 0px 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
 }
 
 html, body, #__nuxt {
@@ -448,7 +448,8 @@ a {
 	--bs-badge-padding-x: 0.5em;
     --bs-badge-padding-y: 0.25em;
     --bs-badge-font-size: 0.8em;
-
+    --bs-badge-font-weight: 300;
+	
     display: inline;
 }
 

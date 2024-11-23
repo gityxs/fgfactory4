@@ -93,13 +93,13 @@
 							<div class="row g-3">
 						
 								<div v-if="manuals.length > 0" class="col-12">
-									<div class="row g-1">
+									<div class="row gy-1 gx-4">
 
 										<div class="col-12">
 											<span class="text-subtitle">{{ $t('word_manuals') }}</span>
 										</div>
 										
-										<div v-for="manual in manuals" :key="manual.id" class="col-12">
+										<div v-for="manual in manuals" :key="manual.id" class="col-12 col-lg-6">
 											<div class="row gx-2 align-items-center">
 
 												<div class="col-auto">		
@@ -207,7 +207,7 @@
 							</div>
 						</div>
 							
-						<div v-if="producers.length > 0" class="card-body">
+						<div class="card-body">
 							<div class="row gy-1 gx-4">
 
 								<div class="col-12">

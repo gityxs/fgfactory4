@@ -34,7 +34,7 @@
 							
 							<div class="col-auto">
 								<div class="bg-dark rounded py-1 px-2">
-									<span class="text-white"><img :src="energyElem.img" width="16" height="16" /> <item-count id="energy" /></span>
+									<span class="text-white"><img :src="energyElem.img" width="16" height="16" /><item-count id="energy" class="ms-2" /></span>
 								</div>
 							</div>
 							
