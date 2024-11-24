@@ -210,7 +210,7 @@ export const useGameStore = defineStore({
             for (let id in results) {
                 
                 let elem = state.getElem(id)
-                if (elem.count + results[id] > elem.max) check = false
+                if (Math.floor(elem.count + results[id]) > elem.max) check = false
             }
             
             return check
@@ -219,7 +219,7 @@ export const useGameStore = defineStore({
         getAvailableCount: (state) => (elemId) => {
             
             let elem = state.getElem(elemId)
-            let ret = elem.count
+            let ret = Math.floor(elem.count)
 
             let assignments = state.elems.filter(e => e.assign && e.assign.id == elemId && e.assign.count > 0)
             assignments.forEach(a => ret -= a.assign.count)
