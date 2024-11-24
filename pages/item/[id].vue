@@ -271,14 +271,22 @@
 									<div class="row gx-2 align-items-center">
 									
 										<div class="col-auto">
-											<NuxtLink v-if="consumer.mainId" :to="localePath('/item/' + consumer.mainId)" class="w-100 btn btn-primary" :title="$t(consumer.name)">
+										
+											<NuxtLink v-if="consumer.mainId && consumer.mainId == 'point'" :to="localePath('/recycling')" class="w-100 btn btn-primary" :title="$t(consumer.name)">
 												<img v-if="consumer.img" :src="consumer.img" width="18" height="18" />
 												<font-awesome-icon v-else icon="fas fa-info-circle" fixed-width />
 											</NuxtLink>
+											
+											<NuxtLink v-else-if="consumer.mainId" :to="localePath('/item/' + consumer.mainId)" class="w-100 btn btn-primary" :title="$t(consumer.name)">
+												<img v-if="consumer.img" :src="consumer.img" width="18" height="18" />
+												<font-awesome-icon v-else icon="fas fa-info-circle" fixed-width />
+											</NuxtLink>
+											
 											<NuxtLink v-else :to="localePath('/buildings/')" class="w-100 btn btn-primary" :title="$t(consumer.name)">
 												<img v-if="consumer.img" :src="consumer.img" width="18" height="18" />
 												<font-awesome-icon v-else icon="fas fa-info-circle" fixed-width />
 											</NuxtLink>
+											
 										</div>
 										
 										<div class="col col-lg-auto text-truncate">
