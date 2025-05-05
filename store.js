@@ -135,7 +135,7 @@ export const useAppStore = defineStore('app', {
 
 	state: () => ({
 		
-		activeTab: 1,
+		activeTab: '1',
 		currentScenarioId: null,
 		lastFrameTimeMs: null,
 		lastSavedTime: performance.now(),	

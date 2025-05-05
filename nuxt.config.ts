@@ -6,7 +6,7 @@ export default defineNuxtConfig({
 
 	devtools:{ enabled:false },
 	
-	modules:[ '@nuxt/ui', '@nuxtjs/i18n', '@pinia/nuxt' ],
+	modules:[ '@nuxt/ui', '@nuxtjs/i18n', '@pinia/nuxt', '@nuxtjs/color-mode' ],
 
 	app:{
 		
@@ -20,7 +20,13 @@ export default defineNuxtConfig({
 			link:[{ rel:'icon', type:'image/png', href:'/fgfactory/favicon.png' }],
 		},
 	},
-	
+
+	colorMode: {
+		
+		preference:'dark',
+		fallback:'dark',
+	},
+  
 	css:[ '~/main.css' ],
 	
 	i18n:{
