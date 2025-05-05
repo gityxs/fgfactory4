@@ -43,6 +43,19 @@
 	function doClick() {
 	
 		if (!can.value) return
+
+		if (elem.value.type == 'manual') {
+			
+			let inputs = elem.value.getInputs()
+			if (inputs) {
+			
+				inputs.forEach(input => {
+					
+					let inputElem = store.elems.find(e => e.id == input.id)
+					inputElem.count -= input.count
+				})
+			}
+		}
 		
 		elem.value.status = 'waiting'
 		elem.value.remainingSeconds = elem.value.seconds

@@ -114,6 +114,19 @@ class Elem {
 		
 		return ret
 	}
+	
+	getCosts() {
+		
+		if (!this.costs) return null
+		
+		let ret = []
+		
+		this.costs.forEach(cost => {
+			ret.push({ id:cost.id, count:cost.count })
+		})
+		
+		return ret
+	}
 }
 
 import { defineStore } from 'pinia'
@@ -179,6 +192,7 @@ export const useAppStore = defineStore('app', {
 
 		load(data) {
 			
+			this.activeTab = data.activeTab ?? this.activeTab
 			this.lastFrameTimeMs = data.lastFrameTimeMs ?? this.lastSavedTime
 			this.lastSavedTime = data.lastSavedTime ?? this.lastSavedTime
 			this.paused = data.paused ?? this.paused
@@ -195,8 +209,8 @@ export const useAppStore = defineStore('app', {
 			
 			this.refreshUnlocked()
 			
-			let elems = this.elems.filter(elem => elem.assignCount > 0 && elem.type != 'manual')
-			elems.forEach(elem => this.onAssign(elem, elem.assignCount))
+			let elems = this.elems.filter(e => (e.type == 'storer' || e.type == 'machine') && e.count > 0)
+			elems.forEach(e => this.refreshAvailableCount(e))
 		},
 		
 		refreshUnlocked() {
@@ -220,6 +234,14 @@ export const useAppStore = defineStore('app', {
 			})
 			
 			return ret
+		},
+		
+		refreshAvailableCount(elem) {
+			
+			elem.availableCount = elem.count
+			
+			let elems = this.elems.filter(e => e.assignId == elem.id && e.assignCount > 0)
+			elems.forEach(e => elem.availableCount -= e.assignCount)
 		},
 		
 		onAssign(elem, count) {
@@ -248,6 +270,7 @@ export const useAppStore = defineStore('app', {
 		
 		save(data) {
 
+			data.activeTab = this.activeTab
 			data.currentScenarioId = this.currentScenarioId
 			data.lastSavedTime = this.lastSavedTime
 			data.paused = this.paused
@@ -288,6 +311,8 @@ export const useAppStore = defineStore('app', {
 						let outputElem = this.elems.find(e => e.id == output.id)
 						outputElem.count = Math.min(outputElem.count + output.count, outputElem.max)
 						outputElem.count = parseFloat(outputElem.count.toFixed(10))
+						
+						if (outputElem.type == 'storer' || outputElem.type == 'machine') this.refreshAvailableCount(outputElem)
 					})
 					
 					manual.status = 'stopped'
@@ -311,6 +336,8 @@ export const useAppStore = defineStore('app', {
 							let outputElem = this.elems.find(e => e.id == output.id)
 							outputElem.count = Math.min(outputElem.count + output.count, outputElem.max)
 							outputElem.count = parseFloat(outputElem.count.toFixed(10))
+						
+							if (outputElem.type == 'storer' || outputElem.type == 'machine') this.refreshAvailableCount(outputElem)
 						})
 						
 						if (this.canStartProduction(production)) this.startProduction(production)

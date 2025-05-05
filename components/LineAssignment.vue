@@ -16,7 +16,9 @@
 	<div class="flex items-center gap-2">
 	
 		<btn-assignee :id="assignee.id" />
-		<span><small class="opacity-75">x</small> {{ assignment.assignCount }}</span>
+		
+		<span v-if="assignment.type == 'storage'">{{ assignment.stack.toLocaleString() }} <small class="opacity-75">x</small> {{ assignment.assignCount }}</span>
+		<span v-else><small class="opacity-75">x</small> {{ assignment.assignCount }}</span>
 		
 		<UButtonGroup class="ms-auto">
 			<btn-unassign :id="assignment.id" />

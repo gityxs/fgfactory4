@@ -13,7 +13,7 @@
 
 		localStorage.removeItem(store.localStorageName)
 		
-		window.location.replace('/')
+		window.location.replace('/fgfactory/')
 	}
 	
 </script>

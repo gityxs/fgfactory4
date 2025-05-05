@@ -2,8 +2,14 @@ const scenario_1 = {}
 export default scenario_1
 
 scenario_1.id = 'scenario_1'
+scenario_1.title = 'sc1_scenario_title'
+scenario_1.desc = 'sc1_scenario_desc'
 
 scenario_1.elems = [
+
+	{ id:'mission_rocket_launch', type:'mission', label:'sc1_mission_rocket_launch', desc:'sc1_mission_rocket_launch_desc', costs:[{ id:'rocket_part', count:100 }] },
+	
+	//////
 
 	{ id:'tab_items', type:'tab', label:'sc1_tab_items', icon:'i-lucide-boxes' },
 	

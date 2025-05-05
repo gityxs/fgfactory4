@@ -12,19 +12,29 @@
     "wipe_text": "Are you sure to want to wipe your local data?",
     "wipe_text_2": "You will lose all your progression and restart from the beginning.",
 	
+    "options_about": "About",
+    "options_love": "This game has been designed and built with all the love in the world by Freddec. It was inspired by several famous factory games. You could support the dev by clicking on one of the following links.",
+	"options_iconsBy": "Icons provided by ",
+	"options_scenariosBy": "Scenarios inspired by ",
 	"options_localData": "Local data",
 	"options_importData": "Import data",
-
+	
+	"disclaimer": "This is a prototype. Development is still in progress. Data loss and reset could happen.",
+	
     "import_empty": "No data to import!",
     "import_corrupted": "Data corrupted!",
 	
 	"word_assign": "Assign",
+	"word_available": "Available",
+	"word_complete": "Complete",
+	"word_costs": "Costs",
 	"word_discord": "Discord",
     "word_download": "Download",
     "word_export": "Copy",
 	"word_handcrafting": "Handcrafting",
     "word_import": "Import",
 	"word_kofi": "Kofi",
+	"word_missions": "Missions",
 	"word_options": "Options",
 	"word_patreon": "Patreon",
 	"word_pause": "Pause",
@@ -37,6 +47,12 @@
 	"word_timePlayed": "Time played",
 	"word_unassign": "Unassign",
     "word_wipe": "Wipe",
+	
+	"sc1_scenario_title": "Escape!",
+	"sc1_scenario_desc": "In this scenario, you crashed on an hostile planet and you have to escape from there. To do so you have to build and launch a Rocket into Space to travel to your Home. To build a Rocket you will collect resources, build machines and craft items until all you complete all the missions. Good luck!",
+
+	"sc1_mission_rocket_launch": "Launch the Rocket",
+	"sc1_mission_rocket_launch_desc": "To launch the Rocket you have to build 100 Rocket parts. Launching the Rocket is the final step to escape from this hostile planet. After that you will be free! ",
 	
 	"sc1_tab_items": "Items",
 		"sc1_entry_energy": "Energy",

@@ -35,9 +35,15 @@
 			<div class="grid gap-6">
 			
 				<div class="flex items-center gap-2">
+				
 					<img :src="item.img" width="24" height="24" />
 					<span class="text-lg font-semibold">{{ $t(item.label) }}</span>
-					<elem-count-page class="ms-auto" :id="item.id" />
+					
+					<div class="ms-auto flex items-center gap-2">
+						<elem-available-page v-if="item.type == 'machine' || item.type == 'storer'" :id="item.id" />
+						<elem-count-page :id="item.id" />
+					</div>
+					
 				</div>
 				
 				<div v-if="manual" class="grid lg:grid-cols-4 gap-6 lg:gap-3">

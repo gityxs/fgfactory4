@@ -87,11 +87,7 @@
 			
 			const route = useRoute()
 			
-			if (route.path == '/') {
-			
-				let firstPage = store.elems.find(e => e.type == 'page')
-				await navigateTo(firstPage.link)
-			}
+			if (route.path == '/') await navigateTo('/missions')
 			
 			mainLoop()
 		}
@@ -128,29 +124,41 @@
 
 			<div class="w-11/12 max-w-lg">
 				<UCard variant="outline">
-					<div class="flex flex-col items-center gap-3">
+					<div class="grid gap-6">
 						
-						<div class="flex items-center gap-2">							
+						<div class="flex items-center justify-center gap-2">							
 							<img src="/favicon.png" width="24" height="24" class="rounded" />
 							<span class="text-xl font-bold">{{ $t('game_title') }}</span>
 						</div>
 						
-						<UAlert class="justify-center" :title="$t('error_text')" color="error" variant="subtle" icon="i-lucide-badge-alert" />
+						<UAlert class="justify-center text-center" :title="$t('error_text')" color="error" variant="subtle" icon="i-lucide-badge-alert" />
 						
-						<span class="text-center text-sm text-gray-400">{{ $t('error_text_2') }}</span>
+						<div class="grid gap-3">
 						
-						<UButton class="w-5/12 lg:w-3/12 justify-center" to="https://discord.gg/ZXrggavUpv" target="_blank" label="Discord" color="neutral" variant="subtle" :avatar="{ src:'/discord.png' }" />
-						
-						<UTextarea class="w-full" size="xs" :rows="3" :placeholder="store.localStorageData" disabled readonly />
-						
-						<div class="w-full flex items-center justify-center gap-3">						
-							<btn-export class="w-5/12 lg:w-3/12" />
-							<btn-download class="w-5/12 lg:w-3/12" />							
+							<span class="text-center text-sm text-gray-400">{{ $t('error_text_2') }}</span>
+							
+							<div class="w-full flex items-center justify-center gap-3">						
+								<UButton class="w-5/12 lg:w-3/12 justify-center" to="https://discord.gg/ZXrggavUpv" target="_blank" label="Discord" color="neutral" variant="subtle" :avatar="{ src:'/discord.png' }" />
+							</div>
+							
+							<UTextarea class="w-full" size="xs" :rows="3" :placeholder="store.localStorageData" disabled readonly />
+							
+							<div class="w-full flex items-center justify-center gap-3">						
+								<btn-export class="w-5/12 lg:w-3/12" />
+								<btn-download class="w-5/12 lg:w-3/12" />							
+							</div>
+							
 						</div>
 						
-						<span class="text-center text-sm text-gray-400">{{ $t('error_text_3') }}</span>
-						
-						<btn-wipe class="w-5/12 lg:w-3/12" />
+						<div class="grid gap-3">
+
+							<span class="text-center text-sm text-gray-400">{{ $t('error_text_3') }}</span>						
+
+							<div class="w-full flex items-center justify-center gap-3">						
+								<btn-wipe class="w-5/12 lg:w-3/12" />
+							</div>
+								
+						</div>
 						
 					</div>
 				</UCard>

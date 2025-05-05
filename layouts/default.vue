@@ -9,22 +9,20 @@
 	
 	const topItems = computed(() => {
 	
-		let ret = []
-		
-		let support = []
-		ret.push(support)
-
-		support.push({ label:t('word_patreon'), avatar:{ src:'/patreon.png' }, to:'https://www.patreon.com/bePatron?u=61283131', target:'_blank' })
-		support.push({ label:t('word_kofi'), avatar:{ src:'/kofi.png' }, to:'https://ko-fi.com/freddecgames', target:'_blank' })
-		support.push({ label:t('word_paypal'), avatar:{ src:'/paypal.png' }, to:'https://www.paypal.com/donate/?hosted_button_id=2JBFJCVPABGXJ', target:'_blank' })
-		support.push({ label:t('word_discord'), avatar:{ src:'/discord.png' }, to:'https://discord.gg/WhvQvZqyq5', target:'_blank' })
-		
 		let menu = []
-		ret.push(menu)
 		
-		menu.push({ label:t('word_options'), icon:'i-lucide-settings', to:'/options' })
+		menu.push({ label:t('word_options'), icon:'i-lucide-settings', to:'/options', onSelect:function() { sidebarOpen.value = false } })
 		
-		return ret
+		return menu
+	})
+	
+	const sideItems = computed(() => {
+	
+		let menu = []
+		
+		menu.push({ label:t('word_missions'), icon:'i-lucide-list-checks', to:'/missions', onSelect:function() { sidebarOpen.value = false } })
+		
+		return menu
 	})
 	
 	const tabItems = computed(() => {
@@ -57,6 +55,7 @@
 					
 						newPage.slot = 'elem'
 						newPage.img = item.img
+						newPage.type = item.type
 						newPage.itemId = item.id
 					}
 					
@@ -77,22 +76,36 @@
 	<header class="bg-(--ui-bg) border-b border-zinc-700 h-(--ui-header-height) sticky top-0 z-50">
 		<div class="w-full px-3 flex items-center justify-between gap-3 h-full">
 		
-			<div class="flex items-center gap-2">
-				<img src="/favicon.png" width="24" height="24" class="rounded" />
-				<span class="truncate text-xl font-bold">{{ $t('game_title') }}</span>
-			</div>
-			
-			<UNavigationMenu class="hidden lg:flex" :items="topItems" />
-			
-			<div class="flex lg:hidden items-center gap-3">
-			
-				<UDropdownMenu :items="topItems" :ui="{ content:'w-48' }">
-					<UButton variant="subtle" color="neutral" icon="i-lucide-ellipsis-vertical" />
-				</UDropdownMenu>
-			
+			<div class="lg:hidden">
 				<UButton v-if="sidebarOpen == false" variant="subtle" color="neutral" icon="i-lucide-menu" @click="sidebarOpen = true;"/>
 				<UButton v-if="sidebarOpen == true" variant="subtle" color="neutral" icon="i-lucide-x" @click="sidebarOpen = false;"/>
-	
+			</div>
+			
+			<div class="flex items-center gap-2">				
+				<img src="/favicon.png" width="24" height="24" class="rounded" />
+				<span class="truncate text-xl font-bold">{{ $t('game_title') }}</span>				
+			</div>
+			
+			<div class="flex items-center gap-3">
+			
+				<UPopover mode="hover">
+				
+					<UButton icon="i-lucide-badge-alert" color="error" variant="subtle" />
+					
+					<template #content>
+						<div class="w-48 p-2 text-xs text-error text-center">
+							{{ $t('disclaimer') }}
+						</div>
+					</template>
+					
+				</UPopover>
+				
+				<UNavigationMenu class="hidden lg:flex" :items="topItems" />
+				
+				<UDropdownMenu class="lg:hidden" :items="topItems" :ui="{ content:'w-48' }">
+					<UButton variant="subtle" color="neutral" icon="i-lucide-ellipsis-vertical" />
+				</UDropdownMenu>
+				
 			</div>
 			
 		</div>
@@ -103,7 +116,10 @@
 		<aside id="sidebar" class="relative border-r border-zinc-700 flex flex-col bg-(--ui-bg)" :class="{ 'open':sidebarOpen }">
 			
 			<div class="flex-1 overflow-y-auto">
-				<UTabs variant="link" :items="tabItems" v-model="store.activeTab" class="mt-3 gap-0 w-full border-zinc-700" :ui="{ trigger:'flex-1' }">
+				
+				<UNavigationMenu :items="sideItems" class="w-full justify-center" />
+				
+				<UTabs variant="link" :items="tabItems" v-model="store.activeTab" class="gap-0 w-full border-zinc-700" :ui="{ trigger:'flex-1' }">
 					<template #content="{ item }">
 						<div class="px-3 py-3">
 							<UNavigationMenu orientation="vertical" :items="item.children">
@@ -117,6 +133,7 @@
 								</template>
 
 								<template #elem-trailing="{ item }">
+									<elem-available-menu v-if="item.type == 'machine' || item.type == 'storer'" :id="item.itemId" />
 									<elem-count-menu :id="item.itemId" />
 								</template>
 
@@ -124,6 +141,7 @@
 						</div>
 					</template>
 				</UTabs>
+				
 			</div>
 			
 			<div class="border-t border-zinc-700 h-(--ui-header-height)">
