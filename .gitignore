@@ -1,8 +1,8 @@
 # Nuxt dev/build outputs
+.output
 .data
 .nuxt
 .nitro
-.output
 .cache
 dist
 
@@ -22,9 +22,3 @@ logs
 .env
 .env.*
 !.env.example
-
-# Source
-components
-
-# Custom
-package-lock.json

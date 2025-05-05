@@ -1,49 +1,36 @@
 export default defineNuxtConfig({
 	
-	ssr: false,
-
-	compatibilityDate: '2024-11-16',
+	ssr:false,
 	
-	devtools: { enabled: false },
+	compatibilityDate:'2024-11-01',
 
-	app: {
+	devtools:{ enabled:false },
+	
+	modules:[ '@nuxt/ui', '@nuxtjs/i18n', '@pinia/nuxt' ],
 
-		baseURL: '/fgfactory/',	
-		head: {
+	app:{
 
-			charset: 'utf-8',
+		head:{
+
+			charset:'utf-8',
 			viewport:'width=device-width, initial-scale=1',
-
-			link: [{ rel:'icon', type:'image/png', href:'/fgfactory/favicon.png' }]
+			
+			link:[{ rel:'icon', type:'image/png', href:'/favicon.png' }],
 		},
 	},
-
-	css: ['bootstrap/dist/css/bootstrap.min.css', '@fortawesome/fontawesome-svg-core/styles.css', '~/styles.css'],
 	
-	modules: ['@nuxtjs/i18n', '@pinia/nuxt', 'nuxt-gtag'],
-
-	i18n: {
+	css:[ '~/main.css' ],
 	
-		lazy: true,
-		legacy: false,
-		langDir: 'locales',
-		defaultLocale: 'en',
-		detectBrowserLanguage: {
-
-			useCookie: true,
-			cookieKey: 'i18n_redirected',
-			redirectOn: 'root',
-			fallbackLocale: 'en',
-		},
-		locales: [
+	i18n:{
 		
-			{ code:'en', file:'en.json',  },
+		defaultLocale:'en',
+		locales:[
+		
+			{ code:'en', name:'English', file:'en.json' },
 		],
-		compilation: {
-		
-			strictMessage: false,
+		bundle:{
+			
+			optimizeTranslationDirective: false,
 		},
-	},
-
-	gtag: { id: 'G-PW9VS80VPN' },
+	}
 })

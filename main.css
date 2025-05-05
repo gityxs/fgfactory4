@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+:root {
+	
+	--ui-border: var(--ui-color-neutral-700);
+	
+	--ui-header-height: calc(var(--spacing) * 16);
+}
+
+html, body, #__nuxt {
+
+	height: 100%;
+    width: 100%;
+}
+
+body {
+    
+    background-size: cover; background-image: url('/background.jpg'); background-position: center;
+}

@@ -1,54 +1,37 @@
 <script setup>
 
-    import { useAppStore } from '~/store/appStore.js'    
-    const appStore = useAppStore()
+	import { useAppStore } from '~/store.js'    
+	const store = useAppStore()
     
-	const doWipe = function() {
+	const loading = ref(false)
+	
+	const doWipe = () => {
 		
-		appStore.wipeAppState()
-		appStore.currentModalId = null
+		loading.value = true
+		
+		store.resetInProgress = true
+
+		localStorage.removeItem(store.localStorageName)
+		
+		window.location.replace('/')
 	}
 	
 </script>
 
 <template>
 
-    <div id="modalWipe" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
+    <UModal :close="{ onClick:() => emit('close', false) }">
+        <template #content>
+			<div class="p-3 flex flex-col items-center gap-4">
 
-                <div class="modal-header bg-secondary">
-                    <span class="fs-6 text-white">{{ $t('modalWipe_title') }}</span>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" @click="appStore.currentModalId = null"><font-awesome-icon icon="fas fa-fw fa-times" /></button>
-                </div>
+				<span class="text-md font-semibold">{{ $t('wipe_text') }}</span>
+				
+				<span class="text-sm text-red-400">{{ $t('wipe_text_2') }}</span>
+				
+				<UButton :loading="loading" class="w-5/12 lg:w-3/12 justify-center" color="error" variant="subtle" icon="i-lucide-trash" :label="$t('word_wipe')" @click="doWipe()" />
 
-                <div class="modal-body">
-                    <div class="row g-2">
-                    
-                        <div class="col-12 text-center">
-                            <span class="fs-6 text-white">{{ $t('modalWipe_text') }}</span>
-                        </div>
-
-                        <div class="col-12 text-center">
-                            <span class="text-danger">{{ $t('modalWipe_info') }}</span>
-                        </div>
-
-                        <div class="col-12 mt-3">
-                            <div class="row justify-content-center">
-                                <div class="col-5 col-lg-3">
-                                    <button type="button" class="w-100 btn btn-danger" data-bs-dismiss="modal" @click="doWipe()">
-                                        <span><font-awesome-icon icon="fas fa-fw fa-skull" /></span>
-                                        <span class="ms-2">{{ $t('modalWipe_close') }}</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
+			</div>
+        </template>
+    </UModal>
 
 </template>

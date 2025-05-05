@@ -11,21 +11,15 @@
 		"deploy": "nuxt generate && gh-pages --dotfiles -d .output/public"
 	},
 	"dependencies": {
-		"@fortawesome/free-brands-svg-icons": "^6.6.0",
-		"@fortawesome/free-solid-svg-icons": "^6.6.0",
-		"@fortawesome/vue-fontawesome": "^3.0.8",
-		"@nuxtjs/i18n": "^9.0.0",
-		"@pinia/nuxt": "^0.7.0",
-		"bootstrap": "^5.3.3",
-		"gh-pages": "^6.2.0",
+		"@iconify-json/lucide": "^1.2.39",
+		"@nuxt/ui": "^3.1.0",
+		"@nuxtjs/i18n": "^9.5.3",
+		"@pinia/nuxt": "^0.11.0",
+		"gh-pages": "^6.3.0",
 		"lz-string": "^1.5.0",
-		"nuxt": "^3.14.159",
-		"nuxt-gtag": "^3.0.1",
-		"pinia": "^2.2.6",
-		"vue": "latest",
-		"vue-router": "latest"
-	},
-	"overrides": {
-		"vue": "latest"
+		"nuxt": "^3.17.1",
+		"pinia": "^3.0.2",
+		"vue": "^3.5.13",
+		"vue-router": "^4.5.1"
 	}
 }

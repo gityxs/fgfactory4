@@ -1,247 +1,173 @@
 <script setup>
 
-    const { t } = useI18n()
+	import * as locales from '@nuxt/ui/locale'
 
-    useHead({	
+	const { locale, t } = useI18n()
+
+	const lang = computed(() => locales[locale.value].code)
+	const dir = computed(() => locales[locale.value].dir)
+
+	useHead({
+	
+		htmlAttrs: { lang, dir },
+
         titleTemplate: (titleChunk) => {		
             return titleChunk ? t(titleChunk) + ' - ' + t('game_title') : t('game_title')
         }
-    })
+	})
 	
-    import { useAppStore } from '~/store/appStore.js'    
-    const appStore = useAppStore()
+	import { useAppStore } from '~/store.js'    
+	const store = useAppStore()
 	
 	var autoSaveInterval = null
 	
+	const save = () => {
+	
+		if (!store.resetInProgress) {
+		
+			store.lastSavedTime = Date.now()
+			
+			let state = {}
+			
+			store.save(state)
+			
+			let text = JSON.stringify(state)
+			let compressed = LZString.compressToBase64(text)
+			localStorage.setItem(store.localStorageName, compressed)
+		}
+	}
+	
 	const handleBeforeUnload = () => {
 	
-		if (!appStore.resetInProgress) appStore.saveAppState()
-		
-		appStore.stopGameLoop()
+		if (!store.resetInProgress) save()
 		
 		if (autoSaveInterval) clearInterval(autoSaveInterval)
 		
 		window.removeEventListener('beforeunload', handleBeforeUnload)		
 	}
 	
-	onMounted(() => {
+	const mainLoop = () => {
+	
+		requestAnimationFrame(mainLoop)
 		
-		if (appStore.appStatus == 'started') return
-		
-		appStore.startApp()
-		
-		if (appStore.appStatus == 'started') {
-		
-			appStore.startGameLoop()
-		
-			if (appStore.firstTime) appStore.showModal('modalWelcome')
+		store.doTick()		
+	}
+	
+	import LZString from 'lz-string'
+	
+	const status = ref('loading')
+
+	setTimeout(async () => {
+		try {
 			
-			autoSaveInterval = setInterval(() => {
-				if (!appStore.resetInProgress) appStore.saveAppState()
-			}, 30000)
+			let loadedData = localStorage.getItem(store.localStorageName)
+			if (loadedData && loadedData !== null) {
+				
+				let text = LZString.decompressFromBase64(loadedData)
+				loadedData = JSON.parse(text)					
+				console.log(loadedData)
+				
+				store.init(loadedData.currentScenarioId)
+				store.load(loadedData)
+			}
+			else {
+
+				store.init('scenario_1')
+			}
+			
+			store.refreshAll()
+			
+			store.lastFrameTimeMs = performance.now()
+
+			autoSaveInterval = setInterval(() => { save() }, 30000)
 			
 			window.addEventListener('beforeunload', handleBeforeUnload)
+			
+			status.value = 'loaded'
+			
+			const route = useRoute()
+			
+			if (route.path == '/') {
+			
+				let firstPage = store.elems.find(e => e.type == 'page')
+				await navigateTo(firstPage.link)
+			}
+			
+			mainLoop()
 		}
-    })
-	
-	const handleExport = () => {
-	
-		appStore.exportAppState()
-		appStore.showToast('toastExport')
-	}
-	
-	const handleDownload = () => {
-	
-		appStore.downloadAppState()
-	}
-	
-	const handleWipe = () => {
-	
-		appStore.showModal('modalWipe')
-	}
+		catch(error) {
+			
+			status.value = 'error'
+			
+			console.error(error)
+		}
+	}, 2000)
 	
 </script>
 
 <template>
-    
-	<div v-if="appStore.appStatus == 'started'" class="w-100 h-100">
+
+	<UApp :locale="locales[locale]">
 	
-		<NuxtLoadingIndicator color="#f89e1a" />
-		
-		<NuxtLayout>	
-			<NuxtPage />
-		</NuxtLayout>
-		
-	</div>
-
-	<div v-else-if="appStore.appStatus == 'starting'" class="w-100 h-100 d-flex align-items-center justify-content-center">
-        <div class="container p-2" style="max-width:320px;">
-            <div class="card card-body">
-                <div class="row g-2">
-                
-                    <div class="col-12">
-                        <div class="row gx-2 align-items-center justify-content-center">
-						
-                            <div class="col-auto">
-								<img src="/favicon.png" width="24" height="24" class="rounded" />
-							</div>
-							
-                            <div class="col-auto">
-								<span class="fs-5 text-white">{{ $t('game_title') }}</span>
-							</div>
-							
-                        </div>
-                    </div>
-
-                    <div class="col-12 text-center">
-                        <span class="flicker text-primary">{{ $t('screenLoading_text') }}</span>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-	<div v-else-if="appStore.appStatus == 'error'" class="w-100 h-100 d-flex align-items-center justify-content-center">		
-		<div class="container p-2" style="max-width:512px;">
-            <div class="card">
-			
-				<div class="card-body">
-					<div class="row gx-2 align-items-center justify-content-center">
+		<div v-if="status == 'loading'" class="w-full h-full flex items-center justify-center">
+			<UCard variant="outline">
+				<div class="flex flex-col items-center gap-3">
 					
-						<div class="col-auto">
-							<img src="/favicon.png" width="24" height="24" class="rounded" />
-						</div>
-						
-						<div class="col-auto">
-							<span class="fs-5 text-white">{{ $t('game_title') }}</span>
-						</div>
-						
+					<div class="flex items-center gap-2">					
+						<img src="/favicon.png" width="24" height="24" class="rounded" />
+						<span class="text-xl font-bold">{{ $t('game_title') }}</span>						
 					</div>
+					
+					<span class="animate-pulse text-xs text-(--ui-primary)">{{ $t('loading_text') }}</span>
+					
 				</div>
-			
-				<div class="card-body text-center">
-					<span class="text-danger fs-6">{{ $t('screenError_text') }}</span>
-				</div>
-					
-				<div class="card-body">
-					<div class="row g-2 justify-content-center">
-					
-						<div class="col-12 text-center">
-							<span>{{ $t('screenError_info1') }}</span>
-						</div>
-						
-						<div class="col-5 col-lg-3">
-							<a href="https://discord.gg/ZXrggavUpv" target="_blank" class="w-100 btn btn-secondary">
-								<font-awesome-icon icon="fa-brands fa-discord" />
-								<span class="ms-2">Discord</span>
-							</a>
-						</div>
-						
-					</div>
-				</div>
-					
-				<div v-if="appStore.localStorageData" class="card-body">
-					<div class="row g-2 justify-content-center">
-					
-						<div class="col-12">
-							<textarea spellcheck="false" rows="3" class="form-control" disabled readonly>{{ appStore.localStorageData }}</textarea>
-						</div>
-						
-						<div class="col-5 col-lg-3">
-							<button type="button" class="w-100 btn btn-secondary text-truncate" @click="handleExport">
-								<font-awesome-icon icon="fas fa-copy" />
-								<span class="ms-2">{{ $t('screenError_exportSave') }}</span>
-							</button>
-						</div>
-						
-						<div class="col-5 col-lg-3">
-							<button type="button" class="w-100 btn btn btn-secondary text-truncate" @click="handleDownload">
-								<font-awesome-icon icon="fas fa-download" />
-								<span class="ms-2">{{ $t('screenError_downloadSave') }}</span>
-							</button>
-						</div>
-						
-					</div>
-				</div>
-					
-				<div class="card-body">
-					<div class="row g-2 justify-content-center">
-					
-						<div class="col-12 text-center">
-							<span class="text-normal">{{ $t('screenError_info2') }}</span>
-						</div>
-						
-						<div class="col-5 col-lg-3">
-							<button type="button" class="w-100 btn btn-danger text-truncate" @click="handleWipe">
-								<font-awesome-icon icon="fas fa-skull" />
-								<span class="ms-2">{{ $t('screenError_wipeSave') }}</span>
-							</button>
-						</div>
-					
-					</div>
-				</div>
-				
-			</div>
+			</UCard>
 		</div>
-    </div>
 
-	<div v-else-if="appStore.appStatus == 'corrupted'" class="w-100 h-100 d-flex align-items-center justify-content-center">	
-		<div class="container p-2" style="max-width:512px;">
-			<div class="card">
-				
-				<div class="card-body">
-					<div class="row gx-2 align-items-center justify-content-center">
-					
-						<div class="col-auto">
+		<div v-else-if="status == 'error'" class="w-full h-full flex items-center justify-center">		
+
+			<div class="w-11/12 max-w-lg">
+				<UCard variant="outline">
+					<div class="flex flex-col items-center gap-3">
+						
+						<div class="flex items-center gap-2">							
 							<img src="/favicon.png" width="24" height="24" class="rounded" />
+							<span class="text-xl font-bold">{{ $t('game_title') }}</span>
 						</div>
 						
-						<div class="col-auto">
-							<span class="fs-5 text-white">{{ $t('game_title') }}</span>
+						<UAlert class="justify-center" :title="$t('error_text')" color="error" variant="subtle" icon="i-lucide-badge-alert" />
+						
+						<span class="text-center text-sm text-gray-400">{{ $t('error_text_2') }}</span>
+						
+						<UButton class="w-5/12 lg:w-3/12 justify-center" to="https://discord.gg/ZXrggavUpv" target="_blank" label="Discord" color="neutral" variant="subtle" :avatar="{ src:'/discord.png' }" />
+						
+						<UTextarea class="w-full" size="xs" :rows="3" :placeholder="store.localStorageData" disabled readonly />
+						
+						<div class="w-full flex items-center justify-center gap-3">						
+							<btn-export class="w-5/12 lg:w-3/12" />
+							<btn-download class="w-5/12 lg:w-3/12" />							
 						</div>
 						
-					</div>
-				</div>
-
-				<div class="card-body text-center">
-					<span class="text-danger fs-6">{{ $t('screenCorrupted_text') }}</span>
-				</div>
-				
-				<div class="card-body">
-					<div class="row g-2 justify-content-center">
-					
-						<div class="col-12 text-center">
-							<span class="text-normal">{{ $t('screenCorrupted_info') }}</span>
-						</div>
+						<span class="text-center text-sm text-gray-400">{{ $t('error_text_3') }}</span>
 						
-						<div class="col-5 col-lg-3">
-							<button type="button" class="w-100 btn btn-danger" @click="handleWipe">
-								<font-awesome-icon icon="fas fa-skull" />
-								<span class="ms-2">{{ $t('screenCorrupted_wipeSave') }}</span>
-							</button>
-						</div>
+						<btn-wipe class="w-5/12 lg:w-3/12" />
 						
 					</div>
-				</div>
-				
+				</UCard>
 			</div>
+
 		</div>
-    </div>
-
-	<div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3">
 		
-		<toast-export />
-		<toast-import-corrupted />
-		<toast-import-empty />
+		<div v-else-if="status == 'loaded'" class="w-full h-full">
 		
-	</div>
-
-	<modal-offline />
-	<modal-scenario />
-	<modal-version />
-	<modal-victory />
-	<modal-welcome />
-	<modal-wipe />
-    
+			<NuxtLoadingIndicator color="#ffb900" />
+			
+			<NuxtLayout>	
+				<NuxtPage />
+			</NuxtLayout>
+			
+		</div>
+		
+	</UApp>
+	
 </template>
