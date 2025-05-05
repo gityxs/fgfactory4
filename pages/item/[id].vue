@@ -32,71 +32,40 @@
 	<div class="grid gap-6">
 		
 		<UCard variant="outline">
-			<div class="flex items-center gap-2">
+			<div class="grid gap-6">
 			
-				<img :src="item.img" width="24" height="24" />
-				<span class="text-lg font-semibold">{{ $t(item.label) }}</span>
+				<div class="flex items-center gap-2">
+					<img :src="item.img" width="24" height="24" />
+					<span class="text-lg font-semibold">{{ $t(item.label) }}</span>
+					<elem-count-page class="ms-auto" :id="item.id" />
+				</div>
 				
-				<elem-count-page class="ms-auto" :id="item.id" />
+				<div v-if="manual" class="grid lg:grid-cols-4 gap-6 lg:gap-3">
+					<line-recipe :id="manual.id" class="lg:col-span-3" />
+					<line-start :id="manual.id" />
+				</div>
 				
 			</div>
 		</UCard>
 		
-		<UCard v-if="storage || manual" variant="outline">
-			<div class="grid gap-6">
-
-				<div class="flex items-center gap-2">
-					<span class="text-lg font-semibold">{{ $t('word_storage') }}</span>
-				</div>
-				
-				<div class="grid lg:grid-cols-2 items-start gap-6">
-					<div v-if="storage" class="grid gap-1">
-					
-						<span class="text-xs font-semibold text-zinc-400">{{ $t('word_storer') }}</span>
-						
-						<line-assignment :id="storage.id" />
-						
-					</div>
-					<div v-if="manual" class="grid gap-1">
-					
-						<span class="text-xs font-semibold text-zinc-400">{{ $t('word_handcrafting') }}</span>
-						
-						<div class="grid gap-3">
-							<line-recipe :id="manual.id" />
-							<line-start :id="manual.id" />
-						</div>
-						
-					</div>
-				</div>
-			
+		<UCard v-if="storage" variant="outline">
+			<div class="grid lg:grid-cols-2 gap-6">
+				<span class="text-lg font-semibold">{{ $t('word_storage') }}</span>				
+				<line-assignment :id="storage.id" />			
 			</div>
 		</UCard>
 
 		<UCard v-if="production" variant="outline">
 			<div class="grid gap-6">
 
-				<div class="flex items-center gap-2">
-					<span class="text-lg font-semibold">{{ $t('word_production') }}</span>
+				<div class="grid lg:grid-cols-2 gap-6">
+					<span class="text-lg font-semibold">{{ $t('word_production') }}</span>			
+					<line-assignment :id="production.id" />
 				</div>
-				
-				<div class="grid lg:grid-cols-2 items-start gap-6">
-					<div class="grid gap-1">
-					
-						<span class="text-xs font-semibold text-zinc-400">{{ $t('word_machine') }}</span>
-						
-						<line-assignment :id="production.id" />
-						
-					</div>
-					<div class="grid gap-1">
-					
-						<span class="text-xs font-semibold text-zinc-400">{{ $t('word_recipe') }}</span>
-						
-						<div class="grid gap-3">
-							<line-recipe :id="production.id" />
-							<line-start :id="production.id" />
-						</div>
-						
-					</div>
+			
+				<div class="grid lg:grid-cols-4 gap-6 lg:gap-3">					
+					<line-recipe :id="production.id" class="lg:col-span-3" />
+					<line-start :id="production.id" />						
 				</div>
 				
 			</div>

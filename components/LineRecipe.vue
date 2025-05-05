@@ -15,14 +15,14 @@
 
 <template>
 	
-	<div class="flex flex-nowrap items-start justify-end gap-2">
+	<div class="flex flex-nowrap items-start gap-2">
 		
 		<div v-if="inputs" class="flex items-center gap-1">
 			<btn-input v-for="input in inputs" :key="input.id" :id="input.id" :count="input.count" />
 		</div>
 		
-		<div class="opacity-75" style="line-height:32px;">
-			<UIcon v-if="inputs" name="i-lucide-move-right" />
+		<div v-if="inputs" class="opacity-75" style="line-height:32px;">
+			<UIcon name="i-lucide-move-right" />
 		</div>
 		
 		<div class="flex items-center gap-1">

@@ -126,7 +126,7 @@ export const useAppStore = defineStore('app', {
 		currentScenarioId: null,
 		lastFrameTimeMs: null,
 		lastSavedTime: performance.now(),	
-		localStorageName: 'factorylab',
+		localStorageName: 'fgfactory',
         paused: false,
 		resetInProgress: false,
 		timePlayed: 0,

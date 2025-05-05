@@ -17,6 +17,16 @@
 			
 			let ret = true
 			
+			let inputs = elem.value.getInputs()
+			if (inputs) {
+			
+				inputs.forEach(input => {
+					
+					let inputElem = store.elems.find(e => e.id == input.id)
+					if (inputElem.count < input.count) ret = false
+				})
+			}
+			
 			let outputs = elem.value.getOutputs()
 			outputs.forEach(output => {
 				
