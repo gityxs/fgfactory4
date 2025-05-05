@@ -15,9 +15,9 @@
 
 <template>
 	
-	<div class="flex flex-nowrap items-start gap-2">
+	<div class="flex items-end gap-2">
 		
-		<div v-if="inputs" class="flex items-center gap-1">
+		<div v-if="inputs" class="flex flex-wrap items-center gap-2">
 			<btn-input v-for="input in inputs" :key="input.id" :id="input.id" :count="input.count" />
 		</div>
 		
@@ -25,7 +25,7 @@
 			<UIcon name="i-lucide-move-right" />
 		</div>
 		
-		<div class="flex items-center gap-1">
+		<div class="flex items-center gap-2">
 			<btn-output v-for="output in outputs" :key="output.id" :id="output.id" :count="output.count" />
 		</div>
 		

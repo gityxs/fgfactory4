@@ -17,8 +17,8 @@
 	
 	<div class="flex items-center gap-2">
 	
-		<div class="flex-1 grid gap-1">
-			<span>{{ seconds }}</span>
+		<div class="flex-1 grid gap-1 text-end" style="width:75px;">
+			<span class="text-xs">{{ seconds }}</span>
 			<UProgress size="xs" v-model="percent" />
 		</div>
 	

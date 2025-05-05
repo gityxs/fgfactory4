@@ -11,12 +11,14 @@
 	
 		htmlAttrs: { lang, dir },
 
-        titleTemplate: (titleChunk) => {		
+        titleTemplate: (titleChunk) => {
+		
             return titleChunk ? t(titleChunk) + ' - ' + t('game_title') : t('game_title')
         },
 		
 		meta: [
-			{ name:'theme-color', content:'#ffb900' },
+		
+			{ name:'theme-color', content:'#1b1718' },
 		],
 	})
 	

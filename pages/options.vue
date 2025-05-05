@@ -49,10 +49,10 @@
 				<span class="text-xs opacity-75">{{ $t('options_love') }}</span>
 				
 				<div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
-					<UButton class="justify-center" variant="subtle" color="neutral" :label="$t('word_patreon')" :avatar="{ src:'/patreon.png' }" target="_blank" to="https://www.patreon.com/bePatron?u=61283131" />
-					<UButton class="justify-center" variant="subtle" color="neutral" :label="$t('word_kofi')" :avatar="{ src:'/kofi.png' }" target="_blank" to="https://ko-fi.com/freddecgames" />
-					<UButton class="justify-center" variant="subtle" color="neutral" :label="$t('word_paypal')" :avatar="{ src:'/paypal.png' }" target="_blank" to="https://www.paypal.com/donate/?hosted_button_id=2JBFJCVPABGXJ" />
-					<UButton class="justify-center" variant="subtle" color="neutral" :label="$t('word_discord')" :avatar="{ src:'/discord.png' }" target="_blank" to="https://discord.gg/WhvQvZqyq5" />
+					<UButton class="justify-center" variant="subtle" color="neutral" :label="$t('word_patreon')" :avatar="{ src:'/fgfactory/patreon.png' }" target="_blank" to="https://www.patreon.com/bePatron?u=61283131" />
+					<UButton class="justify-center" variant="subtle" color="neutral" :label="$t('word_kofi')" :avatar="{ src:'/fgfactory/kofi.png' }" target="_blank" to="https://ko-fi.com/freddecgames" />
+					<UButton class="justify-center" variant="subtle" color="neutral" :label="$t('word_paypal')" :avatar="{ src:'/fgfactory/paypal.png' }" target="_blank" to="https://www.paypal.com/donate/?hosted_button_id=2JBFJCVPABGXJ" />
+					<UButton class="justify-center" variant="subtle" color="neutral" :label="$t('word_discord')" :avatar="{ src:'/fgfactory/discord.png' }" target="_blank" to="https://discord.gg/WhvQvZqyq5" />
 				</div>
 				
 				<p class="text-xs">

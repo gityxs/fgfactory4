@@ -33,5 +33,13 @@ export default defineAppConfig({
 				],
 			},
 		},
+		
+		chip: {
+			
+			compoundVariants: [
+			
+				{ class: 'z-10 px-1 translate-y-1/2 translate-x-0 transform' },
+			],
+		},
 	}
 })

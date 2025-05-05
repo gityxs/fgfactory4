@@ -37,7 +37,7 @@
 				<div class="flex items-center gap-2">
 				
 					<img :src="item.img" width="24" height="24" />
-					<span class="text-lg font-semibold">{{ $t(item.label) }}</span>
+					<span class="truncate text-lg font-semibold">{{ $t(item.label) }}</span>
 					
 					<div class="ms-auto flex items-center gap-2">
 						<elem-available-page v-if="item.type == 'machine' || item.type == 'storer'" :id="item.id" />
@@ -46,32 +46,56 @@
 					
 				</div>
 				
-				<div v-if="manual" class="grid lg:grid-cols-4 gap-6 lg:gap-3">
-					<line-recipe :id="manual.id" class="lg:col-span-3" />
-					<line-start :id="manual.id" />
+				<div v-if="manual" class="grid gap-3">
+
+					<span class="text-xs font-semibold opacity-75">{{ $t('word_manual') }}</span>
+					<USeparator />
+
+					<div class="flex items-end gap-3">
+						<line-recipe :id="manual.id" class="flex-1" />
+						<line-start :id="manual.id" />
+					</div>
+					
 				</div>
 				
 			</div>
 		</UCard>
 		
 		<UCard v-if="storage" variant="outline">
-			<div class="grid lg:grid-cols-2 gap-6">
+			<div class="grid gap-6">
+			
 				<span class="text-lg font-semibold">{{ $t('word_storage') }}</span>				
-				<line-assignment :id="storage.id" />			
+
+				<div class="lg:w-1/2 grid gap-3">
+					<span class="text-xs font-semibold opacity-75">{{ $t('word_assignment') }}</span>
+					<USeparator />					
+					<line-assignment :id="storage.id" />
+				</div>
+				
 			</div>
 		</UCard>
 
 		<UCard v-if="production" variant="outline">
 			<div class="grid gap-6">
 
-				<div class="grid lg:grid-cols-2 gap-6">
-					<span class="text-lg font-semibold">{{ $t('word_production') }}</span>			
+				<span class="text-lg font-semibold">{{ $t('word_production') }}</span>
+				
+				<div class="lg:w-1/2 grid gap-3">
+					<span class="text-xs font-semibold opacity-75">{{ $t('word_assignment') }}</span>
+					<USeparator />					
 					<line-assignment :id="production.id" />
 				</div>
 			
-				<div class="grid lg:grid-cols-4 gap-6 lg:gap-3">					
-					<line-recipe :id="production.id" class="lg:col-span-3" />
-					<line-start :id="production.id" />						
+				<div class="grid gap-3">
+
+					<span class="text-xs font-semibold opacity-75">{{ $t('word_crafting') }}</span>
+					<USeparator />
+					
+					<div class="flex items-end gap-3">
+						<line-recipe :id="production.id" class="flex-1" />
+						<line-start :id="production.id" />
+					</div>
+					
 				</div>
 				
 			</div>
