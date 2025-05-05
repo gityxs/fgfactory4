@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
 	
-	ssr:false,
+	ssr:true,
 	
 	compatibilityDate:'2024-11-01',
 
@@ -9,13 +9,15 @@ export default defineNuxtConfig({
 	modules:[ '@nuxt/ui', '@nuxtjs/i18n', '@pinia/nuxt' ],
 
 	app:{
-
+		
+		baseURL: '/fgfactory/',
+		
 		head:{
 
 			charset:'utf-8',
 			viewport:'width=device-width, initial-scale=1',
 			
-			link:[{ rel:'icon', type:'image/png', href:'/favicon.png' }],
+			link:[{ rel:'icon', type:'image/png', href:'/fgfactory/favicon.png' }],
 		},
 	},
 	
@@ -24,13 +26,25 @@ export default defineNuxtConfig({
 	i18n:{
 		
 		defaultLocale:'en',
+
+		detectBrowserLanguage: {
+
+			useCookie: true,
+			cookieKey: 'i18n_redirected',
+			redirectOn: 'root',
+			fallbackLocale: 'en',
+		},
+
 		locales:[
 		
 			{ code:'en', name:'English', file:'en.json' },
 		],
+
 		bundle:{
 			
 			optimizeTranslationDirective: false,
 		},
-	}
+	},
+
+	gtag: { id: 'G-PW9VS80VPN' },
 })

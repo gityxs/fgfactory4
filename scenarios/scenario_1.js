@@ -157,10 +157,25 @@ scenario_1.elems = [
 		{ id:'acid_production', type:'production', itemId:'acid', assignId:'chemical_plant', output:50, seconds:1, inputs:[{ id:'elec', count:210 },{ id:'water', count:100 },{ id:'iron_plate', count:1 },{ id:'sulfur', count:5 }] },
 		
 	{ id:'heavy_oil', type:'item', label:'sc1_heavy_oil', img:'/sc1/heavy_oil.png', max:1000 },
+		
+		{ id:'heavy_oil_storage', type:'storage', itemId:'heavy_oil', assignId:'barrel', stack:1000 },
+		{ id:'heavy_oil_production', type:'production', itemId:'heavy_oil', assignId:'refinery', output:25, seconds:5, inputs:[{ id:'elec', count:1050 },{ id:'water', count:50 },{ id:'oil', count:100 }] },
+		
 	{ id:'light_oil', type:'item', label:'sc1_light_oil', img:'/sc1/light_oil.png', max:1000 },
+		
+		{ id:'light_oil_storage', type:'storage', itemId:'light_oil', assignId:'barrel', stack:1000 },
+		{ id:'light_oil_production', type:'production', itemId:'light_oil', assignId:'refinery', output:45, seconds:5, inputs:[{ id:'elec', count:1050 },{ id:'water', count:50 },{ id:'oil', count:100 }] },
+		
 	{ id:'solid_fuel', type:'item', label:'sc1_solid_fuel', img:'/sc1/solid_fuel.png', max:50 },
+		
+		{ id:'solid_fuel_storage', type:'storage', itemId:'solid_fuel', assignId:'chest', stack:50 },
+		{ id:'solid_fuel_production', type:'production', itemId:'solid_fuel', assignId:'chemical_plant', output:1, seconds:1, inputs:[{ id:'elec', count:420 },{ id:'light_oil', count:10 }] },
+		
 	{ id:'lubricant', type:'item', label:'sc1_lubricant', img:'/sc1/lubricant.png', max:1000 },
-	
+		
+		{ id:'lubricant_storage', type:'storage', itemId:'lubricant', assignId:'barrel', stack:1000 },
+		{ id:'lubricant_production', type:'production', itemId:'lubricant', assignId:'chemical_plant', output:10, seconds:1, inputs:[{ id:'elec', count:420 },{ id:'heavy_oil', count:10 }] },
+		
 	{ id:'circuit', type:'item', label:'sc1_circuit', img:'/sc1/circuit.png', max:100 },
 	{ id:'engine_1', type:'item', label:'sc1_engine_1', img:'/sc1/engine_1.png', max:50 },
 	{ id:'engine_2', type:'item', label:'sc1_engine_2', img:'/sc1/engine_2.png', max:50 },
