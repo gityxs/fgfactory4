@@ -16,5 +16,5 @@ html, body, #__nuxt {
 
 body {
     
-    background-size: cover; background-image: url('/background.jpg'); background-position: center;
+    background-size: cover; background-image: url('/background.jpg'); background-position: center; background-attachment: fixed;
 }

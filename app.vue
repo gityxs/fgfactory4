@@ -13,7 +13,11 @@
 
         titleTemplate: (titleChunk) => {		
             return titleChunk ? t(titleChunk) + ' - ' + t('game_title') : t('game_title')
-        }
+        },
+		
+		meta: [
+			{ name:'theme-color', content:'#ffb900' },
+		],
 	})
 	
 	import { useAppStore } from '~/store.js'    
