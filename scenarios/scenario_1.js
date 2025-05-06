@@ -7,7 +7,8 @@ scenario_1.desc = 'sc1_scenario_desc'
 
 scenario_1.elems = [
 
-	{ id:'mission_rocket_launch', type:'mission', label:'sc1_mission_rocket_launch', desc:'sc1_mission_rocket_launch_desc', costs:[{ id:'rocket_part', count:100 }] },
+	{ id:'mission_rocket_tech', type:'mission', label:'sc1_mission_rocket_tech', desc:'sc1_mission_rocket_tech_desc', costs:[{ id:'red_pack', count:1000 },{ id:'green_pack', count:1000 },{ id:'blue_pack', count:1000 },{ id:'purple_pack', count:1000 },{ id:'yellow_pack', count:1000 }] },
+	{ id:'mission_rocket_launch', type:'mission', label:'sc1_mission_rocket_launch', desc:'sc1_mission_rocket_launch_desc', costs:[{ id:'rocket_part', count:100 }], reqs:[{ id:'mission_rocket_tech', count:1 }] },
 	
 	//////
 
@@ -46,6 +47,14 @@ scenario_1.elems = [
 			{ id:'page_solid_fuel', type:'page', parentId:'entry_chemistry', label:'sc1_solid_fuel', itemId:'solid_fuel', link:'/item/solid_fuel' },
 			{ id:'page_lubricant', type:'page', parentId:'entry_chemistry', label:'sc1_lubricant', itemId:'lubricant', link:'/item/lubricant' },
 			
+		{ id:'entry_sciences', type:'entry', parentId:'tab_items', label:'sc1_entry_sciences' },
+
+			{ id:'page_red_pack', type:'page', parentId:'entry_sciences', label:'sc1_red_pack', itemId:'red_pack', link:'/item/red_pack' },
+			{ id:'page_green_pack', type:'page', parentId:'entry_sciences', label:'sc1_green_pack', itemId:'green_pack', link:'/item/green_pack' },
+			{ id:'page_blue_pack', type:'page', parentId:'entry_sciences', label:'sc1_blue_pack', itemId:'blue_pack', link:'/item/blue_pack' },
+			{ id:'page_purple_pack', type:'page', parentId:'entry_sciences', label:'sc1_purple_pack', itemId:'purple_pack', link:'/item/purple_pack' },
+			{ id:'page_yellow_pack', type:'page', parentId:'entry_sciences', label:'sc1_yellow_pack', itemId:'yellow_pack', link:'/item/yellow_pack' },
+		
 		{ id:'entry_products', type:'entry', parentId:'tab_items', label:'sc1_entry_products' },
 
 			{ id:'page_engine_1', type:'page', parentId:'entry_products', label:'sc1_engine_1', itemId:'engine_1', link:'/item/engine_1' },
@@ -75,6 +84,7 @@ scenario_1.elems = [
 			{ id:'page_furnace', type:'page', parentId:'entry_machines', label:'sc1_furnace', itemId:'furnace', link:'/item/furnace' },
 			{ id:'page_refinery', type:'page', parentId:'entry_machines', label:'sc1_refinery', itemId:'refinery', link:'/item/refinery' },
 			{ id:'page_chemical_plant', type:'page', parentId:'entry_machines', label:'sc1_chemical_plant', itemId:'chemical_plant', link:'/item/chemical_plant' },
+			{ id:'page_lab', type:'page', parentId:'entry_machines', label:'sc1_lab', itemId:'lab', link:'/item/lab' },
 			{ id:'page_assembler_1', type:'page', parentId:'entry_machines', label:'sc1_assembler_1', itemId:'assembler_1', link:'/item/assembler_1' },
 			{ id:'page_assembler_2', type:'page', parentId:'entry_machines', label:'sc1_assembler_2', itemId:'assembler_2', link:'/item/assembler_2' },
 			{ id:'page_rocket_silo', type:'page', parentId:'entry_machines', label:'sc1_rocket_silo', itemId:'rocket_silo', link:'/item/rocket_silo' },
@@ -190,6 +200,36 @@ scenario_1.elems = [
 		{ id:'lubricant_storage', type:'storage', itemId:'lubricant', assignId:'barrel', stack:1000 },
 		{ id:'lubricant_production', type:'production', itemId:'lubricant', assignId:'chemical_plant', output:10, seconds:1, inputs:[{ id:'elec', count:420 },{ id:'heavy_oil', count:10 }] },
 		
+	{ id:'red_pack', type:'item', label:'sc1_red_pack', img:'/fgfactory/sc1/red_pack.png', max:200 },
+		
+		{ id:'red_pack_storage', type:'storage', itemId:'red_pack', assignId:'chest', stack:200 },
+		{ id:'red_pack_manual', type:'manual', itemId:'red_pack', output:1, seconds:5, inputs:[{ id:'iron_plate', count:2 },{ id:'copper_plate', count:1 }] },
+		{ id:'red_pack_production', type:'production', itemId:'red_pack', assignId:'lab', output:1, seconds:5, inputs:[{ id:'elec', count:5*60 },{ id:'iron_plate', count:2 },{ id:'copper_plate', count:1 }] },
+		
+	{ id:'green_pack', type:'item', label:'sc1_green_pack', img:'/fgfactory/sc1/green_pack.png', max:200 },
+		
+		{ id:'green_pack_storage', type:'storage', itemId:'green_pack', assignId:'chest', stack:200 },
+		{ id:'green_pack_manual', type:'manual', itemId:'green_pack', output:1, seconds:6, inputs:[{ id:'iron_plate', count:6 },{ id:'copper_plate', count:2 }] },
+		{ id:'green_pack_production', type:'production', itemId:'green_pack', assignId:'lab', output:1, seconds:6, inputs:[{ id:'elec', count:6*60 },{ id:'iron_plate', count:6 },{ id:'copper_plate', count:2 }] },
+		
+	{ id:'blue_pack', type:'item', label:'sc1_blue_pack', img:'/fgfactory/sc1/blue_pack.png', max:200 },
+		
+		{ id:'blue_pack_storage', type:'storage', itemId:'blue_pack', assignId:'chest', stack:200 },
+		{ id:'blue_pack_manual', type:'manual', itemId:'blue_pack', output:2, seconds:24, inputs:[{ id:'iron_plate', count:6 },{ id:'copper_plate', count:15 },{ id:'plastic', count:6 },{ id:'sulfur', count:1 },{ id:'engine_1', count:2 }] },
+		{ id:'blue_pack_production', type:'production', itemId:'blue_pack', assignId:'lab', output:2, seconds:24, inputs:[{ id:'elec', count:24*60 },{ id:'iron_plate', count:6 },{ id:'copper_plate', count:15 },{ id:'plastic', count:6 },{ id:'sulfur', count:1 },{ id:'engine_1', count:2 }] },
+		
+	{ id:'purple_pack', type:'item', label:'sc1_purple_pack', img:'/fgfactory/sc1/purple_pack.png', max:200 },
+		
+		{ id:'purple_pack_storage', type:'storage', itemId:'purple_pack', assignId:'chest', stack:200 },
+		{ id:'purple_pack_manual', type:'manual', itemId:'purple_pack', output:3, seconds:21, inputs:[{ id:'stone', count:15 },{ id:'brick', count:10 },{ id:'iron_plate', count:33 },{ id:'copper_plate', count:58 },{ id:'steel', count:25 },{ id:'plastic', count:20 }] },
+		{ id:'purple_pack_production', type:'production', itemId:'purple_pack', assignId:'lab', output:3, seconds:21, inputs:[{ id:'elec', count:21*60 },{ id:'stone', count:15 },{ id:'brick', count:10 },{ id:'iron_plate', count:33 },{ id:'copper_plate', count:58 },{ id:'steel', count:25 },{ id:'plastic', count:20 }] },
+		
+	{ id:'yellow_pack', type:'item', label:'sc1_yellow_pack', img:'/fgfactory/sc1/yellow_pack.png', max:200 },
+		
+		{ id:'yellow_pack_storage', type:'storage', itemId:'yellow_pack', assignId:'chest', stack:200 },
+		{ id:'yellow_pack_manual', type:'manual', itemId:'yellow_pack', output:3, seconds:21, inputs:[{ id:'iron_plate', count:3 },{ id:'copper_plate', count:65 },{ id:'steel', count:7 },{ id:'plastic', count:15 },{ id:'battery', count:2 },{ id:'engine_2', count:1 },{ id:'circuit', count:2 }] },
+		{ id:'yellow_pack_production', type:'production', itemId:'yellow_pack', assignId:'lab', output:3, seconds:21, inputs:[{ id:'elec', count:21*60 },{ id:'iron_plate', count:3 },{ id:'copper_plate', count:65 },{ id:'steel', count:7 },{ id:'plastic', count:15 },{ id:'battery', count:2 },{ id:'engine_2', count:1 },{ id:'circuit', count:2 }] },
+	
 	{ id:'engine_1', type:'item', label:'sc1_engine_1', img:'/fgfactory/sc1/engine_1.png', max:50 },
 		
 		{ id:'engine_1_storage', type:'storage', itemId:'engine_1', assignId:'chest', stack:50 },
@@ -215,7 +255,7 @@ scenario_1.elems = [
 		{ id:'rocket_fuel_storage', type:'storage', itemId:'rocket_fuel', assignId:'chest', stack:20 },
 		{ id:'rocket_fuel_production', type:'production', itemId:'rocket_fuel', assignId:'assembler_2', output:1, seconds:15, inputs:[{ id:'elec', count:2250 },{ id:'iron_plate', count:24 },{ id:'light_oil', count:10 },{ id:'solid_fuel', count:10 }] },
 		
-	{ id:'rocket_part', type:'item', label:'sc1_rocket_part', img:'/fgfactory/sc1/rocket_part.png', max:5 },
+	{ id:'rocket_part', type:'item', label:'sc1_rocket_part', img:'/fgfactory/sc1/rocket_part.png', max:5, reqs:[{ id:'mission_rocket_tech', count:1 }] },
 		
 		{ id:'rocket_part_storage', type:'storage', itemId:'rocket_part', assignId:'chest', stack:5 },
 		{ id:'rocket_part_production', type:'production', itemId:'rocket_part', assignId:'rocket_silo', output:1, seconds:3, inputs:[{ id:'elec', count:2250 },{ id:'copper_plate', count:200 },{ id:'steel', count:20 },{ id:'plastic', count:50 },{ id:'circuit', count:10 },{ id:'rocket_fuel', count:10 }] },
@@ -287,6 +327,11 @@ scenario_1.elems = [
 		{ id:'chemical_plant_manual', type:'manual', itemId:'chemical_plant', output:1, seconds:5, inputs:[{ id:'iron_plate', count:20 },{ id:'copper_plate', count:8 },{ id:'steel', count:5 }] },
 		{ id:'chemical_plant_production', type:'production', itemId:'chemical_plant', assignId:'assembler_1', output:1, seconds:5, inputs:[{ id:'elec', count:5*75 },{ id:'iron_plate', count:20 },{ id:'copper_plate', count:8 },{ id:'steel', count:5 }] },
 		
+	{ id:'lab', type:'machine', label:'sc1_lab', img:'/fgfactory/sc1/lab.png' },
+		
+		{ id:'lab_manual', type:'manual', itemId:'lab', output:1, seconds:2, inputs:[{ id:'iron_plate', count:36 },{ id:'copper_plate', count:15 }] },
+		{ id:'lab_production', type:'production', itemId:'lab', assignId:'assembler_1', output:1, seconds:2, inputs:[{ id:'elec', count:2*75 },{ id:'iron_plate', count:36 },{ id:'copper_plate', count:15 }] },
+		
 	{ id:'assembler_1', type:'machine', label:'sc1_assembler_1', img:'/fgfactory/sc1/assembler_1.png' },
 		
 		{ id:'assembler_1_manual', type:'manual', itemId:'assembler_1', output:1, seconds:0.5, inputs:[{ id:'iron_plate', count:22 },{ id:'copper_plate', count:5 }] },
@@ -297,7 +342,7 @@ scenario_1.elems = [
 		{ id:'assembler_2_manual', type:'manual', itemId:'assembler_2', output:1, seconds:0.5, inputs:[{ id:'iron_plate', count:35 },{ id:'copper_plate', count:9 },{ id:'steel', count:2 }] },
 		{ id:'assembler_2_production', type:'production', itemId:'assembler_2', assignId:'assembler_1', output:1, seconds:0.5, inputs:[{ id:'elec', count:0.5*75 },{ id:'iron_plate', count:35 },{ id:'copper_plate', count:9 },{ id:'steel', count:2 }] },
 		
-	{ id:'rocket_silo', type:'machine', label:'sc1_rocket_silo', img:'/fgfactory/sc1/rocket_silo.png' },
+	{ id:'rocket_silo', type:'machine', label:'sc1_rocket_silo', img:'/fgfactory/sc1/rocket_silo.png', reqs:[{ id:'mission_rocket_tech', count:1 }] },
 		
 		{ id:'rocket_silo_manual', type:'manual', itemId:'rocket_silo', output:1, seconds:30, inputs:[{ id:'iron_plate', count:100 },{ id:'steel', count:1000 },{ id:'concrete', count:1000 },{ id:'engine_2', count:200 },{ id:'circuit', count:200 }] },
 		{ id:'rocket_silo_production', type:'production', itemId:'rocket_silo', assignId:'assembler_1', output:1, seconds:30, inputs:[{ id:'elec', count:30*75 },{ id:'iron_plate', count:100 },{ id:'steel', count:1000 },{ id:'concrete', count:1000 },{ id:'engine_2', count:200 },{ id:'circuit', count:200 }] },

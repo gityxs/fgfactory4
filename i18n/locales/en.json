@@ -19,7 +19,7 @@
 	"options_localData": "Local data",
 	"options_importData": "Import data",
 	
-	"disclaimer": "This is a prototype. Development is still in progress. Data loss and reset could happen.",
+	"disclaimer": "This is a prototype. Development is still in progress. Data loss and hard reset could happen.",
 	
     "import_empty": "No data to import!",
     "import_corrupted": "Data corrupted!",
@@ -43,6 +43,7 @@
 	"word_pause": "Pause",
 	"word_paypal": "Paypal",
 	"word_production": "Automation",
+	"word_requirements": "Requirements",
 	"word_resume": "Resume",
 	"word_start": "Start",
 	"word_stop": "Stop",
@@ -53,7 +54,10 @@
 	
 	"sc1_scenario_title": "Escape!",
 	"sc1_scenario_desc": "In this scenario, you crashed on an hostile planet and you have to escape from there. To do so you have to build and launch a Rocket into Space to travel to your Home. To build a Rocket you will collect resources, build machines and craft items until all you complete all the missions. Good luck!",
-
+	
+	"sc1_mission_rocket_tech": "Rocket research",
+	"sc1_mission_rocket_tech_desc": "The Rocket research is the final research to beat this scenario. It will unlock all what you need to build and laounch the Rocket.",
+	
 	"sc1_mission_rocket_launch": "Launch the Rocket",
 	"sc1_mission_rocket_launch_desc": "To launch the Rocket you have to build 100 Rocket parts. Launching the Rocket is the final step to escape from this hostile planet. After that you will be free! ",
 	
@@ -83,6 +87,12 @@
 			"sc1_light_oil": "Light oil",
 			"sc1_solid_fuel": "Solid fuel",
 			"sc1_lubricant": "Lubricant",
+		"sc1_entry_sciences": "Sciences",
+			"sc1_red_pack": "Red pack",
+			"sc1_green_pack": "Green pack",
+			"sc1_blue_pack": "Blue pack",
+			"sc1_purple_pack": "Purple pack",
+			"sc1_yellow_pack": "Yellow pack",
 		"sc1_entry_products": "Products",
 			"sc1_engine_1": "Engine",
 			"sc1_engine_2": "Electric engine",
@@ -107,6 +117,7 @@
 			"sc1_furnace": "Furnace",
 			"sc1_refinery": "Refinery",
 			"sc1_chemical_plant": "Chemical plant",
+			"sc1_lab": "Lab",
 			"sc1_assembler_1": "Assembler 1",
 			"sc1_assembler_2": "Assembler 2",
 			"sc1_rocket_silo": "Rocket silo",

@@ -17,8 +17,8 @@
 	
 		<btn-assignee :id="assignee.id" />
 		
-		<span v-if="assignment.type == 'storage'">{{ assignment.stack.toLocaleString() }} <small class="opacity-75">x</small> {{ assignment.assignCount }}</span>
-		<span v-else><small class="opacity-75">x</small> {{ assignment.assignCount }}</span>
+		<small v-if="assignment.type == 'storage'">{{ assignment.stack.toLocaleString() }} <small class="opacity-75">x</small> {{ assignment.assignCount }}</small>
+		<small v-else><small class="opacity-75">x</small> {{ assignment.assignCount }}</small>
 		
 		<UButtonGroup class="ms-auto">
 			<btn-unassign :id="assignment.id" />

@@ -13,7 +13,7 @@
 
 <template>
 	
-	<div class="flex items-center gap-1">
+	<div class="flex flex-wrap items-center gap-1">
 		<btn-cost v-for="cost in costs" :key="cost.id" :id="cost.id" :count="cost.count" />
 	</div>
 	

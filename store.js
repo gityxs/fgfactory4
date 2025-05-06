@@ -32,7 +32,14 @@ class Elem {
         let names = Object.getOwnPropertyNames(data) 
         names.forEach(name => { Object.defineProperty(this, name, Object.getOwnPropertyDescriptor(data, name)) })
 		
-		if (data.type == 'item') {
+		this.unlocked = this.reqs ? false : true
+		
+		if (data.type == 'mission') {
+
+			this.count = this.count ? this.count : 0
+			this.max = 1
+		}
+		else if (data.type == 'item') {
 			
 			this.count = this.count ? this.count : 0
 			this.max = this.max ? this.max : Infinity

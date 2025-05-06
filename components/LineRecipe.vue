@@ -15,7 +15,7 @@
 
 <template>
 	
-	<div class="flex items-end gap-2">
+	<div class="flex items-start gap-2">
 		
 		<div v-if="inputs" class="flex flex-wrap items-center gap-2">
 			<btn-input v-for="input in inputs" :key="input.id" :id="input.id" :count="input.count" />

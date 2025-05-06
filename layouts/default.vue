@@ -57,6 +57,7 @@
 						newPage.img = item.img
 						newPage.type = item.type
 						newPage.itemId = item.id
+						newPage.unlocked = item.unlocked
 					}
 					
 					newPage.onSelect = function() { sidebarOpen.value = false }
@@ -129,12 +130,13 @@
 								</template>e>
 								
 								<template #elem-leading="{ item }">
-									<img :src="item.img" width="16" height="16" />
+									<img v-if="item.unlocked" :src="item.img" width="16" height="16" />
+									<UIcon v-else name="i-lucide-lock-keyhole" />
 								</template>
 
 								<template #elem-trailing="{ item }">
-									<elem-available-menu v-if="item.type == 'machine' || item.type == 'storer'" :id="item.itemId" />
-									<elem-count-menu :id="item.itemId" />
+									<elem-available-menu v-if="item.unlocked && item.type == 'machine' || item.type == 'storer'" :id="item.itemId" />
+									<elem-count-menu v-if="item.unlocked" :id="item.itemId" />
 								</template>
 
 							</UNavigationMenu>

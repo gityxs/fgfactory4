@@ -29,8 +29,19 @@
 
 <template>
 
-	<div class="grid gap-6">
+	<UCard v-if="item.unlocked == false" variant="outline">
+		<div class="grid gap-6">
 		
+			<div class="flex items-center gap-2">				
+				<btn-requirements :id="item.id" />
+				<span class="text-lg font-semibold opacity-50">{{ $t(item.label) }}</span>				
+			</div>
+			
+		</div>
+	</UCard>
+
+	<div v-else class="grid gap-6">
+				
 		<UCard variant="outline">
 			<div class="grid gap-6">
 			
@@ -46,30 +57,29 @@
 					
 				</div>
 				
-				<div v-if="manual" class="grid gap-3">
+				<div class="grid lg:grid-cols-2 gap-6 items-start">
+				
+					<div v-if="storage" class="grid gap-2">
 
-					<span class="text-xs font-semibold opacity-75">{{ $t('word_manual') }}</span>
-					<USeparator />
+						<span class="text-xs font-semibold opacity-75">{{ $t('word_storage') }}</span>
+						
+						<div class="p-2 rounded bg-zinc-800 grid gap-2">		
+							<line-assignment :id="storage.id" />
+						</div>
+						
+					</div>
+				
+					<div v-if="manual" class="grid gap-2">
 
-					<div class="flex items-end gap-3">
-						<line-recipe :id="manual.id" class="flex-1" />
-						<line-start :id="manual.id" />
+						<span class="text-xs font-semibold opacity-75">{{ $t('word_manual') }}</span>
+
+						<div class="p-2 rounded bg-zinc-800 grid gap-2">
+							<line-recipe :id="manual.id" class="flex-1" />
+							<line-start :id="manual.id" />
+						</div>
+						
 					</div>
 					
-				</div>
-				
-			</div>
-		</UCard>
-		
-		<UCard v-if="storage" variant="outline">
-			<div class="grid gap-6">
-			
-				<span class="text-lg font-semibold">{{ $t('word_storage') }}</span>				
-
-				<div class="lg:w-1/2 grid gap-3">
-					<span class="text-xs font-semibold opacity-75">{{ $t('word_assignment') }}</span>
-					<USeparator />					
-					<line-assignment :id="storage.id" />
 				</div>
 				
 			</div>
@@ -80,20 +90,27 @@
 
 				<span class="text-lg font-semibold">{{ $t('word_production') }}</span>
 				
-				<div class="lg:w-1/2 grid gap-3">
-					<span class="text-xs font-semibold opacity-75">{{ $t('word_assignment') }}</span>
-					<USeparator />					
-					<line-assignment :id="production.id" />
-				</div>
-			
-				<div class="grid gap-3">
-
-					<span class="text-xs font-semibold opacity-75">{{ $t('word_crafting') }}</span>
-					<USeparator />
+				<div class="grid lg:grid-cols-2 gap-6 items-start">
+				
+					<div class="grid gap-2">
 					
-					<div class="flex items-end gap-3">
-						<line-recipe :id="production.id" class="flex-1" />
-						<line-start :id="production.id" />
+						<span class="text-xs font-semibold opacity-75">{{ $t('word_assignment') }}</span>
+						
+						<div class="p-2 rounded bg-zinc-800 grid gap-2">
+							<line-assignment :id="production.id" />
+						</div>
+						
+					</div>
+				
+					<div class="grid gap-2">
+					
+						<span class="text-xs font-semibold opacity-75">{{ $t('word_crafting') }}</span>					
+						
+						<div class="p-2 rounded bg-zinc-800 grid gap-2">
+							<line-recipe :id="production.id" />
+							<line-start :id="production.id" />
+						</div>
+						
 					</div>
 					
 				</div>

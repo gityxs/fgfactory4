@@ -6,14 +6,40 @@
 	const store = useAppStore()
 	
 	const elem = computed(() => store.elems.find(e => e.id == props.id))
+	
+	const reqs = computed(() => {
+	
+		let ret = []
+		
+		elem.value.reqs.forEach(req => {
+		
+			let reqElem = store.elems.find(e => e.id == req.id)
+			ret.push({ id:req.id, label:reqElem.label })
+		})
+		
+		return ret
+	
+	})
+	
 </script>
 
 <template>
 	
-	<UCard variant="outline">
+	<UCard v-if="elem.unlocked == false" variant="outline">
 		<div class="grid gap-6">
 		
-			<div class="grid gap-3">
+			<div class="flex items-center gap-2">				
+				<btn-requirements :id="elem.id" />
+				<span class="text-lg font-semibold opacity-50">{{ $t(elem.label) }}</span>				
+			</div>
+			
+		</div>
+	</UCard>
+		
+	<UCard v-else-if="elem.unlocked == true" variant="outline">
+		<div class="grid gap-6">
+		
+			<div class="grid gap-2">
 			
 				<div class="flex items-center gap-2">			
 					<span class="text-lg font-semibold">{{ $t(elem.label) }}</span>				
@@ -23,12 +49,11 @@
 				
 			</div>
 			
-			<div class="grid gap-3">
+			<div class="grid gap-2">
 
 				<span class="text-xs font-semibold opacity-75">{{ $t('word_costs') }}</span>
-				<USeparator />
 				
-				<div class="flex items-end gap-3">
+				<div class="p-2 rounded bg-zinc-800 flex gap-2 items-end">
 					<line-costs :id="elem.id" class="flex-1" />
 					<line-complete :id="elem.id" />
 				</div>

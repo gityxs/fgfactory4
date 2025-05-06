@@ -21,6 +21,11 @@ export default defineAppConfig({
 				
 				base: 'rounded-full ring ring-bg flex items-center justify-center text-inverted font-medium whitespace-nowrap px-1',
 			},
+			
+			compoundVariants: [
+			
+				{ class: 'z-10 px-1 translate-y-1/2 translate-x-0 transform' },
+			],
 		},
 		
 		button: {
@@ -32,14 +37,6 @@ export default defineAppConfig({
 					'transition-colors'
 				],
 			},
-		},
-		
-		chip: {
-			
-			compoundVariants: [
-			
-				{ class: 'z-10 px-1 translate-y-1/2 translate-x-0 transform' },
-			],
 		},
 	}
 })

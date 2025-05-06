@@ -47,6 +47,8 @@
 
 <template>
 	
-	<UButton icon="i-lucide-check" :label="$t('word_complete')" color="success" variant="subtle" :disabled="!can" @click="doClick()" />
+	<UTooltip :text="$t('word_complete')" :delay-duration="0">
+		<UButton icon="i-lucide-check" color="success" variant="subtle" :disabled="!can" @click="doClick()" />
+	</UTooltip>
 	
 </template>
