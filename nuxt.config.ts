@@ -6,7 +6,7 @@ export default defineNuxtConfig({
 
 	devtools:{ enabled:false },
 	
-	modules:[ '@nuxt/ui', '@nuxtjs/i18n', '@pinia/nuxt', '@nuxtjs/color-mode' ],
+	modules:[ '@nuxt/ui', '@nuxtjs/i18n', '@pinia/nuxt', '@nuxtjs/color-mode', 'nuxt-gtag' ],
 
 	app:{
 		

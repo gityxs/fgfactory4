@@ -54,6 +54,78 @@
 	
 	"sc1_scenario_title": "Escape!",
 	"sc1_scenario_desc": "In this scenario, you crashed on an hostile planet and you have to escape from there. To do so you have to build and launch a Rocket into Space to travel to your Home. To build a Rocket you will collect resources, build machines and craft items until all you complete all the missions. Good luck!",
+
+	"sc1_mission_lab_tech": "Laboratory",
+	"sc1_mission_lab_tech_desc": "",
+
+	"sc1_mission_steam_tech": "Steam research",
+	"sc1_mission_steam_tech_desc": "",
+
+	"sc1_mission_red_science": "Red science",
+	"sc1_mission_red_science_desc": "",
+
+	"sc1_mission_automation_1_tech": "Automation 1",
+	"sc1_mission_automation_1_tech_desc": "",
+
+	"sc1_mission_steel_tech": "Steel research",
+	"sc1_mission_steel_tech_desc": "",
+
+	"sc1_mission_green_science": "Green science",
+	"sc1_mission_green_science_desc": "",
+
+	"sc1_mission_automation_2_tech": "Automation 2",
+	"sc1_mission_automation_2_tech_desc": "",
+
+	"sc1_mission_engine_1_tech": "Engine research",
+	"sc1_mission_engine_1_tech_desc": "",
+
+	"sc1_mission_concrete_tech": "Concrete research",
+	"sc1_mission_concrete_tech_desc": "",
+
+	"sc1_mission_fluid_tech": "Fluid research",
+	"sc1_mission_fluid_tech_desc": "",
+
+	"sc1_mission_oil_tech_1": "Oil research 1",
+	"sc1_mission_oil_tech_1_desc": "",
+
+	"sc1_mission_oil_tech_2": "Oil research 2",
+	"sc1_mission_oil_tech_2_desc": "",
+
+	"sc1_mission_plastic_tech": "Plastic research",
+	"sc1_mission_plastic_tech_desc": "",
+
+	"sc1_mission_sulfur_tech": "Sulfur research",
+	"sc1_mission_sulfur_tech_desc": "",
+
+	"sc1_mission_battery_tech": "Battery research",
+	"sc1_mission_battery_tech_desc": "",
+
+	"sc1_mission_accumulator_tech": "Accumulator research",
+	"sc1_mission_accumulator_tech_desc": "",
+
+	"sc1_mission_blue_science": "Blue science",
+	"sc1_mission_blue_science_desc": "",
+
+	"sc1_mission_oil_tech_3": "Oil research 3",
+	"sc1_mission_oil_tech_3_desc": "",
+
+	"sc1_mission_circuit_tech": "Circuit research",
+	"sc1_mission_circuit_tech_desc": "",
+
+	"sc1_mission_rocket_fuel_tech": "Rocket fuel research",
+	"sc1_mission_rocket_fuel_tech_desc": "",
+
+	"sc1_mission_lubricant_tech": "Lubricant research",
+	"sc1_mission_lubricant_tech_desc": "",
+
+	"sc1_mission_engine_2_tech": "Electric engine research",
+	"sc1_mission_engine_2_tech_desc": "",
+
+	"sc1_mission_purple_science": "Purple science",
+	"sc1_mission_purple_science_desc": "",
+
+	"sc1_mission_yellow_science": "Yellow science",
+	"sc1_mission_yellow_science_desc": "",
 	
 	"sc1_mission_rocket_tech": "Rocket research",
 	"sc1_mission_rocket_tech_desc": "The Rocket research is the final research to beat this scenario. It will unlock all what you need to build and laounch the Rocket.",
