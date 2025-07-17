@@ -655,7 +655,7 @@ var cnItems = {
     "To ask for help, you can contact Freddec on Discord": "要寻求帮助，你可以在Discord上联系Freddec",
     "Assign": "分配",
     "Stop": "停止",
-    "": "",
+    "Usages": "消耗",
     "": "",
     "": "",
     "": "",
